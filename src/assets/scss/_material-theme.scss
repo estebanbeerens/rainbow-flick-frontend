@@ -1,0 +1,72 @@
+$mat-rf-primary: (
+    50 : #e2ebf3,
+    100 : #b8cce1,
+    200 : #88abcd,
+    300 : #5889b8,
+    400 : #356fa9,
+    500 : #11569a,
+    600 : #0f4f92,
+    700 : #0c4588,
+    800 : #0a3c7e,
+    900 : #052b6c,
+    A100 : #9dbaff,
+    A200 : #6a97ff,
+    A400 : #3773ff,
+    A700 : #1d61ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-rf-accent: (
+    50 : #e0f8f9,
+    100 : #b3edef,
+    200 : #80e1e5,
+    300 : #4dd4db,
+    400 : #26cbd3,
+    500 : #00c2cb,
+    600 : #00bcc6,
+    700 : #00b4be,
+    800 : #00acb8,
+    900 : #009fac,
+    A100 : #d5fbff,
+    A200 : #a2f7ff,
+    A400 : #6ff3ff,
+    A700 : #56f0ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primary: mat-palette($mat-rf-primary);
+$accent: mat-palette($mat-rf-accent);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);

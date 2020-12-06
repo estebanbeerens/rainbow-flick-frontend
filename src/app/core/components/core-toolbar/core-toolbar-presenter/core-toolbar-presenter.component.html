@@ -1,0 +1,22 @@
+<mat-toolbar class="rf-toolbar">
+    <mat-toolbar-row>
+
+        <button mat-icon-button (click)="toggle();">
+            <ng-container *ngIf="sideNavToggled; then clear; else menu"></ng-container>
+            <ng-template #clear>
+                <mat-icon>clear</mat-icon>
+            </ng-template>
+            <ng-template #menu>
+                <mat-icon>menu</mat-icon>
+            </ng-template>
+        </button>
+
+        <div class="rf-logo" [routerLink]="['/app']">
+            <img src="assets/img/logo-transparent-zoom.png">
+            <span class="rf-logo-text">Team Rainbow Flick</span>
+        </div>
+        <span class="rf-menu-spacer"></span>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="rf-toolbar-border"></div>

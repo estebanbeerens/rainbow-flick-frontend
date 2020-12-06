@@ -1,0 +1,21 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/theming';
+
+@import './assets/scss/global';
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+}
+
+body {
+	line-height: 1;
+	background-color: $background-color;
+}
+
+button {
+    outline: none !important;
+}

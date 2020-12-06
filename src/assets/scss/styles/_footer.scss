@@ -1,0 +1,48 @@
+@import '../variables';
+
+.rf-footer{
+    padding: 24px 10px;
+
+    &.footer-default{
+        background-color: $background-color;
+    }
+
+    nav{
+        float: left;
+        padding-left: 0;
+    }
+    
+    ul{
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none;
+
+        li{
+            display: inline-block;
+
+            a{
+                color: inherit;
+                padding: .5rem;
+                font-size: 0.8571em;
+                text-transform: uppercase;
+                text-decoration: none;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .rf-copyright{
+        font-size: 0.8571em;
+        line-height: 1.8;
+        float: right; 
+    }
+
+    &:after{
+        display: table;
+        clear: both;
+        content: " ";
+    }
+}
