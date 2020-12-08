@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IRouteInfo } from 'src/app/core/models/routes/route-info';
+import { userRoutes } from 'src/app/core/models/routes/user-routes';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  routes: IRouteInfo[];
+
   constructor() { }
 
   ngOnInit(): void {
+    // TODO : Check if is admin for routeInfo
+    this.routes = userRoutes;
   }
 
 }
