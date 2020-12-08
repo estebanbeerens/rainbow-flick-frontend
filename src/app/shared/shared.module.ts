@@ -7,12 +7,14 @@ import { SharedSpinnerComponent } from './components/shared-spinner/shared-spinn
 import { SharedRoutingModule } from 'src/app/shared/shared-routing.module';
 import { SharedHomeShellComponent } from './components/shared-home/shared-home-shell/shared-home-shell.component';
 import { SharedHomePresenterComponent } from './components/shared-home/shared-home-presenter/shared-home-presenter.component';
+import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
 
 @NgModule({
   declarations: [
     SharedSpinnerComponent,
     SharedHomeShellComponent,
-    SharedHomePresenterComponent
+    SharedHomePresenterComponent,
+    SharedToolbarComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { SharedHomePresenterComponent } from './components/shared-home/shared-ho
     FormsModule,
     ReactiveFormsModule,
     NgScrollbarModule,
-    SharedSpinnerComponent
+    SharedSpinnerComponent,
+    SharedToolbarComponent
   ],
 })
 export class SharedModule { }

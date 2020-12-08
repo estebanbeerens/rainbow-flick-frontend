@@ -23,7 +23,7 @@ export const userHomeRoutes: IRouteInfo[] = [
     },
     {
         path: '/TODO',
-        title: 'Settings',
+        title: 'Instellingen',
         icon: 'settings',
     },
 ]
