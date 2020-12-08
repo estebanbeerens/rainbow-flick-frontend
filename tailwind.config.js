@@ -6,8 +6,16 @@ module.exports = {
   theme: {
     colors: {
       ...baseColors,
-      primary: '#1D8B50',
-      secondary: '#bf9c03'
+      primary: {
+        light: '#55db93',
+        DEFAULT: '#1d8b50',
+        dark: '#125a34'
+      },
+      secondary: {
+        light: '#27d7dd',
+        DEFAULT: '#189599',
+        dark: '#0d5154'
+      }
     },
     extend: {},
   },
