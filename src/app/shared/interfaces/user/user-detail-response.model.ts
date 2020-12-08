@@ -1,6 +1,6 @@
 import { IUserPermissionResponse } from 'src/app/shared/interfaces/user/user-permission-response.model';
 
-export interface IUserDetailResponse {
+export interface IUserDetailsResponse {
     id : String,
     firstName: String,
     lastName: String,
