@@ -1,6 +1,6 @@
 import { IRouteInfo } from 'src/app/core/models/routes/route-info';
 
-export const userRoutes: IRouteInfo[] = [
+export const userHomeRoutes: IRouteInfo[] = [
     {
         path: '/app/user/match/overview',
         title: 'Wedstrijden',
@@ -12,11 +12,6 @@ export const userRoutes: IRouteInfo[] = [
         icon: 'sports_soccer',
     },
     {
-        path: '/app/home',
-        title: 'Home',
-        icon: 'home',
-    },
-    {
         path: '/app/user/team/overview',
         title: 'Teams',
         icon: 'groups',
@@ -25,5 +20,10 @@ export const userRoutes: IRouteInfo[] = [
         path: '/app/user/ranking',
         title: 'Ranking',
         icon: 'trending_up',
+    },
+    {
+        path: '/TODO',
+        title: 'Settings',
+        icon: 'settings',
     },
 ]

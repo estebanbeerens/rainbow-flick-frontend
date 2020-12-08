@@ -14,6 +14,7 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // TODO : Check if is admin for routeInfo
     this.routes = userRoutes;
   }
 
