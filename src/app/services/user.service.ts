@@ -5,7 +5,7 @@ import { IUserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
 import { IUserLoginResponse } from 'src/app/shared/interfaces/user/user-login-response.model';
-import { IUserDetailsResponse } from 'src/app/shared/interfaces/user/user-detail-response.model';
+import { IUserDetailsResponse } from 'src/app/shared/interfaces/user/user-details-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -65,11 +65,19 @@ export class UserService {
       })
   }
 
+  //TODO create admin service
+  createAdmin(body){
+    this.http.post(`${this.baseUrl}/admin`, body)
+      .subscribe(response => {
+        
+      })
+  }
+
   logout() {
     this.userAuth$.next(null);
     localStorage.removeItem("token");
   }
-  
+
   loadUserDetails(userID: String){
     this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
       this.userDetails$.next(response['result']);

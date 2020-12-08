@@ -1,4 +1,4 @@
-export interface ITableDetailResponse {
+export interface ITableDetailsResponse {
     id: String,
     name: String,
     location: String,
