@@ -1,6 +1,23 @@
-<div class="w-full h-screen">
-    <div class="container mx-auto">
-        Hello world!
+<div [ngClass]="darkMode">
+    <!-- <app-shared-spinner></app-shared-spinner> -->
+    <div class="dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white w-full h-screen">
+        <div id="content" class="mx-3">
+            <div class="h-14 lg:border-b-2">
+                <button *ngIf="isAdmin" class="float-left outline-none p-1 m-2">
+                    <i class="material-icons-round">sort</i>
+                </button>
+                <button class="hover:text-yellow-500 focus:text-yellow-500 float-right outline-none p-1 m-2" (click)="toggleDarkMode()">
+                    <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
+                        <i class="material-icons-round">brightness_2</i>
+                    </ng-container>
+                    <ng-template #darkTemplate>
+                        <i class="material-icons-round">wb_sunny</i>
+                    </ng-template>
+                </button>
+            </div>
+            <div class="container mx-auto">
+            </div>
+        </div>
+        <app-navigation></app-navigation>
     </div>
-    <app-navigation></app-navigation>
 </div>

@@ -7,12 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoreContentComponent implements OnInit {
 
-  constructor(
-    
-  ) { }
+  darkMode: string;
+  isAdmin: boolean = true;
+
+  constructor() { }
 
   ngOnInit(): void {
-    
+    // TODO : Determine if user is admin
+    this.getDarkModeFromLS();
+  }
+
+  getDarkModeFromLS(): void {
+    if (localStorage.getItem('rf-darkMode')) {
+      this.darkMode = localStorage.getItem('rf-darkMode');
+    } else {
+      this.darkMode = 'light';
+      localStorage.setItem('rf-darkMode', this.darkMode);
+    }
+  }
+
+  toggleDarkMode(): void {
+    if (this.darkMode == 'light') {
+      this.darkMode = 'dark';
+    } else {
+      this.darkMode = 'light';
+    }
+    localStorage.setItem('rf-darkMode', this.darkMode);
   }
 
 }
