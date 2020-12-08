@@ -1,21 +1,7 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~@angular/material/theming';
+// Initializing TailwindCSS
 
-@import './assets/scss/global';
+@import 'tailwindcss/base';
 
-* {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-}
+@import 'tailwindcss/components';
 
-body {
-	line-height: 1;
-	background-color: $background-color;
-}
-
-button {
-    outline: none !important;
-}
+@import 'tailwindcss/utilities';
