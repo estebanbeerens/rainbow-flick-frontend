@@ -49,7 +49,6 @@ const routes: Routes = [{
 {
   path: '**',
   pathMatch: 'full',
-  // TODO change later to admin menu
   redirectTo: 'table/overview',
 },
 ];
