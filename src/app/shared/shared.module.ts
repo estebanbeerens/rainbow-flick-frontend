@@ -13,13 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
+import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
 
 @NgModule({
   declarations: [
     SharedSpinnerComponent,
     SharedHomeShellComponent,
     SharedHomePresenterComponent,
-    SharedToolbarComponent
+    SharedToolbarComponent,
+    SharedSearchbarComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { MatRippleModule } from '@angular/material/core';
     ReactiveFormsModule,
     NgScrollbarModule,
     SharedSpinnerComponent,
-    SharedToolbarComponent
+    SharedToolbarComponent,
+    SharedSearchbarComponent
   ],
 })
 export class SharedModule { }
