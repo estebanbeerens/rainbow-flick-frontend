@@ -8,7 +8,7 @@ import { ITableDetailsResponse } from 'src/app/shared/interfaces/table/table-det
   providedIn: 'root',
 })
 export class TableService {
-  private baseUrl = environment.apiUrl + 'Table';
+  private baseUrl = environment.apiUrl + 'table';
 
   tables$ = new BehaviorSubject<ITableDetailsResponse[]>([]);
   tableDetails$ = new BehaviorSubject<ITableDetailsResponse>(null);
@@ -24,6 +24,12 @@ export class TableService {
   loadTableDetails(tableID: String) {
     this.http.get<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
       this.tableDetails$.next(response['result']);
+    });
+  }
+
+  updateTable(tableID: String, body) {
+    this.http.put<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`, body).subscribe((response) => {
+      this.tables$.next(response['results']);
     });
   }
 
