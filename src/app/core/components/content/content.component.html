@@ -1,17 +1,17 @@
 <div [ngClass]="darkMode">
     <!-- <app-shared-spinner></app-shared-spinner> -->
     <div class="dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white w-full h-screen">
-        <div id="content" class="mx-3">
-            <div class="h-14 lg:border-b-2">
-                <button *ngIf="isAdmin" class="float-left outline-none p-1 m-2">
-                    <i class="material-icons-round">sort</i>
+        <div id="content" class="mx-2">
+            <div class="h-14 pt-1 lg:border-b-2">
+                <button mat-icon-button *ngIf="isAdmin" class="float-left">
+                    <mat-icon class="material-icons-round">sort</mat-icon>
                 </button>
-                <button class="hover:text-yellow-500 focus:text-yellow-500 float-right outline-none p-1 m-2" (click)="toggleDarkMode()">
+                <button mat-icon-button class="hover:text-yellow-500 focus:text-yellow-500 float-right" (click)="toggleDarkMode()">
                     <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
-                        <i class="material-icons-round">brightness_2</i>
+                        <mat-icon class="material-icons-round">brightness_2</mat-icon>
                     </ng-container>
                     <ng-template #darkTemplate>
-                        <i class="material-icons-round">wb_sunny</i>
+                        <mat-icon class="material-icons-round">wb_sunny</mat-icon>
                     </ng-template>
                 </button>
             </div>

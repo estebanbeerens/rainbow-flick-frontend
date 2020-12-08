@@ -3,7 +3,7 @@
 	<div id="tabs" class="flex justify-between">
 		<button *ngFor="let route of routes" [routerLink]="route.path" routerLinkActive="text-primary-dark dark:text-primary-light"
 			 class="w-full focus:text-primary-dark hover:text-primary-dark dark:focus:text-primary-light dark:hover:text-primary-light cursor-pointer justify-center inline-block text-center pt-2 pb-1">
-			<i class="material-icons-round">{{route.icon}}</i>
+			<mat-icon class="material-icons-round">{{route.icon}}</mat-icon>
 			<span class="tab tab-home block text-xs">{{route.title}}</span>
 		</button>
 	</div>

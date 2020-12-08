@@ -8,6 +8,11 @@ import { SharedRoutingModule } from 'src/app/shared/shared-routing.module';
 import { SharedHomeShellComponent } from './components/shared-home/shared-home-shell/shared-home-shell.component';
 import { SharedHomePresenterComponent } from './components/shared-home/shared-home-presenter/shared-home-presenter.component';
 import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,21 @@ import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolb
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatRippleModule
   ],
   exports: [
     RouterModule,
     SharedRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatRippleModule,
     FormsModule,
     ReactiveFormsModule,
     NgScrollbarModule,
