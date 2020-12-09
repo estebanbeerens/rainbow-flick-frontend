@@ -1,0 +1,59 @@
+<mat-sidenav-container (backdropClick)="toggleSideNav()">
+
+  <mat-sidenav [opened]="sideNavToggled" mode="over" class="w-8/12 dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white">
+
+    <div class="mx-2">
+      <div class="h-12 mt-1 border-b">
+        <button mat-icon-button (click)="toggleSideNav()" class="float-left">
+            <mat-icon class="material-icons-round">clear</mat-icon>
+        </button>
+        <button mat-button class="float-right" (click)="toggleDarkMode()">
+            <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
+                <span class="mt-1 mr-2 text-primary-dark">Darkmode&nbsp;OFF</span>
+                <mat-icon class="material-icons-round text-primary-dark">brightness_7</mat-icon>
+            </ng-container>
+            <ng-template #darkTemplate>
+                <span class="mt-1 mr-2 text-primary-light">Darkmode&nbsp;ON</span>
+                <mat-icon class="material-icons-round text-primary-light">brightness_2</mat-icon>
+            </ng-template>
+        </button>
+      </div>
+      <!-- TODO : Get current user -->
+      <div class="my-2 border-b">
+        <div matRipple class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
+            <img class="h-10 w-10 ml-2 rounded-full" src="assets/img/placeholder.jpg" alt="">
+            <span class="mx-2 mt-2">[Voornaam] [Naam]</span>
+        </div>
+      </div>
+      <!-- TODO : Only show routes if is admin -->
+      <div class="my-2">
+        <div matRipple *ngFor="let route of routeInfo" (click)="toggleSideNav()"
+             [routerLink]="[route.path]" routerLinkActive="text-primary dark:text-primary-light bg-gray-100 dark:bg-gray-700"
+             class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
+            <mat-icon class="material-icons-round ml-2">{{route.icon}}</mat-icon>
+            <span class="mx-2 mt-1">{{route.title}}</span>
+        </div>
+      </div>
+    </div>
+
+    <ng-scrollbar visibility="hover">
+      
+    </ng-scrollbar>
+    
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-scrollbar visibility="hover">
+      <div class="dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white w-full min-h-screen h-full">
+        <div class="mx-2 pb-14">
+            <div id="content" class="container mx-auto">
+                <app-header></app-header>
+                <div class="my-2">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+      </div>
+    </ng-scrollbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

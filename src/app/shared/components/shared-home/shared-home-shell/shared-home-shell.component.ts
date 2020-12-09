@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IRouteInfo } from 'src/app/core/models/routes/route-info';
+import { adminHomeRoutes } from 'src/app/core/models/routes/admin-home-routes';
 import { userHomeRoutes } from 'src/app/core/models/routes/user-home-routes';
+import { IRouteInfo } from 'src/app/core/models/routes/route-info';
 
 @Component({
   selector: 'app-shared-home-shell',
@@ -15,7 +16,7 @@ export class SharedHomeShellComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO : Check if is admin for routeInfo
-    this.routeInfo = userHomeRoutes;
+    this.routeInfo = adminHomeRoutes;
   }
 
 }

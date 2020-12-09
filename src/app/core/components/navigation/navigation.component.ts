@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IRouteInfo } from 'src/app/core/models/routes/route-info';
-import { userRoutes } from 'src/app/core/models/routes/user-routes';
+import { navRoutes } from 'src/app/core/models/routes/nav-routes';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,13 +10,16 @@ import { userRoutes } from 'src/app/core/models/routes/user-routes';
 })
 export class NavigationComponent implements OnInit {
 
+  sideNavToggled: boolean;
   routes: IRouteInfo[];
 
-  constructor() { }
+  constructor(
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
-    // TODO : Check if is admin for routeInfo
-    this.routes = userRoutes;
+    this.sharedService.sideNavToggled.subscribe(v => this.sideNavToggled = v);
+    this.routes = navRoutes;
   }
 
 }

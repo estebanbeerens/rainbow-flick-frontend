@@ -5,7 +5,15 @@ module.exports = {
   darkMode: 'class', // false or 'media' or 'class'
   theme: {
     colors: {
-      ...baseColors,
+      red: baseColors.red,
+      green: baseColors.green,
+      blue: baseColors.blue,
+      gray: baseColors.gray,
+      pink: baseColors.pink,
+      cyan: baseColors.cyan,
+      yellow: baseColors.yellow,
+      white: baseColors.white,
+      black: baseColors.black,
       primary: {
         light: '#55db93',
         DEFAULT: '#1d8b50',

@@ -1,6 +1,6 @@
 import { IRouteInfo } from 'src/app/core/models/routes/route-info';
 
-export const userRoutes: IRouteInfo[] = [
+export const navRoutes: IRouteInfo[] = [
     {
         path: '/app/user/match/overview',
         title: 'Wedstrijden',
