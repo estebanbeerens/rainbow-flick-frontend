@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
-  selector: 'app-content',
-  templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class CoreContentComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
-  sideNavToggled: boolean;
   darkMode: string;
 
   constructor(
@@ -16,9 +15,11 @@ export class CoreContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.sharedService.getDarkModeFromLS();
     this.sharedService.darkMode.subscribe(v => this.darkMode = v);
-    this.sharedService.sideNavToggled.subscribe(v => this.sideNavToggled = v);
+  }
+
+  toggleSideNav(): void {
+    this.sharedService.toggleSideNav();
   }
 
 }

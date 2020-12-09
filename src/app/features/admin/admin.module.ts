@@ -16,6 +16,7 @@ import { AdminUserOverviewShellComponent } from 'src/app/features/admin/admin-us
 import { AdminUserOverviewPresenterComponent } from 'src/app/features/admin/admin-user/admin-user-overview/admin-user-overview-presenter/admin-user-overview-presenter.component';
 import { AdminUserDetailsShellComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-shell/admin-user-details-shell.component';
 import { AdminUserDetailsPresenterComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-presenter/admin-user-details-presenter.component';
+import { AdminMatchOverviewPresenterComponent } from 'src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ declarations: [
     AdminTableDetailsShellComponent, 
     AdminTeamOverviewPresenterComponent, 
     AdminMatchOverviewShellComponent, 
+    AdminMatchOverviewPresenterComponent,
     AdminMatchDetailsPresenterComponent, 
     AdminMatchDetailsShellComponent,
     AdminUserOverviewShellComponent,

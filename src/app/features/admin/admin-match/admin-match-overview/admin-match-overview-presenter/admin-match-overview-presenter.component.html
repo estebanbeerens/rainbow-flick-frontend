@@ -1,1 +1,48 @@
-<p>admin-match-overview-presenter works!</p>
+<div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
+          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+            <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
+            <!-- TODO : Ngfor op TR -->
+              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div>
+                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                        <!-- TODO : Implement code below to shorten names if they're too long -->
+                        <!-- {{
+                            (match.name.length>50)? 
+                            (match.name | slice:0:50)+'...':(match.name) 
+                        }} -->
+                        [Naam]
+                      </div>
+                      <div class="text-sm text-gray-500 dark:text-gray-400">
+                        [Datum]
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
+                    <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
+                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-primary dark:text-primary-light">
+                        <mat-icon class="material-icons-round">done</mat-icon>
+                    </button>
+                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-red-500">
+                        <mat-icon class="material-icons-round">delete_outline</mat-icon>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <app-shared-paginator
+            tableName="Matchen"
+            [from]="1"
+            [to]="1"
+            [total]="1"
+          ></app-shared-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+  
