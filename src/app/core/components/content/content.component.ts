@@ -8,8 +8,8 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 })
 export class CoreContentComponent implements OnInit {
 
+  sideNavToggled: boolean;
   darkMode: string;
-  isAdmin: boolean = true;
 
   constructor(
     private sharedService: SharedService
@@ -18,6 +18,7 @@ export class CoreContentComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.getDarkModeFromLS();
     this.sharedService.darkMode.subscribe(v => this.darkMode = v);
+    this.sharedService.sideNavToggled.subscribe(v => this.sideNavToggled = v);
   }
 
 }

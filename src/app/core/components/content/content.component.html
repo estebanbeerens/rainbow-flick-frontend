@@ -1,4 +1,4 @@
-<div [ngClass]="darkMode">
+<div [ngClass]="darkMode" [ngClass]="sideNavToggled ? 'overflow-hidden h-screen' : ''">
     <app-sidenav></app-sidenav>
     <app-navigation></app-navigation>
 </div>
