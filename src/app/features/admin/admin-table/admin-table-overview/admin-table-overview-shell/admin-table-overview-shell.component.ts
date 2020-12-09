@@ -30,8 +30,10 @@ export class AdminTableOverviewShellComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(UserTableDetailsShellComponent, {
+    const dialogRef = this.dialog.open(UserTableDetailsShellComponent, {
       width: '250px',
     });
+
+    dialogRef.componentInstance.ngOnInit();
   }
 }
