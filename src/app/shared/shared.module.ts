@@ -14,6 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
+import { SharedPaginatorComponent } from './components/shared-paginator/shared-paginator.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SharedSearchbarComponent } from './components/shared-searchbar/shared-s
     SharedHomeShellComponent,
     SharedHomePresenterComponent,
     SharedToolbarComponent,
-    SharedSearchbarComponent
+    SharedSearchbarComponent,
+    SharedPaginatorComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { SharedSearchbarComponent } from './components/shared-searchbar/shared-s
     NgScrollbarModule,
     SharedSpinnerComponent,
     SharedToolbarComponent,
-    SharedSearchbarComponent
+    SharedSearchbarComponent,
+    SharedPaginatorComponent
   ],
 })
 export class SharedModule { }

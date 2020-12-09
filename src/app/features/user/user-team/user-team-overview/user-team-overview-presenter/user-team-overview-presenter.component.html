@@ -76,20 +76,12 @@
               </tr>
             </tbody>
           </table>
-          <div class="px-5 py-3 bg-white dark:bg-gray-700 border-t flex flex-col xs:flex-row items-center xs:justify-between">
-                <span class="text-xs xs:text-sm text-gray-900 dark:text-gray-50">
-                    <!-- TODO : Paginator -->
-                    Toont [x] tot [y] van [totaal] teams
-                </span>
-                <div class="inline-flex mt-2 xs:mt-0">
-                    <button matRipple class="text-sm bg-gradient-to-tr from-primary to-secondary text-white pt-2 pb-1 px-4 rounded-l-lg">
-                        <mat-icon class="material-icons-round">navigate_before</mat-icon>
-                    </button>
-                    <button matRipple class="text-sm bg-gradient-to-tl from-primary to-secondary text-white pt-2 pb-1 px-4 rounded-r-lg">
-                        <mat-icon class="material-icons-round">navigate_next</mat-icon>
-                    </button>
-                </div>
-          </div>
+          <app-shared-paginator
+            tableName="Teams"
+            [from]="1"
+            [to]="3"
+            [total]="3"
+          ></app-shared-paginator>
           <button matRipple class="bg-gradient-to-tr from-primary to-secondary text-white text-center py-1 w-full">
                 <span>Word lid van een nieuw team</span>
           </button>
