@@ -11,6 +11,7 @@ import { AdminMatchOverviewShellComponent } from 'src/app/features/admin/admin-m
 import { AdminTableDetailsPresenterComponent } from './admin-table/admin-table-details/admin-table-details-presenter/admin-table-details-presenter.component';
 import { AdminTeamOverviewPresenterComponent } from './admin-team/admin-team-overview/admin-team-overview-presenter/admin-team-overview-presenter.component';
 import { AdminTeamOverviewShellComponent } from 'src/app/features/admin/admin-team/admin-team-overview/admin-team-overview-shell/admin-team-overview-shell.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ declarations: [AdminTableOverviewShellComponent,
     AdminMatchDetailsShellComponent],
 imports: [
   CommonModule,
-  AdminRoutingModule
+  AdminRoutingModule,
+  SharedModule
 ]
 })
 export class AdminModule { }
