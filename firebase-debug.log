@@ -1,0 +1,26 @@
+[debug] [2020-12-09T18:33:57.032Z] ----------------------------------------------------------------------
+[debug] [2020-12-09T18:33:57.033Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\esteb\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting:github
+[debug] [2020-12-09T18:33:57.033Z] CLI Version:   8.18.0
+[debug] [2020-12-09T18:33:57.033Z] Platform:      win32
+[debug] [2020-12-09T18:33:57.033Z] Node Version:  v14.15.1
+[debug] [2020-12-09T18:33:57.034Z] Time:          Wed Dec 09 2020 19:33:57 GMT+0100 (Central European Standard Time)
+[debug] [2020-12-09T18:33:57.034Z] ----------------------------------------------------------------------
+[debug] [2020-12-09T18:33:57.034Z] 
+[debug] [2020-12-09T18:33:57.038Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-09T18:33:57.039Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Data\School\Angular\rainbow-flick-frontend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing in an existing Firebase project directory
+
