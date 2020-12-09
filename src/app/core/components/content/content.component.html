@@ -1,22 +1,24 @@
 <div [ngClass]="darkMode">
     <!-- <app-shared-spinner></app-shared-spinner> -->
-    <div class="dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white w-full h-screen">
-        <div id="content" class="mx-3">
-            <div class="h-14 lg:border-b-2">
-                <button *ngIf="isAdmin" class="float-left outline-none p-1 m-2">
-                    <i class="material-icons-round">sort</i>
-                </button>
-                <button class="hover:text-yellow-500 focus:text-yellow-500 float-right outline-none p-1 m-2" (click)="toggleDarkMode()">
-                    <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
-                        <i class="material-icons-round">brightness_2</i>
-                    </ng-container>
-                    <ng-template #darkTemplate>
-                        <i class="material-icons-round">wb_sunny</i>
-                    </ng-template>
-                </button>
-            </div>
-            <div class="container mx-auto my-2">
-                <router-outlet></router-outlet>
+    <div class="dark:bg-gray-600 bg-gray-50 text-gray-900 dark:text-white w-full min-h-screen h-full">
+        <div class="mx-2 pb-14">
+            <div id="content" class="container mx-auto">
+                <div class="h-14 pt-1">
+                    <button mat-icon-button *ngIf="isAdmin" class="float-left">
+                        <mat-icon class="material-icons-round">sort</mat-icon>
+                    </button>
+                    <button mat-icon-button class="hover:text-yellow-500 focus:text-yellow-500 float-right" (click)="toggleDarkMode()">
+                        <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
+                            <mat-icon class="material-icons-round">brightness_2</mat-icon>
+                        </ng-container>
+                        <ng-template #darkTemplate>
+                            <mat-icon class="material-icons-round">wb_sunny</mat-icon>
+                        </ng-template>
+                    </button>
+                </div>
+                <div class="my-2">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
         <app-navigation></app-navigation>

@@ -26,6 +26,7 @@ import { UserMatchOverviewFuturePresenterComponent } from './user-match/user-mat
 import { UserMatchOverviewFutureShellComponent } from './user-match/user-match-overview/components/user-match-overview-future/user-match-overview-future-shell/user-match-overview-future-shell.component';
 import { UserMatchOverviewPlayedPresenterComponent } from './user-match/user-match-overview/components/user-match-overview-played/user-match-overview-played-presenter/user-match-overview-played-presenter.component';
 import { UserMatchOverviewPlayedShellComponent } from './user-match/user-match-overview/components/user-match-overview-played/user-match-overview-played-shell/user-match-overview-played-shell.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UserMatchOverviewPlayedShellComponent } from './user-match/user-match-o
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
   ]
 })
 export class UserModule { }

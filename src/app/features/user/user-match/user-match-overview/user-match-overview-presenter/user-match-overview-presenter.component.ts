@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-match-overview-presenter',
   templateUrl: './user-match-overview-presenter.component.html',
   styleUrls: ['./user-match-overview-presenter.component.scss']
 })
-export class UserMatchOverviewPresenterComponent implements OnInit {
+export class UserMatchOverviewPresenterComponent {
 
-  constructor() { }
+  tab: number = 1;
 
-  ngOnInit(): void {
+  setTab(tab: number): void {
+    this.tab = tab;
   }
 
 }
