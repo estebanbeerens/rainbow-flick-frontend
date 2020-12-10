@@ -27,6 +27,8 @@ import { UserMatchOverviewFutureShellComponent } from './user-match/user-match-o
 import { UserMatchOverviewPlayedPresenterComponent } from './user-match/user-match-overview/components/user-match-overview-played/user-match-overview-played-presenter/user-match-overview-played-presenter.component';
 import { UserMatchOverviewPlayedShellComponent } from './user-match/user-match-overview/components/user-match-overview-played/user-match-overview-played-shell/user-match-overview-played-shell.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { UserTeamInputShellComponent } from './user-team/user-team-input/user-team-input-shell/user-team-input-shell.component';
+import { UserTeamInputPresenterComponent } from './user-team/user-team-input/user-team-input-presenter/user-team-input-presenter.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     UserMatchOverviewFutureShellComponent,
     UserMatchOverviewPlayedPresenterComponent,
     UserMatchOverviewPlayedShellComponent,
+    UserTeamInputShellComponent,
+    UserTeamInputPresenterComponent,
   ],
   imports: [
     CommonModule,
