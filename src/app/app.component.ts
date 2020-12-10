@@ -19,7 +19,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     // console.log('ok');
-    // this._userService.login({ email: 'admin20@example.com', password: 'Admin1234!' });
+    // this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
     // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
 
     /*USERS*/
@@ -55,7 +55,8 @@ export class AppComponent {
     // this._teamService.teamDetails$.subscribe((result) => console.log(result));
     // this._teamService.teams$.subscribe((result) => console.log(result));
 
-    this._matchService.loadMatches();
-    this._matchService.matches$.subscribe((result) => console.log('ok', result));
+    this._teamService.loadTeamByName('Appellen');
+    this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
+    // this._matchService.matches$.subscribe((result) => console.log('ok', result));
   }
 }

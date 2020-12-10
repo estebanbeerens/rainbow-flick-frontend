@@ -25,8 +25,8 @@ export class TeamService {
     });
   }
 
-  loadTeamDetails(teamsID: String) {
-    this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamsID}`).subscribe((response) => {
+  loadTeamDetails(teamID: String) {
+    this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
       this.teamDetails$.next(response.result);
     });
   }
@@ -39,30 +39,35 @@ export class TeamService {
     });
   }
 
-  updateTeam(teamsID: String, body) {
-    this.http.put<ITeamDetailsResponse>(`${this.baseUrl}/${teamsID}`, body).subscribe((response) => {
+  updateTeam(teamID: String, body) {
+    this.http.put<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
     });
   }
 
-  deleteTeam(teamsID: String) {
-    this.http.delete<ITeamDetailsResponse>(`${this.baseUrl}/${teamsID}`).subscribe((response) => {
+  deleteTeam(teamID: String) {
+    this.http.delete<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
       this.teams$.next(this.teams$.value.filter((teams) => teams.id != response.result.id));
     });
   }
 
   //TODO get team by name
+  loadTeamByName(teamName: String) {
+    this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/search?name=${teamName}`).subscribe((response) => {
+      this.teamDetails$.next(response.result);
+    });
+  }
 
   //TODO fix joinTeam
-  // joinTeam(teamsID: String, body){
-  //   this.http.post<>(`${this.baseUrl}/team/${teamsID}/join`, body).subscribe((response) => {
+  // joinTeam(teamID: String, body){
+  //   this.http.post<>(`${this.baseUrl}/team/${teamID}/join`, body).subscribe((response) => {
   //     this.teams$.next([...this.teams$.value, response]);
   //   });
   // }
 
   //TODO fix accept team
-  // acceptTeam(teamsID: String, body){
-  //     this.http.post<>(`${this.baseUrl}/team/${teamsID}/accept`, body).subscribe((response) => {
+  // acceptTeam(teamID: String, body){
+  //     this.http.post<>(`${this.baseUrl}/team/${teamID}/accept`, body).subscribe((response) => {
   //       this.teams$.next([...this.teams$.value, response['result']]);
   //     });
   //   }

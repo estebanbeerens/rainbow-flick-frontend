@@ -19,7 +19,6 @@ export class MatchService {
 
   loadMatches() {
     this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
-      console.log('Matchs load', response);
       this.matches$.next(response.results);
     });
   }
