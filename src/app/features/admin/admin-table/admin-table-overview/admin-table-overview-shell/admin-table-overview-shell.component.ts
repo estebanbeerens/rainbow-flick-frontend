@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { table } from 'console';
 import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table/user-table-details/user-table-details-shell/user-table-details-shell.component';
 import { TableService } from 'src/app/services/table.service';
-import { ITableDetailsResponse } from 'src/app/shared/interfaces/table/table-details-response.model';
+import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
 
 @Component({
   selector: 'app-admin-table-overview-shell',
@@ -11,7 +11,7 @@ import { ITableDetailsResponse } from 'src/app/shared/interfaces/table/table-det
   styleUrls: ['./admin-table-overview-shell.component.scss'],
 })
 export class AdminTableOverviewShellComponent implements OnInit {
-  tables$: ITableDetailsResponse[];
+  tables$: ITableDetails[];
 
   constructor(private _tableService: TableService, public dialog: MatDialog) {}
 
