@@ -18,6 +18,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
 import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-cap
     SharedPaginatorComponent,
     AuthUserInTeamPipe,
     TruncatePipe,
-    AuthUserTeamCaptainPipe
+    AuthUserTeamCaptainPipe,
+    SharedDateChangerComponent
+
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,8 @@ import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-cap
     SharedPaginatorComponent,
     AuthUserInTeamPipe,
     TruncatePipe,
-    AuthUserTeamCaptainPipe
+    AuthUserTeamCaptainPipe,
+    SharedDateChangerComponent
   ],
 })
 export class SharedModule {}
