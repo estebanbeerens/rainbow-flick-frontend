@@ -54,4 +54,4 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     SharedDateChangerComponent
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

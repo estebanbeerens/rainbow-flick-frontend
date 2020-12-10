@@ -18,7 +18,7 @@
           "builder": "ngx-build-plus:browser",
           "options": {
             "extraWebpackConfig": "webpack.config.js",
-            "outputPath": "dist/rainbow-flick-frontend",
+            "outputPath": "public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,6 +68,7 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
+            "port": 8081,
             "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "rainbow-flick-frontend:build"
           },
