@@ -9,6 +9,7 @@ export class SharedToolbarComponent {
 
   searchbar: boolean = false;
 
+  @Input() route: string = "/app/home";
   @Input() title: string = "GEEN TITEL";
   @Input() hasBackButton: boolean = true;
   @Input() hasSearchButton: boolean = true;
