@@ -10,12 +10,15 @@ import { SharedHomePresenterComponent } from './components/shared-home/shared-ho
 import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
 import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
 import { SharedPaginatorComponent } from './components/shared-paginator/shared-paginator.component';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
-import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     MatTooltipModule,
     MatDialogModule,
     MatRippleModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     NgScrollbarModule,
