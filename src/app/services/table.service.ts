@@ -36,8 +36,8 @@ export class TableService {
   }
 
   deleteTable(tableID: String) {
-    this.http.delete<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
-      this.tables$.next(this.tables$.value.filter((table) => table.id != response.result.id));
+    this.http.delete(`${this.baseUrl}/${tableID}`).subscribe((response) => {
+      this.tables$.next(this.tables$.value.filter((table) => table.id != tableID));
     });
   }
 

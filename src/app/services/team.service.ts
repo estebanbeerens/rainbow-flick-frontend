@@ -49,7 +49,7 @@ export class TeamService {
 
   deleteTeam(teamID: String) {
     this.http.delete<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
-      this.teams$.next(this.teams$.value.filter((teams) => teams.id != response.result.id));
+      this.teams$.next(this.teams$.value.filter((teams) => teams.id != teamID));
     });
   }
 
