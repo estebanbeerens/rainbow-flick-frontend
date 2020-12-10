@@ -51,4 +51,4 @@ import { MatRippleModule } from '@angular/material/core';
     SharedPaginatorComponent
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // TODO : Edit apiUrl to something that is right
-  apiUrl: "https://localhost:5001/api"
+  apiUrl: 'https://rainbow-flick-backend-app.herokuapp.com/api/',
 };
 
 /*

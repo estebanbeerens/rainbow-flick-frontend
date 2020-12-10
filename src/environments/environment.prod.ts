@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://rainbow-flick-backend-app.herokuapp.com/api/',
 };
