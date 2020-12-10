@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table/user-table-details/user-table-details-shell/user-table-details-shell.component';
 import { TableService } from 'src/app/services/table.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
 
