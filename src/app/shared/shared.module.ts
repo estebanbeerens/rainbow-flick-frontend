@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatRippleModule } from '@angular/material/core';
     SharedHomePresenterComponent,
     SharedToolbarComponent,
     SharedSearchbarComponent,
-    SharedPaginatorComponent
+    SharedPaginatorComponent,
+    SharedDateChangerComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { MatRippleModule } from '@angular/material/core';
     SharedSpinnerComponent,
     SharedToolbarComponent,
     SharedSearchbarComponent,
-    SharedPaginatorComponent
+    SharedPaginatorComponent,
+    SharedDateChangerComponent
   ],
 })
 export class SharedModule {}
