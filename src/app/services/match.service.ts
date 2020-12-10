@@ -47,8 +47,20 @@ export class MatchService {
     });
   }
 
-  //TODO update score Match
-  //TODO post challenge
+  //TODO update score Match 5fd20c1bfa0d0e000400c1ec
+  updateScoreMatch(matchID: String, body) {
+    this.http.put<IMatchDetailsResponse>(`${this.baseUrl}/score/${matchID}`, body).subscribe((response) => {
+      this.matchDetails$.next(response.result);
+    });
+  }
+
+  //TODO FIXED PROBLEM: post challenge
+  challengeMatch(body) {
+    this.http.post<IMatchDetailsResponse>(`${this.baseUrl}/challenge`, body).subscribe((response) => {
+      this.matchDetails$.next(response.result);
+    });
+  }
+
   //TODO join match
   //TODO leave match
   //TODO start match

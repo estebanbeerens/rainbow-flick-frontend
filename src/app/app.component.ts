@@ -21,7 +21,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     // console.log('ok');
-    this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
+    // this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
     // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
 
     /*USERS*/
@@ -62,11 +62,18 @@ export class AppComponent {
     //   id: '5fce9b3cfb9aa569cca3bef1',
     // });
 
-    this._teamService.acceptTeam('5fd1fa42469b4100043bebc3', {
-      id: '5fce9b3cfb9aa569cca3bef1',
+    // this._teamService.acceptTeam('5fd1fa42469b4100043bebc3', {
+    //   id: '5fce9b3cfb9aa569cca3bef1',
+    // });
+    // this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
+
+    this._matchService.challengeMatch({
+      homeTeam: '5fcfc4782e9463437ce096bb',
+      awayTeam: '5fcfc9d26938284d8cce830e',
+      dateTimePlanned: '1607601397106',
+      table: '5fcf3df863a2aa2dd077782e',
     });
-    this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
     this._messsageService.message$.subscribe((mes) => console.log(mes));
-    // this._matchService.matches$.subscribe((result) => console.log('ok', result));
+    this._matchService.matchDetails$.subscribe((result) => console.log('ok', result));
   }
 }
