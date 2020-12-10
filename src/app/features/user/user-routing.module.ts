@@ -11,7 +11,7 @@ import { UserTeamDetailsShellComponent } from 'src/app/features/user/user-team/u
 import { UserTeamOverviewShellComponent } from 'src/app/features/user/user-team/user-team-overview/user-team-overview-shell/user-team-overview-shell.component';
 
 const routes: Routes = [{
-  path: 'ranking/',
+  path: 'ranking',
   component: UserRankingShellComponent,
 },
 {

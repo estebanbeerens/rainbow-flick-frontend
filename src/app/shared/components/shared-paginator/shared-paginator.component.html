@@ -1,0 +1,13 @@
+<div class="px-5 py-3 bg-white dark:bg-gray-700 border-t flex flex-col xs:flex-row items-center xs:justify-between">
+    <span class="text-xs xs:text-sm text-gray-900 dark:text-gray-50">
+        Toont {{from}} tot {{to}} van {{total}} {{tableName.toLowerCase()}}.
+    </span>
+    <div class="inline-flex mt-2 xs:mt-0">
+        <button matRipple (click)="previous()" class="text-sm bg-gradient-to-tr from-primary to-secondary text-white pt-2 pb-1 px-4 rounded-l-lg">
+            <mat-icon class="material-icons-round">navigate_before</mat-icon>
+        </button>
+        <button matRipple (click)="next()" class="text-sm bg-gradient-to-tl from-primary to-secondary text-white pt-2 pb-1 px-4 rounded-r-lg">
+            <mat-icon class="material-icons-round">navigate_next</mat-icon>
+        </button>
+    </div>
+</div>

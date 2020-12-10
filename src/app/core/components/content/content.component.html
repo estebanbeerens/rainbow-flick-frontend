@@ -1,6 +1,6 @@
-<div class="w-full h-screen">
-    <div class="container mx-auto">
-        Hello world!
+<div [ngClass]="darkMode">
+    <div [ngClass]="sideNavToggled ? 'overflow-hidden h-screen' : ''">
+        <app-sidenav></app-sidenav>
+        <app-navigation></app-navigation>
     </div>
-    <app-navigation></app-navigation>
 </div>

@@ -1,0 +1,8 @@
+<div class="grid grid-cols-2 gap-3">
+    <button matRipple *ngFor="let route of routeInfo" [routerLink]="[route.path]"
+            class="bg-gradient-to-tr from-primary to-secondary text-white 
+                    shadow-lg rounded-lg text-center p-10">
+        <mat-icon class="material-icons-round">{{route.icon}}</mat-icon>
+        <h4>{{route.title}}</h4>
+    </button>
+</div>
