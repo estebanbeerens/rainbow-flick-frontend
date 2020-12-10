@@ -1,5 +1,5 @@
 <div class="w-full h-10 mb-2 pl-3 pr-2 bg-white border rounded-full flex justify-between items-center relative">
-  <input type="search" (keyUp)="keyUp($event)" placeholder="Zoeken..."
+  <input type="search" (keyup)="keyUp($event.target.value)" placeholder="Zoeken..."
          class="text-gray-900 appearance-none w-full outline-none focus:outline-none active:outline-none"/>
   <button mat-icon-button type="submit" class="text-gray-900 ml-1 outline-none focus:outline-none active:outline-none">
     <mat-icon class="material-icons-round">search</mat-icon>

@@ -7,11 +7,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SharedSearchbarComponent {
 
-  @Output() onKeyUp = new EventEmitter<any>();
+  @Output() onSearchKeyup = new EventEmitter<any>();
 
-  keyUp(event: any): void {
-    // this.onKeyUp.emit(event);
-    console.log(event);
+  keyUp(searchString: string): void {
+    this.onSearchKeyup.emit(searchString);
   }
 
 }
