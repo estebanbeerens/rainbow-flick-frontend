@@ -15,6 +15,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
+import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
+import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
+import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { MatRippleModule } from '@angular/material/core';
     SharedHomePresenterComponent,
     SharedToolbarComponent,
     SharedSearchbarComponent,
-    SharedPaginatorComponent
+    SharedPaginatorComponent,
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe
   ],
   imports: [
     CommonModule,
@@ -48,7 +54,10 @@ import { MatRippleModule } from '@angular/material/core';
     SharedSpinnerComponent,
     SharedToolbarComponent,
     SharedSearchbarComponent,
-    SharedPaginatorComponent
+    SharedPaginatorComponent,
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe
   ],
 })
 export class SharedModule {}
