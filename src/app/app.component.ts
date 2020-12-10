@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatchService } from 'src/app/services/match.service';
+import { MessageService } from 'src/app/services/message.service';
 import { TeamService } from 'src/app/services/team.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,8 @@ export class AppComponent {
   constructor(
     private _userService: UserService,
     private _teamService: TeamService,
-    private _matchService: MatchService
+    private _matchService: MatchService,
+    private _messsageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -55,8 +57,12 @@ export class AppComponent {
     // this._teamService.teamDetails$.subscribe((result) => console.log(result));
     // this._teamService.teams$.subscribe((result) => console.log(result));
 
-    this._teamService.loadTeamByName('Appellen');
+    // this._teamService.loadTeamByName('Appellen');
+    this._teamService.joinTeam('5fd1fa42469b4100043bebc3', {
+      id: '5fce9b3cfb9aa569cca3bef1',
+    });
     this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
+    this._messsageService.message$.subscribe((mes) => console.log(mes));
     // this._matchService.matches$.subscribe((result) => console.log('ok', result));
   }
 }

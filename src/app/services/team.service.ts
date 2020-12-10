@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { ITeamDetailsResponse } from 'src/app/shared/interfaces/team/team-details-response.model';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 import { ITeamsResponse } from 'src/app/shared/interfaces/team/teams-response.model';
@@ -39,6 +40,7 @@ export class TeamService {
     });
   }
 
+  //TODO add in teams
   updateTeam(teamID: String, body) {
     this.http.put<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
@@ -51,19 +53,19 @@ export class TeamService {
     });
   }
 
-  //TODO get team by name
   loadTeamByName(teamName: String) {
     this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/search?name=${teamName}`).subscribe((response) => {
       this.teamDetails$.next(response.result);
     });
   }
 
-  //TODO fix joinTeam
-  // joinTeam(teamID: String, body){
-  //   this.http.post<>(`${this.baseUrl}/team/${teamID}/join`, body).subscribe((response) => {
-  //     this.teams$.next([...this.teams$.value, response]);
-  //   });
-  // }
+  joinTeam(teamID: String, body) {
+    this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/join`, body).subscribe((response) => {
+      this.teamDetails$.next(response.result);
+    });
+  }
+
+  
 
   //TODO fix accept team
   // acceptTeam(teamID: String, body){
