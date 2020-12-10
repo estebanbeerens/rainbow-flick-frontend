@@ -1,51 +1,58 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IMatchDetailResponse } from 'src/app/shared/interfaces/match/match-details-response.model';
+import { IMatchDetailsResponse } from 'src/app/shared/interfaces/match/match-details-response.model';
+import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
+import { IMatchsResponse } from 'src/app/shared/interfaces/match/matchs-response.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MatchService {
-  private baseUrl = environment.apiUrl + 'table';
+  private baseUrl = environment.apiUrl + 'match';
 
-  matches$ = new BehaviorSubject<IMatchDetailResponse[]>([]);
-  matchDetails$ = new BehaviorSubject<IMatchDetailResponse>(null);
+  matches$ = new BehaviorSubject<IMatchDetail[]>([]);
+  matchDetails$ = new BehaviorSubject<IMatchDetail>(null);
 
   constructor(private http: HttpClient) {}
 
   loadMatches() {
-    this.http.get<IMatchDetailResponse[]>(`${this.baseUrl}`).subscribe((response) => {
-      this.matches$.next(response['results']);
+    this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
+      console.log('Matchs load', response);
+      this.matches$.next(response.results);
     });
   }
 
   loadMatchDetails(matchID: String) {
-    this.http.get<IMatchDetailResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
-      this.matchDetails$.next(response['result']);
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
+      this.matchDetails$.next(response.result);
     });
   }
 
   updateMatch(matchID: String, body) {
-    this.http.put<IMatchDetailResponse>(`${this.baseUrl}/${matchID}`, body).subscribe((response) => {
-      this.matches$.next(response['results']);
+    this.http.put<IMatchDetailsResponse>(`${this.baseUrl}/${matchID}`, body).subscribe((response) => {
+      this.matchDetails$.next(response.result);
     });
   }
 
   deleteMatch(matchID: String) {
-    this.http.delete<IMatchDetailResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
-      this.matches$.next(this.matches$.value.filter((match) => match.id != response.id));
+    this.http.delete<IMatchDetailsResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
+      this.matches$.next(this.matches$.value.filter((match) => match.id != response.result.id));
     });
   }
 
   createMatch(body) {
-    this.http.post<IMatchDetailResponse>(`${this.baseUrl}`, body).subscribe((response) => {
-      this.matches$.next([...this.matches$.value, response['result']]);
+    this.http.post<IMatchDetailsResponse>(`${this.baseUrl}`, body).subscribe((response) => {
+      this.matches$.next([...this.matches$.value, response.result]);
     });
   }
 
   //TODO update score Match
   //TODO post challenge
   //TODO join match
+  //TODO leave match
+  //TODO start match
+  //TODO end match
+  //TODO validate match
 }

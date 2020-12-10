@@ -1,12 +1,6 @@
+import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
 import { IUserPermissionResponse } from 'src/app/shared/interfaces/user/user-permission-response.model';
 
 export interface IUserDetailsResponse {
-    id : String,
-    firstName: String,
-    lastName: String,
-    email: String,
-    dateOfBirth: Date,
-    imageURL: String,
-    permissions: IUserPermissionResponse[],
+  result?: IUserDetails;
 }
-
