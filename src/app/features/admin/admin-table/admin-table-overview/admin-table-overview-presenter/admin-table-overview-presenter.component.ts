@@ -44,10 +44,6 @@ export class AdminTableOverviewPresenterComponent implements OnInit {
   clickDelete(tableID: String): void {
     this.delete.emit(tableID);
   }
-  // constructor() {
-  //   this.viewTable = this.tables.slice(this.minTable, this.splitEvery - 1);
-  //   console.log(this.viewTable);
-  // }
 
   ngOnInit(): void {}
 }

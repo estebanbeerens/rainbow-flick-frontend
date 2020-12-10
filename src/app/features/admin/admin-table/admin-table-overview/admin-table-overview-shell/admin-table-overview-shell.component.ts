@@ -26,8 +26,6 @@ export class AdminTableOverviewShellComponent implements OnInit {
   }
 
   deleteTable(tableID: String) {
-    //TODO DELETE TABLE
-    console.log(tableID);
     this._tableService.deleteTable(tableID);
   }
 
