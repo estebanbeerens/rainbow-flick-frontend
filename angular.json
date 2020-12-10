@@ -67,6 +67,7 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
+            "port": 8081,
             "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "rainbow-flick-frontend:build"
           },
