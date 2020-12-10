@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { IUserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
+import { IUserAuth, UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { environment } from 'src/environments/environment';
 import jwt_decode from 'jwt-decode';
 import { IUserLoginResponse } from 'src/app/shared/interfaces/user/user-login-response.model';
@@ -19,7 +19,7 @@ export class UserService {
 
   message$ = new BehaviorSubject<IUserMessage>(null);
 
-  userAuth$ = new BehaviorSubject<IUserAuth>(null);
+  userAuth$ = new BehaviorSubject<UserAuth>(null);
   userDetails$ = new BehaviorSubject<IUserDetails>(null);
   loginError$ = new BehaviorSubject<String>('');
   registerError$ = new Subject<String[]>();
@@ -31,8 +31,7 @@ export class UserService {
     if (token) {
       this.token = token;
       const decodedJwt = <IUserAuth>jwt_decode(<string>token);
-
-      this.userAuth$.next(decodedJwt);
+      this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
     }
   }
 
@@ -51,7 +50,7 @@ export class UserService {
         const authUser = <IUserLoginResponse>response;
 
         const decodedJwt = <IUserAuth>jwt_decode(<string>authUser.result.accessToken);
-        this.userAuth$.next(decodedJwt);
+        this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
         localStorage.setItem('token', <string>authUser.result.accessToken);
         const userDetails = <IUserDetailsResponse>response;
         this.userDetails$.next(userDetails.result);
@@ -67,7 +66,7 @@ export class UserService {
       } else {
         const authUser = <IUserLoginResponse>response;
         const decodedJwt = <IUserAuth>jwt_decode(<string>authUser.result.accessToken);
-        this.userAuth$.next(decodedJwt);
+        this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
         localStorage.setItem('token', <string>authUser.result.accessToken);
         const userDetails = <IUserDetailsResponse>response;
         this.userDetails$.next(userDetails.result);
@@ -108,5 +107,12 @@ export class UserService {
     this.http.delete<IUserMessage>(`${this.baseUrl}/${UserID}`).subscribe((response) => {
       this.message$.next(response);
     });
+  }
+
+  private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth{
+    let object = new UserAuth(
+      authUser.id, authUser.iat, authUser.exp, authUser.permissions
+    )
+    return object
   }
 }

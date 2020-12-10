@@ -4,4 +4,8 @@
     [hasAddButton]="true"
     [hasSearchButton]="true"
 ></app-shared-toolbar>
-<app-user-team-overview-presenter></app-user-team-overview-presenter>
+<app-user-team-overview-presenter
+    [teams]="teams$|async"
+>
+</app-user-team-overview-presenter>
+

@@ -15,7 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
+import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
+import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
+import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe,
     SharedDateChangerComponent
+
   ],
   imports: [
     CommonModule,
@@ -51,6 +59,9 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe,
     SharedDateChangerComponent
   ],
 })
