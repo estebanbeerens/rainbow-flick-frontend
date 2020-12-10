@@ -61,6 +61,10 @@ export class AppComponent {
     this._teamService.joinTeam('5fd1fa42469b4100043bebc3', {
       id: '5fce9b3cfb9aa569cca3bef1',
     });
+
+    this._teamService.leaveTeam('5fd1fa42469b4100043bebc3', {
+      id: '5fce9b3cfb9aa569cca3bef1',
+    });
     this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
     this._messsageService.message$.subscribe((mes) => console.log(mes));
     // this._matchService.matches$.subscribe((result) => console.log('ok', result));

@@ -65,7 +65,12 @@ export class TeamService {
     });
   }
 
-  
+  //TODO leave team
+  leaveTeam(teamID: String, body) {
+    this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/leave`, body).subscribe((response) => {
+      this.teamDetails$.next(response.result);
+    });
+  }
 
   //TODO fix accept team
   // acceptTeam(teamID: String, body){
@@ -73,6 +78,4 @@ export class TeamService {
   //       this.teams$.next([...this.teams$.value, response['result']]);
   //     });
   //   }
-
-  //TODO leave team
 }
