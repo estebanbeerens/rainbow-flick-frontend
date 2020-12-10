@@ -65,17 +65,14 @@ export class TeamService {
     });
   }
 
-  //TODO leave team
   leaveTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/leave`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
     });
   }
-
-  //TODO fix accept team
-  // acceptTeam(teamID: String, body){
-  //     this.http.post<>(`${this.baseUrl}/team/${teamID}/accept`, body).subscribe((response) => {
-  //       this.teams$.next([...this.teams$.value, response['result']]);
-  //     });
-  //   }
+  acceptTeam(teamID: String, body) {
+    this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/accept`, body).subscribe((response) => {
+      this.teamDetails$.next(response.result);
+    });
+  }
 }

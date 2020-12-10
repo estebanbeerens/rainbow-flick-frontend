@@ -21,7 +21,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     // console.log('ok');
-    // this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
+    this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
     // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
 
     /*USERS*/
@@ -58,11 +58,11 @@ export class AppComponent {
     // this._teamService.teams$.subscribe((result) => console.log(result));
 
     // this._teamService.loadTeamByName('Appellen');
-    this._teamService.joinTeam('5fd1fa42469b4100043bebc3', {
-      id: '5fce9b3cfb9aa569cca3bef1',
-    });
+    // this._teamService.joinTeam('5fd1fa42469b4100043bebc3', {
+    //   id: '5fce9b3cfb9aa569cca3bef1',
+    // });
 
-    this._teamService.leaveTeam('5fd1fa42469b4100043bebc3', {
+    this._teamService.acceptTeam('5fd1fa42469b4100043bebc3', {
       id: '5fce9b3cfb9aa569cca3bef1',
     });
     this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
