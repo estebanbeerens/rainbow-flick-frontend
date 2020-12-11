@@ -39,7 +39,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
     AuthUserWonMatchPipe,
-    MatchScorePipe
+    MatchScorePipe,
     SearchFilterPipe,
   ],
   imports: [
