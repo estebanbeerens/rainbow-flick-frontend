@@ -35,7 +35,7 @@ const environment = {
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
  * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
+ * on performance if an error is thrown.s
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
@@ -188,6 +188,32 @@ SecurityInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
 
 /***/ }),
 
+/***/ "OHV6":
+/*!***********************************************************!*\
+  !*** ./src/app/shared/interfaces/user/user-auth.model.ts ***!
+  \***********************************************************/
+/*! exports provided: UserAuth */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserAuth", function() { return UserAuth; });
+class UserAuth {
+    constructor(id, iat, exp, permissions) {
+        this.id = id;
+        this.iat = iat;
+        this.exp = exp;
+        this.permissions = permissions;
+    }
+    // TODO remove in the future, just as demo to demonstrate how it works
+    getFirstPermission() {
+        return this.permissions[0];
+    }
+}
+
+
+/***/ }),
+
 /***/ "Sy1n":
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -224,7 +250,8 @@ class AppComponent {
     }
     ngOnInit() {
         // console.log('ok');
-        // this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
+        // TODO Remove in future after application is build
+        this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
         // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
         /*USERS*/
         // this._userService.userAuth$.subscribe((result) => console.log('User auth', result));
@@ -443,7 +470,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "Sy1n");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _security_security_interceptor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./security/security.interceptor */ "HGD+");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_common_locales_nl_BE__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/locales/nl-BE */ "F/YG");
+/* harmony import */ var _angular_common_locales_nl_BE__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_nl_BE__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _security_security_interceptor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./security/security.interceptor */ "HGD+");
 
 
 
@@ -453,17 +483,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_6__["registerLocaleData"])(_angular_common_locales_nl_BE__WEBPACK_IMPORTED_MODULE_7___default.a);
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _security_security_interceptor__WEBPACK_IMPORTED_MODULE_6__["SecurityInterceptor"], multi: true }], imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _security_security_interceptor__WEBPACK_IMPORTED_MODULE_8__["SecurityInterceptor"], multi: true }], imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
                 declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
                 imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]],
-                providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _security_security_interceptor__WEBPACK_IMPORTED_MODULE_6__["SecurityInterceptor"], multi: true }],
+                providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"], useClass: _security_security_interceptor__WEBPACK_IMPORTED_MODULE_8__["SecurityInterceptor"], multi: true }],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
             }]
     }], null, null); })();
@@ -483,9 +516,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jwt-decode */ "EjJx");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var src_app_shared_interfaces_user_user_auth_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/interfaces/user/user-auth.model */ "OHV6");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "AytR");
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jwt-decode */ "EjJx");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 
@@ -495,7 +530,7 @@ __webpack_require__.r(__webpack_exports__);
 class UserService {
     constructor(http) {
         this.http = http;
-        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl + 'user';
+        this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + 'user';
         this.message$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
         this.userAuth$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
         this.userDetails$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
@@ -505,8 +540,8 @@ class UserService {
         const token = localStorage.getItem('token');
         if (token) {
             this.token = token;
-            const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_3__["default"])(token);
-            this.userAuth$.next(decodedJwt);
+            const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_4__["default"])(token);
+            this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
         }
     }
     getToken() {
@@ -522,8 +557,8 @@ class UserService {
             }
             else {
                 const authUser = response;
-                const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_3__["default"])(authUser.result.accessToken);
-                this.userAuth$.next(decodedJwt);
+                const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_4__["default"])(authUser.result.accessToken);
+                this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
                 localStorage.setItem('token', authUser.result.accessToken);
                 const userDetails = response;
                 this.userDetails$.next(userDetails.result);
@@ -538,8 +573,8 @@ class UserService {
             }
             else {
                 const authUser = response;
-                const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_3__["default"])(authUser.result.accessToken);
-                this.userAuth$.next(decodedJwt);
+                const decodedJwt = Object(jwt_decode__WEBPACK_IMPORTED_MODULE_4__["default"])(authUser.result.accessToken);
+                this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
                 localStorage.setItem('token', authUser.result.accessToken);
                 const userDetails = response;
                 this.userDetails$.next(userDetails.result);
@@ -575,15 +610,19 @@ class UserService {
             this.message$.next(response);
         });
     }
+    convertInterfaceToClassAuthUser(authUser) {
+        let object = new src_app_shared_interfaces_user_user_auth_model__WEBPACK_IMPORTED_MODULE_2__["UserAuth"](authUser.id, authUser.iat, authUser.exp, authUser.permissions);
+        return object;
+    }
 }
-UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); };
+UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"])); };
 UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac, providedIn: 'root' });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
                 providedIn: 'root',
             }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }]; }, null); })();
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -605,11 +644,11 @@ __webpack_require__.r(__webpack_exports__);
 
 class MessageService {
     constructor() {
-        this.messageStore = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
+        this.messageStore = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
         this.message$ = this.messageStore.asObservable();
     }
     setMessage(message) {
-        this.messageStore.next(message);
+        this.messageStore.next([...this.messageStore.value, message]);
     }
 }
 MessageService.ɵfac = function MessageService_Factory(t) { return new (t || MessageService)(); };

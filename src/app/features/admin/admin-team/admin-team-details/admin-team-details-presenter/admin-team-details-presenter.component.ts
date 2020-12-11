@@ -9,17 +9,13 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
 export class AdminTeamDetailsPresenterComponent implements OnInit {
   @Input() team: ITeamDetails;
   @Input() formGroup;
-
   @Output() closeDialog = new EventEmitter();
   @Output() submitForm = new EventEmitter();
   constructor() {}
-
   ngOnInit(): void {}
-
   clickSubmitForm(): void {
     this.submitForm.emit();
   }
-
   addCloseDialog(): void {
     this.closeDialog.emit();
   }

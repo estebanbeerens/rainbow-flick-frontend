@@ -4,8 +4,6 @@
     [hasAddButton]="true"
     (onAddPressed)="actionTable('CREATE')"
 ></app-shared-toolbar>
-
-<app-shared-searchbar></app-shared-searchbar>
 <app-admin-table-overview-presenter
     [tables] = "tables$ | async"
     (delete)="deleteTable($event)"

@@ -12,9 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminUserOverviewShellComponent", function() { return AdminUserOverviewShellComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../shared/components/shared-toolbar/shared-toolbar.component */ "tg0J");
-/* harmony import */ var _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../shared/components/shared-searchbar/shared-searchbar.component */ "etXU");
-/* harmony import */ var src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/features/admin/admin-user/admin-user-overview/admin-user-overview-presenter/admin-user-overview-presenter.component */ "S7rM");
-
+/* harmony import */ var src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/features/admin/admin-user/admin-user-overview/admin-user-overview-presenter/admin-user-overview-presenter.component */ "S7rM");
 
 
 
@@ -25,13 +23,12 @@ class AdminUserOverviewShellComponent {
     }
 }
 AdminUserOverviewShellComponent.ɵfac = function AdminUserOverviewShellComponent_Factory(t) { return new (t || AdminUserOverviewShellComponent)(); };
-AdminUserOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminUserOverviewShellComponent, selectors: [["app-admin-user-overview-shell"]], decls: 3, vars: 2, consts: [["title", "Gebruikers", 3, "hasBackButton", "hasAddButton"]], template: function AdminUserOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
+AdminUserOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminUserOverviewShellComponent, selectors: [["app-admin-user-overview-shell"]], decls: 2, vars: 2, consts: [["title", "Gebruikers", 3, "hasBackButton", "hasAddButton"]], template: function AdminUserOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-shared-toolbar", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-shared-searchbar");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-admin-user-overview-presenter");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-admin-user-overview-presenter");
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hasBackButton", true)("hasAddButton", true);
-    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__["SharedToolbarComponent"], _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_2__["SharedSearchbarComponent"], src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_3__["AdminUserOverviewPresenterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi11c2VyLW92ZXJ2aWV3LXNoZWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
+    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__["SharedToolbarComponent"], src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_2__["AdminUserOverviewPresenterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi11c2VyLW92ZXJ2aWV3LXNoZWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminUserOverviewShellComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -59,10 +56,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_table_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/table.service */ "TQws");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var _shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/components/shared-toolbar/shared-toolbar.component */ "tg0J");
-/* harmony import */ var _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/components/shared-searchbar/shared-searchbar.component */ "etXU");
-/* harmony import */ var _admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-table-overview-presenter/admin-table-overview-presenter.component */ "8l0s");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "ofXK");
-
+/* harmony import */ var _admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-table-overview-presenter/admin-table-overview-presenter.component */ "8l0s");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
 
 
 
@@ -95,20 +90,19 @@ class AdminTableOverviewShellComponent {
     }
 }
 AdminTableOverviewShellComponent.ɵfac = function AdminTableOverviewShellComponent_Factory(t) { return new (t || AdminTableOverviewShellComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_table_service__WEBPACK_IMPORTED_MODULE_2__["TableService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"])); };
-AdminTableOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTableOverviewShellComponent, selectors: [["app-admin-table-overview-shell"]], decls: 4, vars: 5, consts: [["title", "Tafels", 3, "hasBackButton", "hasAddButton", "onAddPressed"], [3, "tables", "delete", "actionButton"]], template: function AdminTableOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
+AdminTableOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTableOverviewShellComponent, selectors: [["app-admin-table-overview-shell"]], decls: 3, vars: 5, consts: [["title", "Tafels", 3, "hasBackButton", "hasAddButton", "onAddPressed"], [3, "tables", "delete", "actionButton"]], template: function AdminTableOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "app-shared-toolbar", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onAddPressed", function AdminTableOverviewShellComponent_Template_app_shared_toolbar_onAddPressed_0_listener() { return ctx.actionTable("CREATE"); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-shared-searchbar");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-admin-table-overview-presenter", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("delete", function AdminTableOverviewShellComponent_Template_app_admin_table_overview_presenter_delete_2_listener($event) { return ctx.deleteTable($event); })("actionButton", function AdminTableOverviewShellComponent_Template_app_admin_table_overview_presenter_actionButton_2_listener($event) { return ctx.actionTable($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-table-overview-presenter", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("delete", function AdminTableOverviewShellComponent_Template_app_admin_table_overview_presenter_delete_1_listener($event) { return ctx.deleteTable($event); })("actionButton", function AdminTableOverviewShellComponent_Template_app_admin_table_overview_presenter_actionButton_1_listener($event) { return ctx.actionTable($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hasBackButton", true)("hasAddButton", true);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("tables", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 3, ctx.tables$));
-    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__["SharedToolbarComponent"], _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_5__["SharedSearchbarComponent"], _admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_6__["AdminTableOverviewPresenterComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["AsyncPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10YWJsZS1vdmVydmlldy1zaGVsbC5jb21wb25lbnQuc2NzcyJ9 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("tables", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](2, 3, ctx.tables$));
+    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__["SharedToolbarComponent"], _admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableOverviewPresenterComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["AsyncPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10YWJsZS1vdmVydmlldy1zaGVsbC5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminTableOverviewShellComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -648,10 +642,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_team_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/team.service */ "GDbA");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var _shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../shared/components/shared-toolbar/shared-toolbar.component */ "tg0J");
-/* harmony import */ var _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../shared/components/shared-searchbar/shared-searchbar.component */ "etXU");
-/* harmony import */ var _admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin-team-overview-presenter/admin-team-overview-presenter.component */ "8288");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "ofXK");
-
+/* harmony import */ var _admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin-team-overview-presenter/admin-team-overview-presenter.component */ "8288");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
 
 
 
@@ -684,18 +676,17 @@ class AdminTeamOverviewShellComponent {
     }
 }
 AdminTeamOverviewShellComponent.ɵfac = function AdminTeamOverviewShellComponent_Factory(t) { return new (t || AdminTeamOverviewShellComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_team_service__WEBPACK_IMPORTED_MODULE_2__["TeamService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"])); };
-AdminTeamOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTeamOverviewShellComponent, selectors: [["app-admin-team-overview-shell"]], decls: 4, vars: 5, consts: [["title", "Teams", 3, "hasBackButton", "hasAddButton"], [3, "teams", "delete", "actionButton"]], template: function AdminTeamOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
+AdminTeamOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTeamOverviewShellComponent, selectors: [["app-admin-team-overview-shell"]], decls: 3, vars: 5, consts: [["title", "Teams", 3, "hasBackButton", "hasAddButton"], [3, "teams", "delete", "actionButton"]], template: function AdminTeamOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-shared-toolbar", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-shared-searchbar");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-admin-team-overview-presenter", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("delete", function AdminTeamOverviewShellComponent_Template_app_admin_team_overview_presenter_delete_2_listener($event) { return ctx.deleteTable($event); })("actionButton", function AdminTeamOverviewShellComponent_Template_app_admin_team_overview_presenter_actionButton_2_listener($event) { return ctx.actionTable($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-team-overview-presenter", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("delete", function AdminTeamOverviewShellComponent_Template_app_admin_team_overview_presenter_delete_1_listener($event) { return ctx.deleteTable($event); })("actionButton", function AdminTeamOverviewShellComponent_Template_app_admin_team_overview_presenter_actionButton_1_listener($event) { return ctx.actionTable($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "async");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hasBackButton", true)("hasAddButton", true);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("teams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 3, ctx.teams$));
-    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__["SharedToolbarComponent"], _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_5__["SharedSearchbarComponent"], _admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_6__["AdminTeamOverviewPresenterComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["AsyncPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLW92ZXJ2aWV3LXNoZWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("teams", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](2, 3, ctx.teams$));
+    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_4__["SharedToolbarComponent"], _admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_5__["AdminTeamOverviewPresenterComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["AsyncPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLW92ZXJ2aWV3LXNoZWxsLmNvbXBvbmVudC5zY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminTeamOverviewShellComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -756,9 +747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminMatchOverviewShellComponent", function() { return AdminMatchOverviewShellComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../shared/components/shared-toolbar/shared-toolbar.component */ "tg0J");
-/* harmony import */ var _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../shared/components/shared-searchbar/shared-searchbar.component */ "etXU");
-/* harmony import */ var src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_presenter_admin_match_overview_presenter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component */ "zh4L");
-
+/* harmony import */ var src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_presenter_admin_match_overview_presenter_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component */ "zh4L");
 
 
 
@@ -769,13 +758,12 @@ class AdminMatchOverviewShellComponent {
     }
 }
 AdminMatchOverviewShellComponent.ɵfac = function AdminMatchOverviewShellComponent_Factory(t) { return new (t || AdminMatchOverviewShellComponent)(); };
-AdminMatchOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminMatchOverviewShellComponent, selectors: [["app-admin-match-overview-shell"]], decls: 3, vars: 2, consts: [["title", "Wedstrijden", 3, "hasBackButton", "hasAddButton"]], template: function AdminMatchOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
+AdminMatchOverviewShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminMatchOverviewShellComponent, selectors: [["app-admin-match-overview-shell"]], decls: 2, vars: 2, consts: [["title", "Wedstrijden", 3, "hasBackButton", "hasAddButton"]], template: function AdminMatchOverviewShellComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-shared-toolbar", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-shared-searchbar");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "app-admin-match-overview-presenter");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-admin-match-overview-presenter");
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hasBackButton", true)("hasAddButton", true);
-    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__["SharedToolbarComponent"], _shared_components_shared_searchbar_shared_searchbar_component__WEBPACK_IMPORTED_MODULE_2__["SharedSearchbarComponent"], src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_presenter_admin_match_overview_presenter_component__WEBPACK_IMPORTED_MODULE_3__["AdminMatchOverviewPresenterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1tYXRjaC1vdmVydmlldy1zaGVsbC5jb21wb25lbnQuc2NzcyJ9 */"] });
+    } }, directives: [_shared_components_shared_toolbar_shared_toolbar_component__WEBPACK_IMPORTED_MODULE_1__["SharedToolbarComponent"], src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_presenter_admin_match_overview_presenter_component__WEBPACK_IMPORTED_MODULE_2__["AdminMatchOverviewPresenterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi1tYXRjaC1vdmVydmlldy1zaGVsbC5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminMatchOverviewShellComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -802,6 +790,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "0IaG");
 /* harmony import */ var src_app_services_team_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/team.service */ "GDbA");
+/* harmony import */ var src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/features/admin/admin-user/admin-user-details/admin-user-details-presenter/admin-user-details-presenter.component */ "xk8t");
+
 
 
 
@@ -815,13 +805,20 @@ class AdminTeamDetailsShellComponent {
         this.data = data;
         this.fb = fb;
         this._teamService = _teamService;
-        this.createTeamsForm = this.fb.group({
+        this.createTableForm = this.fb.group({
             name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(2)]],
+            location: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]],
+            imageUrl: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            contactName: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]],
+            contactPhone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]],
+            description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(3)]],
         });
         this.action = data.action;
         this.team$ = this._teamService.teamDetails$.asObservable();
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.isEdit = false;
+    }
     submitForm() {
         console.log('SUMBIT');
         //TODO Create new teams
@@ -838,8 +835,8 @@ class AdminTeamDetailsShellComponent {
 }
 AdminTeamDetailsShellComponent.ɵfac = function AdminTeamDetailsShellComponent_Factory(t) { return new (t || AdminTeamDetailsShellComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_team_service__WEBPACK_IMPORTED_MODULE_3__["TeamService"])); };
 AdminTeamDetailsShellComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTeamDetailsShellComponent, selectors: [["app-admin-team-details-shell"]], decls: 1, vars: 0, template: function AdminTeamDetailsShellComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0, "blabla\n");
-    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLWRldGFpbHMtc2hlbGwuY29tcG9uZW50LnNjc3MifQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-admin-user-details-presenter");
+    } }, directives: [src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_4__["AdminUserDetailsPresenterComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLWRldGFpbHMtc2hlbGwuY29tcG9uZW50LnNjc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminTeamDetailsShellComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1038,6 +1035,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/features/admin/admin-user/admin-user-details/admin-user-details-presenter/admin-user-details-presenter.component */ "xk8t");
 /* harmony import */ var src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_presenter_admin_match_overview_presenter_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component */ "zh4L");
 /* harmony import */ var src_app_features_admin_admin_team_admin_team_details_admin_team_details_presenter_admin_team_details_presenter_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/features/admin/admin-team/admin-team-details/admin-team-details-presenter/admin-team-details-presenter.component */ "xYZJ");
+/* harmony import */ var src_app_features_admin_admin_team_admin_team_details_admin_team_details_shell_admin_team_details_shell_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/features/admin/admin-team/admin-team-details/admin-team-details-shell/admin-team-details-shell.component */ "hyS3");
+
 
 
 
@@ -1065,14 +1064,12 @@ AdminModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AdminModule, { declarations: [_admin_table_admin_table_overview_admin_table_overview_shell_admin_table_overview_shell_component__WEBPACK_IMPORTED_MODULE_3__["AdminTableOverviewShellComponent"],
         _admin_table_admin_table_overview_admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_4__["AdminTableOverviewPresenterComponent"],
         _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
-        src_app_features_admin_admin_team_admin_team_details_admin_team_details_presenter_admin_team_details_presenter_component__WEBPACK_IMPORTED_MODULE_18__["AdminTeamDetailsPresenterComponent"],
+        _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
         _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
         src_app_features_admin_admin_team_admin_team_overview_admin_team_overview_shell_admin_team_overview_shell_component__WEBPACK_IMPORTED_MODULE_11__["AdminTeamOverviewShellComponent"],
-        _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
         _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
         _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
         src_app_features_admin_admin_team_admin_team_overview_admin_team_overview_shell_admin_team_overview_shell_component__WEBPACK_IMPORTED_MODULE_11__["AdminTeamOverviewShellComponent"],
-        _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
         _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
         _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
         src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_shell_admin_match_overview_shell_component__WEBPACK_IMPORTED_MODULE_8__["AdminMatchOverviewShellComponent"],
@@ -1081,8 +1078,10 @@ AdminModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
         _admin_match_admin_match_details_admin_match_details_shell_admin_match_details_shell_component__WEBPACK_IMPORTED_MODULE_6__["AdminMatchDetailsShellComponent"],
         src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_shell_admin_user_overview_shell_component__WEBPACK_IMPORTED_MODULE_13__["AdminUserOverviewShellComponent"],
         src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_14__["AdminUserOverviewPresenterComponent"],
+        src_app_features_admin_admin_team_admin_team_details_admin_team_details_shell_admin_team_details_shell_component__WEBPACK_IMPORTED_MODULE_19__["AdminTeamDetailsShellComponent"],
         src_app_features_admin_admin_user_admin_user_details_admin_user_details_shell_admin_user_details_shell_component__WEBPACK_IMPORTED_MODULE_15__["AdminUserDetailsShellComponent"],
-        src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_16__["AdminUserDetailsPresenterComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _admin_routing_module__WEBPACK_IMPORTED_MODULE_2__["AdminRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_12__["SharedModule"]] }); })();
+        src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_16__["AdminUserDetailsPresenterComponent"],
+        src_app_features_admin_admin_team_admin_team_details_admin_team_details_presenter_admin_team_details_presenter_component__WEBPACK_IMPORTED_MODULE_18__["AdminTeamDetailsPresenterComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _admin_routing_module__WEBPACK_IMPORTED_MODULE_2__["AdminRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_12__["SharedModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -1090,14 +1089,12 @@ AdminModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
                     _admin_table_admin_table_overview_admin_table_overview_shell_admin_table_overview_shell_component__WEBPACK_IMPORTED_MODULE_3__["AdminTableOverviewShellComponent"],
                     _admin_table_admin_table_overview_admin_table_overview_presenter_admin_table_overview_presenter_component__WEBPACK_IMPORTED_MODULE_4__["AdminTableOverviewPresenterComponent"],
                     _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
-                    src_app_features_admin_admin_team_admin_team_details_admin_team_details_presenter_admin_team_details_presenter_component__WEBPACK_IMPORTED_MODULE_18__["AdminTeamDetailsPresenterComponent"],
+                    _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
                     _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
                     src_app_features_admin_admin_team_admin_team_overview_admin_team_overview_shell_admin_team_overview_shell_component__WEBPACK_IMPORTED_MODULE_11__["AdminTeamOverviewShellComponent"],
-                    _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
                     _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
                     _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
                     src_app_features_admin_admin_team_admin_team_overview_admin_team_overview_shell_admin_team_overview_shell_component__WEBPACK_IMPORTED_MODULE_11__["AdminTeamOverviewShellComponent"],
-                    _admin_table_admin_table_details_admin_table_details_presenter_admin_table_details_presenter_component__WEBPACK_IMPORTED_MODULE_9__["AdminTableDetailsPresenterComponent"],
                     _admin_table_admin_table_details_admin_table_details_shell_admin_table_details_shell_component__WEBPACK_IMPORTED_MODULE_5__["AdminTableDetailsShellComponent"],
                     _admin_team_admin_team_overview_admin_team_overview_presenter_admin_team_overview_presenter_component__WEBPACK_IMPORTED_MODULE_10__["AdminTeamOverviewPresenterComponent"],
                     src_app_features_admin_admin_match_admin_match_overview_admin_match_overview_shell_admin_match_overview_shell_component__WEBPACK_IMPORTED_MODULE_8__["AdminMatchOverviewShellComponent"],
@@ -1106,8 +1103,10 @@ AdminModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
                     _admin_match_admin_match_details_admin_match_details_shell_admin_match_details_shell_component__WEBPACK_IMPORTED_MODULE_6__["AdminMatchDetailsShellComponent"],
                     src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_shell_admin_user_overview_shell_component__WEBPACK_IMPORTED_MODULE_13__["AdminUserOverviewShellComponent"],
                     src_app_features_admin_admin_user_admin_user_overview_admin_user_overview_presenter_admin_user_overview_presenter_component__WEBPACK_IMPORTED_MODULE_14__["AdminUserOverviewPresenterComponent"],
+                    src_app_features_admin_admin_team_admin_team_details_admin_team_details_shell_admin_team_details_shell_component__WEBPACK_IMPORTED_MODULE_19__["AdminTeamDetailsShellComponent"],
                     src_app_features_admin_admin_user_admin_user_details_admin_user_details_shell_admin_user_details_shell_component__WEBPACK_IMPORTED_MODULE_15__["AdminUserDetailsShellComponent"],
                     src_app_features_admin_admin_user_admin_user_details_admin_user_details_presenter_admin_user_details_presenter_component__WEBPACK_IMPORTED_MODULE_16__["AdminUserDetailsPresenterComponent"],
+                    src_app_features_admin_admin_team_admin_team_details_admin_team_details_presenter_admin_team_details_presenter_component__WEBPACK_IMPORTED_MODULE_18__["AdminTeamDetailsPresenterComponent"],
                 ],
                 imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _admin_routing_module__WEBPACK_IMPORTED_MODULE_2__["AdminRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_12__["SharedModule"]],
             }]
@@ -1127,57 +1126,22 @@ AdminModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInject
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTeamDetailsPresenterComponent", function() { return AdminTeamDetailsPresenterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/button */ "bTqV");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "ofXK");
-
-
-
 
 
 class AdminTeamDetailsPresenterComponent {
-    constructor() {
-        this.closeDialog = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.submitForm = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
+    // @Input() team: ITeamDetails;
+    // @Input() formGroup;
+    // @Output() closeDialog = new EventEmitter();
+    // @Output() submitForm = new EventEmitter();
+    constructor() { }
     ngOnInit() { }
-    clickSubmitForm() {
-        this.submitForm.emit();
-    }
-    addCloseDialog() {
-        this.closeDialog.emit();
-    }
 }
 AdminTeamDetailsPresenterComponent.ɵfac = function AdminTeamDetailsPresenterComponent_Factory(t) { return new (t || AdminTeamDetailsPresenterComponent)(); };
-AdminTeamDetailsPresenterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTeamDetailsPresenterComponent, selectors: [["app-admin-team-details-presenter"]], inputs: { team: "team", formGroup: "formGroup" }, outputs: { closeDialog: "closeDialog", submitForm: "submitForm" }, decls: 13, vars: 4, consts: [[3, "formGroup", "ngSubmit"], ["mat-raised-button", "", "color", "primary", "type", "submit"], ["mat-button", "", "mat-flat-button", "", "color", "warn", 3, "click"]], template: function AdminTeamDetailsPresenterComponent_Template(rf, ctx) { if (rf & 1) {
+AdminTeamDetailsPresenterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AdminTeamDetailsPresenterComponent, selectors: [["app-admin-team-details-presenter"]], decls: 2, vars: 0, template: function AdminTeamDetailsPresenterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Teams");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "json");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "form", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function AdminTeamDetailsPresenterComponent_Template_form_ngSubmit_4_listener() { return ctx.clickSubmitForm(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "First name: ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Submit");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AdminTeamDetailsPresenterComponent_Template_button_click_11_listener() { return ctx.addCloseDialog(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Cancel");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("\n", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 2, ctx.team), " ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.formGroup);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_2__["MatButton"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["JsonPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLWRldGFpbHMtcHJlc2VudGVyLmNvbXBvbmVudC5zY3NzIn0= */"] });
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi10ZWFtLWRldGFpbHMtcHJlc2VudGVyLmNvbXBvbmVudC5zY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AdminTeamDetailsPresenterComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1185,15 +1149,7 @@ AdminTeamDetailsPresenterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODUL
                 templateUrl: './admin-team-details-presenter.component.html',
                 styleUrls: ['./admin-team-details-presenter.component.scss'],
             }]
-    }], function () { return []; }, { team: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }], formGroup: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"]
-        }], closeDialog: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }], submitForm: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-        }] }); })();
+    }], function () { return []; }, null); })();
 
 
 /***/ }),

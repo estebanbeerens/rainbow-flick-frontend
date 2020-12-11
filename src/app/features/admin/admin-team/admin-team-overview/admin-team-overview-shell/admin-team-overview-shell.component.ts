@@ -13,7 +13,7 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
 export class AdminTeamOverviewShellComponent implements OnInit {
   teams$: Observable<ITeamDetails[]>;
 
-  constructor(private _teamService: TeamService,public dialog: MatDialog) {}
+  constructor(private _teamService: TeamService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this._teamService.loadTeams();
@@ -31,7 +31,7 @@ export class AdminTeamOverviewShellComponent implements OnInit {
   openDialog(action: String): void {
     const dialogRef = this.dialog.open(AdminTeamDetailsShellComponent, {
       minWidth: '400px',
-      data: {action: action },
+      data: { action: action },
     });
   }
 }
