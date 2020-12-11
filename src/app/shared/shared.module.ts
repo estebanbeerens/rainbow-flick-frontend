@@ -16,11 +16,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
 import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
+import { AuthUserWonMatchPipe } from 'src/app/shared/pipes/auth-user-won-match.pipe';
+import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +39,8 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
+    AuthUserWonMatchPipe,
+    MatchScorePipe,
     SearchFilterPipe,
   ],
   imports: [
@@ -54,6 +60,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     MatTooltipModule,
     MatDialogModule,
     MatRippleModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     NgScrollbarModule,
@@ -66,6 +73,8 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
+    AuthUserWonMatchPipe,
+    MatchScorePipe
   ],
 })
 export class SharedModule {}

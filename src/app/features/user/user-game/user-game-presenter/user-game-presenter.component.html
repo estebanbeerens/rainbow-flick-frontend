@@ -1,13 +1,30 @@
-<div class="grid grid-rows-3 gap-2">
-    <div class="grid grid-cols-2 gap-5">
-        <p class="text-center text-xl lg:text-6x">team2.name</p>
-        <p class="text-center text-xl lg:text-6xl">Class on motherfucking grass bros</p>
+<h2 class="text-center">
+    [Match naam]
+</h2>
+<div class="flex flex-col gap-4">
+    <div class="grid grid-cols-2 gap-3">
+        <div>
+            <div class="h-12 w-12 block mx-auto">
+                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
+            </div>
+            <p class="text-center text-lg">[TEAM 1]</p>
+            <p class="text-center text-sm text-gray-700 dark:text-gray-300">
+                <!-- TODO : Ngfor -->
+                <span>
+                    <span>Esteban&nbsp;Beerens</span>
+                    <span>, </span>
+                </span>
+            </p>
+        </div>
+        <div>
+            <div class="h-12 w-12 block mx-auto">
+                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
+            </div>
+            <p class="text-center text-lg">[TEAM 1]</p>
+            <p class="text-center text-sm text-gray-700 dark:text-gray-300">Esteban&nbsp;Beerens, Tom&nbsp;Bosmans, Ward Beyens, Youri Van Laer, Robin VR</p>
+        </div>
     </div>
-    <div class="grid grid-cols-2 gap-5">
-        <p class="text-center text-8xl rounded-full border-gray-400 border-2">0</p>
-        <p class="text-center text-8xl rounded-full border-gray-400 border-2">0</p>
-    </div>
-    <div class="grid grid-cols-2 gap-5 mt-5">
+    <div class="grid grid-cols-2 gap-3">
         <div class="grid grid-cols-2 gap-2">
             <button mat-fab class="bg-gradient-to-tr from-blue-700 to-cyan-600 text-white place-self-center">
                 <mat-icon class="material-icons-round">add</mat-icon>
@@ -16,13 +33,33 @@
                 <mat-icon class="material-icons-round">remove</mat-icon>
             </button>
         </div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-3">
             <button mat-fab class="bg-gradient-to-tr from-blue-700 to-cyan-600 text-white place-self-center">
                 <mat-icon class="material-icons-round">add</mat-icon>
             </button>
             <button mat-fab class="bg-gradient-to-tr from-red-700 to-pink-600 text-white place-self-center">
                 <mat-icon class="material-icons-round">remove</mat-icon>
             </button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-white">
+        <!-- TODO : If winning = green, if losing = red, if equal = blue -->
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">2</p>
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">0</p>
+        <!-- <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">0</p> -->
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+        <div>
+            <p class="text-center text-md">1 - 0 (14:30)</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 0 (14:31)</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">3 - 1 (14:32)</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">4 - 1 (14:32)</p>
+        </div>
+        <div>
+            <p class="text-center text-md">&nbsp;</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
+            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 1 (14:31)</p>
         </div>
     </div>
 </div>

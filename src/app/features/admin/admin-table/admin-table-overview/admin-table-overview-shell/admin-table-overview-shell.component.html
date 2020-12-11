@@ -1,15 +1,15 @@
 <app-shared-toolbar
     title="Tafels"
-    [hasBackButton]="true"
+    [hasBackButton]="false"
     [hasAddButton]="true"
-    (onAddPressed)="createTable()"
+    [hasSearchButton]="true"
+    (onAddPressed)="actionTable($event)"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
 
 <app-shared-spinner
 [visible] = "preloader$ | async"
 ></app-shared-spinner>
-
 <app-admin-table-overview-presenter
     [tables] = "viewTables$ | async"
     (delete)="deleteTable($event)"

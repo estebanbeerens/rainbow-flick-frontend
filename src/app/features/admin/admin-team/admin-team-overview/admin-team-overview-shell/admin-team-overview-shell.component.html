@@ -1,7 +1,8 @@
 <app-shared-toolbar
     title="Teams"
-    [hasBackButton]="true"
+    [hasBackButton]="false"
     [hasAddButton]="true"
+    [hasSearchButton]="true"
     (onAddPressed)="createTable()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>

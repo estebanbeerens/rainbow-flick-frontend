@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-shared-toolbar',
@@ -6,10 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./shared-toolbar.component.scss'],
 })
 export class SharedToolbarComponent {
+  
+  constructor(
+    private location: Location
+  ) {}
+
   searchbar: boolean = false;
-
-
-  @Input() route: string = "/app/home";
   @Input() title: string = "GEEN TITEL";
   @Input() hasBackButton: boolean = true;
   @Input() hasSearchButton: boolean = true;
@@ -17,6 +20,10 @@ export class SharedToolbarComponent {
 
   @Output() onAddPressed = new EventEmitter();
   @Output() onSearchKeyup = new EventEmitter<any>();
+
+  backPressed(): void {
+    this.location.back();
+  }
 
   toggleSearchBar(): void {
     this.searchbar = !this.searchbar;

@@ -13,11 +13,19 @@ export class MatchService {
   private baseUrl = environment.apiUrl + 'match';
   isLoading$ = new BehaviorSubject(false);
 
-  matches$ = new BehaviorSubject<IMatchDetail[]>([]);
+  matchesAdmin$ = new BehaviorSubject<IMatchDetail[]>([]);
+  matchesAuthUser$ = new BehaviorSubject<IMatchDetail[]>([]);
   matchDetails$ = new BehaviorSubject<IMatchDetail>(null);
 
   constructor(private http: HttpClient) {}
 
+  loadAdminMatches() {
+    this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
+      this.matchesAdmin$.next(response.results);
+      this._loaderStop(); });
+  }
+
+  
   _loaderInit() {
     this.isLoading$.next(true);
   }
@@ -26,12 +34,11 @@ export class MatchService {
     this.isLoading$.next(false);
   }
 
-  loadMatches() {
-    this._loaderInit();
-    this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
-      this.matches$.next(response.results);
-      this._loaderStop();
-    });
+
+  loadMatchesAuthUser(){
+    this.http.get<IMatchsResponse>(`${this.baseUrl}/authUser`).subscribe((response) => {
+      this.matchesAuthUser$.next(response.results);
+    })
   }
 
   loadMatchDetails(matchID: String) {
@@ -48,13 +55,13 @@ export class MatchService {
 
   deleteMatch(matchID: String) {
     this.http.delete<IMatchDetailsResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
-      this.matches$.next(this.matches$.value.filter((match) => match.id != response.result.id));
+      this.matchesAdmin$.next(this.matchesAdmin$.value.filter((match) => match.id != response.result.id));
     });
   }
 
   createMatch(body) {
     this.http.post<IMatchDetailsResponse>(`${this.baseUrl}`, body).subscribe((response) => {
-      this.matches$.next([...this.matches$.value, response.result]);
+      this.matchesAdmin$.next([...this.matchesAdmin$.value, response.result]);
     });
   }
 
@@ -68,13 +75,65 @@ export class MatchService {
   //TODO FIXED PROBLEM: post challenge
   challengeMatch(body) {
     this.http.post<IMatchDetailsResponse>(`${this.baseUrl}/challenge`, body).subscribe((response) => {
-      this.matchDetails$.next(response.result);
+      // this.matchesAdmin$.next([...this.matchesAdmin$.value, response.result]); //overkill
+      this.matchesAuthUser$.next([...this.matchesAuthUser$.value, response.result]);
     });
   }
 
-  //TODO join match
-  //TODO leave match
-  //TODO start match
-  //TODO end match
+  //TODO test endpoint
+  joinMatch(matchID: String){
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/join/${matchID}`).subscribe((response) => {
+      this.matchesAuthUser$.next(this.matchesAuthUser$.value.map((match) => {
+        if(match.id == response.result.id){
+          match = response.result
+        }
+        return match
+      }))
+    })
+  }
+  //TODO test endpoint
+  leaveMatch(matchID: String){
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/join/${matchID}`).subscribe((response) => {
+      this.matchesAuthUser$.next(this.matchesAuthUser$.value.map((match) => {
+        if(match.id == response.result.id){
+          match = response.result
+        }
+        return match
+      }))
+    })
+  }
+  //TODO test endpoint
+  startMatch(matchID: String){
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/start/${matchID}`).subscribe((response) => {
+      this.matchesAuthUser$.next(this.matchesAuthUser$.value.map((match) => {
+        if(match.id == response.result.id){
+          match = response.result
+        }
+        return match
+      }))
+    })
+  }
+
+  //TODO validate request
+  endMatch(matchID: String){
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/end/${matchID}`).subscribe((response) => {
+      this.matchesAuthUser$.next(this.matchesAuthUser$.value.map((match) => {
+        if(match.id == response.result.id){
+          match = response.result
+        }
+        return match
+      }))
+    })
+  }
   //TODO validate match
+  validateMatch(matchID: String){
+    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/validate/${matchID}`).subscribe((response) => {
+      this.matchesAuthUser$.next(this.matchesAuthUser$.value.map((match) => {
+        if(match.id == response.result.id){
+          match = response.result
+        }
+        return match
+      }))
+    })
+  }
 }
