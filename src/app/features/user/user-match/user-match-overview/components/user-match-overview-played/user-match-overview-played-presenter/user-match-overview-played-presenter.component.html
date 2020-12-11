@@ -1,64 +1,38 @@
 <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-            <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <!-- TODO : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+          <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
+            <ng-container *ngFor="let match of matches">
+              <tr (click)="goToDetails(match.id)" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" routerLink="/second-component">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div>
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- TODO : Implement code below to shorten names if they're too long -->
-                        <!-- {{
-                            (match.name.length>50)? 
-                            (match.name | slice:0:50)+'...':(match.name) 
-                        }} -->
-                        [Naam]
+                        {{match.name|truncate:35}}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Datum]
+                        {{match.dateTimeEnd|date:'d/M/y'}}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                    <!-- TODO : Match gewonnen = groen, match verloren = rood -->
-                    <div class="text-sm mt-3 bg-gradient-to-tr from-primary to-secondary text-white rounded-lg">
-                        <p class="text-center">8 - 2</p>
-                    </div>
-                </td>
-              </tr>
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div>
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        [Naam]
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Datum]
-                      </div>
-                    </div>
+                  <!-- TODO : Match gewonnen = groen, match verloren = rood -->
+                  <div *ngIf="(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr from-primary to-secondary text-white rounded-lg">
+                    <p class="text-center">{{match|matchScore}}</p>
+                  </div>
+                  <div *ngIf="!(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr  from-red-700 to-pink-600 text-white rounded-lg">
+                    <p class="text-center">{{match|matchScore}}</p>
                   </div>
                 </td>
-                <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                    <div class="text-sm mt-3 bg-gradient-to-tr  from-red-700 to-pink-600 text-white rounded-lg">
-                        <p class="text-center">2 - 10</p>
-                    </div>
-                </td>
               </tr>
-            </tbody>
-          </table>
-          <app-shared-paginator
-            tableName="Gespeelde matchen"
-            [from]="2"
-            [to]="2"
-            [total]="2"
-          ></app-shared-paginator>
-        </div>
+            </ng-container>
+          </tbody>
+        </table>
+        <!-- <app-shared-paginator tableName="Gespeelde matchen" [from]="2" [to]="2" [total]="2"></app-shared-paginator> -->
       </div>
     </div>
   </div>
-  
+</div>

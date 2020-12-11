@@ -1,1 +1,4 @@
-<app-user-match-overview-invitation-presenter></app-user-match-overview-invitation-presenter>
+<app-user-match-overview-invitation-presenter 
+[matches]="matches"
+(onJoinMatch)="joinMatch($event)"
+></app-user-match-overview-invitation-presenter>

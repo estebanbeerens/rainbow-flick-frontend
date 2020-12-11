@@ -2,5 +2,9 @@
     title="Wedstrijden"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
-<app-user-match-overview-presenter></app-user-match-overview-presenter>
+<app-user-match-overview-presenter
+    [matches]="filteredMatches$|async"
+    (onSetTab)="tabChanged($event)"
+></app-user-match-overview-presenter>
