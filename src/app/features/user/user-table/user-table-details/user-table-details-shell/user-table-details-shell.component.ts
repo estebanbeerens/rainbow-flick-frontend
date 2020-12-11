@@ -22,8 +22,6 @@ export class UserTableDetailsShellComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.getId = this._route.snapshot.paramMap.get('id');
-    this._tableService.tableOverview$.subscribe((result) => console.log(result));
-
     // get element
     this.table$ = this._tableService.tableOverview$.pipe(
       map((items) => {
@@ -31,4 +29,19 @@ export class UserTableDetailsShellComponent implements OnInit {
       })
     );
   }
+
+  //TODO
+  goTolive(){
+
+  }
+
+  //TODO
+  planMatch(){
+
+  }
+
+  
+
+
+
 }
