@@ -6,4 +6,9 @@
     [hasAddButton]="false"
     [hasSearchButton]="false"
 ></app-shared-toolbar>
-<app-user-team-details-presenter></app-user-team-details-presenter>
+<app-user-team-details-presenter
+    *ngIf="team$.value?.id.toString() == teamID"
+    [team]="team$|async"
+    (onAcceptMember)="accepUser($event)"
+    (onDeleteMember)="deleteMember($event)"
+></app-user-team-details-presenter>

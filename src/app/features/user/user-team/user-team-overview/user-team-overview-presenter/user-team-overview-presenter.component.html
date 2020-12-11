@@ -24,11 +24,11 @@
                   <div class="ml-4">
                     <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
                       {{team.name | truncate }}
-                      <ng-container *ngIf="team.participants.length != 1">
-                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} leden)</span>
+                      <ng-container *ngIf="team.participantIDs.length != 1">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participantIDs.length}} leden)</span>
                       </ng-container>
-                      <ng-container *ngIf="team.participants.length == 1">
-                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} lid)</span>
+                      <ng-container *ngIf="team.participantIDs.length == 1">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participantIDs.length}} lid)</span>
                       </ng-container>
                     </div>
                     <div class="text-sm text-gray-500 dark:text-gray-400">                      

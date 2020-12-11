@@ -8,41 +8,51 @@
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
               <!-- Start of ngFor -->
-              <tr class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800" >
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 h-10 w-10">
-                      <!-- <mat-icon *ngIf="(team|authUserInTeam)"
-                        class="material-icons-round mt-2 -ml-3 mr-1 text-green-700 dark:text-green-600">check_circle</mat-icon>
-                      <mat-icon *ngIf="!(team|authUserInTeam)"
-                        class="material-icons-round mt-2 -ml-3 mr-1 text-gray-400 dark:text-gray-500">check_circle</mat-icon>
-                      <mat-icon *ngIf="(team|authUserTeamCaptain)"
-                        class="material-icons-round mt-2 text-yellow-600 dark:text-yellow-300">star</mat-icon> -->
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- {{team.name | truncate }}
-                        <ng-container *ngIf="team.participants.length != 1">
-                          <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} leden)</span>
-                        </ng-container>
-                        <ng-container *ngIf="team.participants.length == 1">
-                          <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} lid)</span>
-                        </ng-container> -->
+              <ng-container *ngIf="teams.length == 0">
+                <tr class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800" >
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Er zijn geen teams meer om lid van te worden.
+                  </td>
+                </tr>
+              </ng-container>
+              <ng-container *ngFor="let team of teams">
+                <tr (click)="joinTeam(team.id)" class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800" >
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <!-- <div class="flex-shrink-0 h-10 w-10">
+                        <mat-icon *ngIf="(team|authUserInTeam)"
+                          class="material-icons-round mt-2 -ml-3 mr-1 text-green-700 dark:text-green-600">check_circle</mat-icon>
+                        <mat-icon *ngIf="!(team|authUserInTeam)"
+                          class="material-icons-round mt-2 -ml-3 mr-1 text-gray-400 dark:text-gray-500">check_circle</mat-icon>
+                        <mat-icon *ngIf="(team|authUserTeamCaptain)"
+                          class="material-icons-round mt-2 text-yellow-600 dark:text-yellow-300">star</mat-icon>
+                      </div> -->
+                      <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                          {{team.name | truncate }}
+                          <ng-container *ngIf="team.participantIDs.length != 1">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participantIDs.length}} leden)</span>
+                          </ng-container>
+                          <ng-container *ngIf="team.participantIDs.length == 1">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participantIDs.length}} lid)</span>
+                          </ng-container>
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">                      
+                          {{team.companyName}}
+                        </div>
                       </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">                      
-                        <!-- {{team.companyName}} -->
-                      </div>
                     </div>
-                  </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right font-medium">
-                  <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                  <button (click)="$event.stopPropagation();"
-                    mat-icon-button class="text-primary dark:text-primary-light">
-                    <mat-icon class="material-icons-round">add_task</mat-icon>
-                  </button>
-                </td>
-              </tr>
+                  </td>
+                  <td class="px-2 whitespace-nowrap text-right font-medium">
+                    <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
+                    <button (click)="$event.stopPropagation();"
+                      mat-icon-button class="text-primary dark:text-primary-light">
+                      <mat-icon class="material-icons-round">add_task</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+
               <!-- End of ngFor -->
             </tbody>
           </table>

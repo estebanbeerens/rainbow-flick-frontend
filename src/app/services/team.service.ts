@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { catchError, delay } from 'rxjs/operators';
 import { ITeamDetailsResponse } from 'src/app/shared/interfaces/team/team-details-response.model';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { ITeamsResponse } from 'src/app/shared/interfaces/team/teams-response.model';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +17,7 @@ export class TeamService {
 
   isLoading$ = new BehaviorSubject(false);
 
-  teams$ = new BehaviorSubject<ITeamDetails[]>([]);
+  teams$ = new BehaviorSubject<ITeamOverview[]>([]);
   teamDetails$ = new BehaviorSubject<ITeamDetails>(null);
 
   constructor(private http: HttpClient) {}
@@ -48,7 +48,7 @@ export class TeamService {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}`, body).subscribe((response) => {
       console.log('Response', response);
       this.teamDetails$.next(response.result);
-      this.teams$.next([...this.teams$.value, response.result]);
+      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
     });
   }
 
@@ -56,6 +56,7 @@ export class TeamService {
   updateTeam(teamID: String, body) {
     this.http.put<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
+      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
     });
   }
 
@@ -74,17 +75,34 @@ export class TeamService {
   joinTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/join`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
+      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
     });
   }
 
   leaveTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/leave`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
+      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
     });
   }
   acceptTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/accept`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
+      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
     });
+  }
+
+  private convertITeamDetailsToITeamOverview(team: ITeamDetails) :ITeamOverview{
+    const teamOverview: ITeamOverview = {
+      id: team.id,
+      name: team.name,
+      location: team.location,
+      companyName: team.companyName,
+      imageURL: team.imageURL,
+      participantIDs: team.participants.map((participant) => participant.id),
+      requestedParticipantIDs: team.requestedParticipants.map((participant) => participant.id),
+      captainID: team.captain.id
+    }
+    return teamOverview
   }
 }

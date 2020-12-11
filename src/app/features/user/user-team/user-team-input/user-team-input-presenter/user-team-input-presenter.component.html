@@ -1,36 +1,33 @@
 <!-- TODO Add [formGroup]="generalForm" and all formControlName="" -->
-<form>
+<form [formGroup]="generalForm">
   <div class="shadow-lg overflow-hidden rounded-lg">
     <div class="px-4 py-5 bg-gray-50 dark:bg-gray-700 border border-b-0 dark:border-gray-500 sm:p-6 rounded-t-lg">
       <div class="grid grid-cols-5 gap-4">
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Kapitein</label>
           <select class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
-            <!-- TODO : Ngfor users met [value]="user.id" -->
-            <option>United States</option>
-            <option>Canada</option>
-            <option>Mexico</option>
+            <option *ngFor="let user of team?.participants" [value]="user?.id" [selected]="team?.captain.id == user.id">{{user.firstName}} {{user.lastName}}</option>
           </select>
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Teamnaam</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="name" type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Bedrijfsnaam</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="companyName" type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Adres</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="location" type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
 
         <div class="col-span-2">
           <div class="flex items-center justify-center h-20 w-20 mx-auto">
-              <img class="h-20 w-20 rounded-full" src="assets/img/team.jpg" alt="">
+              <img class="h-20 w-20 rounded-full" [src]="team?.imageURL? team.imageURL : 'assets/img/team.jpg'" alt="">
           </div>
         </div>
 
