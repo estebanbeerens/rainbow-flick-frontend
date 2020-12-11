@@ -11,7 +11,6 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
   styleUrls: ['./admin-team-details-shell.component.scss'],
 })
 export class AdminTeamDetailsShellComponent implements OnInit {
-  isEdit: Boolean;
   team$: Observable<ITeamDetails>;
   action: string;
 
@@ -27,9 +26,7 @@ export class AdminTeamDetailsShellComponent implements OnInit {
     console.log(this.action);
   }
 
-  ngOnInit(): void {
-    this.isEdit = false;
-  }
+  ngOnInit(): void {}
 
   createForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],

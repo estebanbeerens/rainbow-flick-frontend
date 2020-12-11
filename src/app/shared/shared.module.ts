@@ -35,8 +35,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
-    SearchFilterPipe
-
+    SearchFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -45,7 +44,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   exports: [
     RouterModule,
@@ -66,7 +65,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     TruncatePipe,
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
-    AuthUserInRequestedParticipantsPipe
+    AuthUserInRequestedParticipantsPipe,
   ],
 })
 export class SharedModule {}

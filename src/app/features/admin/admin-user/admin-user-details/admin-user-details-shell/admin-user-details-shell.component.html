@@ -1,1 +1,6 @@
-<p>admin-user-details-shell works!</p>
+<app-admin-user-details-presenter
+    [user] = "user$ | async"
+    [formGroup] = "createForm"
+    (closeDialog)="closeDialog()"
+    (submitForm)="submitForm()"
+></app-admin-user-details-presenter>
