@@ -12,8 +12,8 @@
 </div>
 
 <div *ngIf="searchbar" class="w-full h-12 shadow-lg rounded-xl px-2 py-1 mb-2 bg-white text-gray-900 border flex justify-between items-center relative">
-    <input type="search" (keyup)="keyUp($event.target.value)" placeholder="Zoeken..."
-           class="appearance-none ml-1 w-full outline-none focus:outline-none active:outline-none"/>
+    <input type="text" (keyup)="keyUp($event.target.value)" placeholder="Zoeken..."
+           class="appearance-none ml-1 w-full outline-none focus:outline-none active:outline-none border-none focus:ring-0"/>
     <button mat-icon-button type="button" (click)="toggleSearchBar()" class="ml-1">
       <mat-icon class="material-icons-round">close</mat-icon>
     </button>
