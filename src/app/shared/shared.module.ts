@@ -16,9 +16,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
+import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
+import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
+import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
+import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import { MatInputModule } from '@angular/material/input';
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
-    SharedDateChangerComponent
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe,
+    SharedDateChangerComponent,
+    AuthUserInRequestedParticipantsPipe
+
   ],
   imports: [
     CommonModule,
@@ -47,9 +54,6 @@ import { MatInputModule } from '@angular/material/input';
     MatTooltipModule,
     MatDialogModule,
     MatRippleModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     NgScrollbarModule,
@@ -57,7 +61,11 @@ import { MatInputModule } from '@angular/material/input';
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
-    SharedDateChangerComponent
+    AuthUserInTeamPipe,
+    TruncatePipe,
+    AuthUserTeamCaptainPipe,
+    SharedDateChangerComponent,
+    AuthUserInRequestedParticipantsPipe
   ],
 })
 export class SharedModule {}
