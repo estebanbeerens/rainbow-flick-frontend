@@ -11,15 +11,26 @@ import { environment } from 'src/environments/environment';
 })
 export class MatchService {
   private baseUrl = environment.apiUrl + 'match';
+  isLoading$ = new BehaviorSubject(false);
 
   matches$ = new BehaviorSubject<IMatchDetail[]>([]);
   matchDetails$ = new BehaviorSubject<IMatchDetail>(null);
 
   constructor(private http: HttpClient) {}
 
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
+  }
+
   loadMatches() {
+    this._loaderInit();
     this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.matches$.next(response.results);
+      this._loaderStop();
     });
   }
 
