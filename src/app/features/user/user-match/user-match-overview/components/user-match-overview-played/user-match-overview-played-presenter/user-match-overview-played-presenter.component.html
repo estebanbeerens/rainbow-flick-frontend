@@ -4,29 +4,31 @@
       <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
           <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <tr *ngFor="let match of matches" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="flex items-center">
-                  <div>
-                    <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                      {{match.name|truncate:35}}
-                    </div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">
-                      {{match.dateTimeEnd|date:'d/M/y'}}
+            <ng-container *ngFor="let match of matches">
+              <tr (click)="goToDetails(match.id)" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" routerLink="/second-component">
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div>
+                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                        {{match.name|truncate:35}}
+                      </div>
+                      <div class="text-sm text-gray-500 dark:text-gray-400">
+                        {{match.dateTimeEnd|date:'d/M/y'}}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </td>
-              <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                <!-- TODO : Match gewonnen = groen, match verloren = rood -->
-                <div *ngIf="(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr from-primary to-secondary text-white rounded-lg">
-                  <p class="text-center">{{match|matchScore}}</p>
-                </div>
-                <div *ngIf="!(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr  from-red-700 to-pink-600 text-white rounded-lg">
-                  <p class="text-center">{{match|matchScore}}</p>
-                </div>
-              </td>
-            </tr>
+                </td>
+                <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
+                  <!-- TODO : Match gewonnen = groen, match verloren = rood -->
+                  <div *ngIf="(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr from-primary to-secondary text-white rounded-lg">
+                    <p class="text-center">{{match|matchScore}}</p>
+                  </div>
+                  <div *ngIf="!(match|authUserWonMatch)" class="text-sm mt-3 bg-gradient-to-tr  from-red-700 to-pink-600 text-white rounded-lg">
+                    <p class="text-center">{{match|matchScore}}</p>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
           </tbody>
         </table>
         <!-- <app-shared-paginator tableName="Gespeelde matchen" [from]="2" [to]="2" [total]="2"></app-shared-paginator> -->

@@ -15,7 +15,7 @@ import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.mo
 export class UserMatchOverviewShellComponent implements OnInit {
   matches$: BehaviorSubject<IMatchDetail[]>
   filteredMatches$ = new BehaviorSubject<IMatchDetail[]>([]);
-  currentTab: number = 2;
+  currentTab: number = 1;
   searchString$ = new BehaviorSubject<String>("");
   authUser: UserAuth;
 
@@ -67,9 +67,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
         } 
         case 3: {
           if(match.players.filter((player) => player.user.id == this.authUser.id).length == 0){
-            console.log("not yet in match")
             if(!match.dateTimeStart){
-              console.log("Match not started")
               return true
             }
           }

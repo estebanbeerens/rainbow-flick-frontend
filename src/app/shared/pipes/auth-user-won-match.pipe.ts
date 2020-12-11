@@ -18,7 +18,7 @@ export class AuthUserWonMatchPipe implements PipeTransform {
     let hasWon = false;
     if(finalScore){
         const playerTeamID = match.players
-        .filter((player) => player.user.id == this.authUser.id)[0].teamID;
+        .filter((player) => player.user.id == this.authUser.id)[0]?.teamID;
         let teamIDWon: String;
         if(finalScore.scoreAway > finalScore.scoreHome){
             teamIDWon = match.awayTeam.id
