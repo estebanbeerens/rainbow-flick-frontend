@@ -4,31 +4,30 @@
         <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <!-- TODO : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
+            <!--  Ngfor op TR -->
+              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" *ngFor="let match of viewMaches">
+                <td class="px-6 py-4 whitespace-nowrap" (click)="clickView(match.id)">
                   <div class="flex items-center">
                     <div>
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- TODO : Implement code below to shorten names if they're too long -->
-                        <!-- {{
-                            (match.name.length>50)? 
-                            (match.name | slice:0:50)+'...':(match.name) 
-                        }} -->
-                        [Naam]
+                        <!--Implement code below to shorten names if they're too long -->
+                        {{
+                          (match.name.length>15) ? ((match.name| slice:0:30)).toString()+ "..." : (match.name) 
+                        }}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Datum]
+                        {{ match.dateTimePlanned | date : 'fullDate' : '+110': 'nl-be' | titlecase}}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
+                  <!-- TODO check button -->
                     <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-primary dark:text-primary-light">
+                    <!-- <button (click)="$event.stopPropagation()" mat-icon-button class="text-primary dark:text-primary-light">
                         <mat-icon class="material-icons-round">done</mat-icon>
-                    </button>
-                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-red-500">
+                    </button> -->
+                    <button (click)="clickDelete(match.id)" mat-icon-button class="text-red-500">
                         <mat-icon class="material-icons-round">delete_outline</mat-icon>
                     </button>
                 </td>
@@ -36,10 +35,12 @@
             </tbody>
           </table>
           <app-shared-paginator
-            tableName="Matchen"
-            [from]="1"
-            [to]="1"
-            [total]="1"
+          tableName="Wedstrijden"
+          [minCount]="minTable"
+          [splitEvery]="splitEvery"
+          [total]="total"
+          (onPreviousPressed)="clickPrevious($event)"
+          (onNextPressed)="clickNext($event)"
           ></app-shared-paginator>
         </div>
       </div>
