@@ -1,0 +1,10 @@
+<app-shared-toolbar
+    [title]="title"
+    [route]="'/app/user/team/details/' + id"
+    [hasBackButton]="true"
+    [hasAddButton]="false"
+    [hasSearchButton]="false"
+></app-shared-toolbar>
+<app-user-team-input-presenter
+    [generalForm]="generalForm"
+></app-user-team-input-presenter>

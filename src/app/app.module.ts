@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
-import localeNlBe from '@angular/common/locales/nl-BE';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityInterceptor } from './security/security.interceptor';
+import localeNlBe from '@angular/common/locales/nl-BE';
 
 registerLocaleData(localeNlBe);
 

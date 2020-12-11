@@ -10,6 +10,7 @@ import { SharedHomePresenterComponent } from './components/shared-home/shared-ho
 import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
 import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
 import { SharedPaginatorComponent } from './components/shared-paginator/shared-paginator.component';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -21,7 +22,6 @@ import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-cap
 import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
-
 
 @NgModule({
   declarations: [
