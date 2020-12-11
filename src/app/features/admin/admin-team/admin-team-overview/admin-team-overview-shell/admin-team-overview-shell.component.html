@@ -1,9 +1,9 @@
 <app-shared-toolbar
     title="Teams"
-    [hasBackButton]="true"
+    [hasBackButton]="false"
     [hasAddButton]="true"
+    [hasSearchButton]="true"
 ></app-shared-toolbar>
-<app-shared-searchbar></app-shared-searchbar>
 <app-admin-team-overview-presenter
 [teams] = "teams$ | async"
     (delete)="deleteTable($event)"

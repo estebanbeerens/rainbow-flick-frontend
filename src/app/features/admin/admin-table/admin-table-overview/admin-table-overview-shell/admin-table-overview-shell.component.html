@@ -1,11 +1,10 @@
 <app-shared-toolbar
     title="Tafels"
-    [hasBackButton]="true"
+    [hasBackButton]="false"
     [hasAddButton]="true"
+    [hasSearchButton]="true"
     (onAddPressed)="actionTable('CREATE')"
 ></app-shared-toolbar>
-
-<app-shared-searchbar></app-shared-searchbar>
 <app-admin-table-overview-presenter
     [tables] = "tables$ | async"
     (delete)="deleteTable($event)"
