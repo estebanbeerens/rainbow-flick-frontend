@@ -2,5 +2,16 @@
     title="Gebruikers"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    (onAddPressed)="createTable()"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
-<app-admin-user-overview-presenter></app-admin-user-overview-presenter>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+
+<app-admin-user-overview-presenter
+    [users] = "viewUsers$ | async"
+    (delete)="deleteTable($event)"
+    (actionButton)="actionTable($event)"
+    ></app-admin-user-overview-presenter>

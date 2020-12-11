@@ -19,7 +19,6 @@ import { MatRippleModule } from '@angular/material/core';
 import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
 import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
-import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
@@ -36,8 +35,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
-    SearchFilterPipe
-
+    SearchFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -46,7 +44,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   exports: [
     RouterModule,
@@ -67,7 +65,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     TruncatePipe,
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
-    AuthUserInRequestedParticipantsPipe
+    AuthUserInRequestedParticipantsPipe,
   ],
 })
 export class SharedModule {}
