@@ -29,4 +29,8 @@ export class UserTableOverviewShellComponent implements OnInit {
   search(searchString: string) {
     this.viewTablesOverview$ = this._searchFilterPipe.transformTableOverview(this.tablesOverview$, searchString);
   }
+
+  changeDate(date: Date) {
+    this._tableService.overviewTable(date);
+  }
 }
