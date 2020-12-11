@@ -3,17 +3,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-shared-toolbar',
   templateUrl: './shared-toolbar.component.html',
-  styleUrls: ['./shared-toolbar.component.scss']
+  styleUrls: ['./shared-toolbar.component.scss'],
 })
 export class SharedToolbarComponent {
-
   searchbar: boolean = false;
 
+
+  @Input() route: string = "/app/home";
   @Input() title: string = "GEEN TITEL";
   @Input() hasBackButton: boolean = true;
   @Input() hasSearchButton: boolean = true;
   @Input() hasAddButton: boolean = true;
-  
+
   @Output() onAddPressed = new EventEmitter();
   @Output() onSearchKeyup = new EventEmitter<any>();
 
@@ -28,5 +29,4 @@ export class SharedToolbarComponent {
   keyUp(searchString: string): void {
     this.onSearchKeyup.emit(searchString);
   }
-
 }

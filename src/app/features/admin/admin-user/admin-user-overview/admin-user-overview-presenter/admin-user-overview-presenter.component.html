@@ -5,8 +5,8 @@
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
             <!-- TODO : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
+              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" *ngFor="let user of viewUsers">
+                <td class="px-6 py-4 whitespace-nowrap" (click)="clickView(user.id)">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
                       <img class="h-10 w-10 rounded-full" src="assets/img/user.png" alt="">
@@ -14,21 +14,26 @@
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
                         <!-- TODO : Implement code below to shorten names if they're too long -->
-                        <!-- {{
-                            (table.name.length>30)? 
-                            (table.name | slice:0:30)+'...':(table.name) 
-                        }} -->
-                        [Voornaam] [Naam]
+                        {{
+                          (user.firstName.length>15) ? ((user.firstName | slice:0:30)).toString()+ "..." : (user.firstName) 
+                          
+                          
+                      }}
+
+                      {{
+                        (user.lastName.length>15) ? ((user.lastName | slice:0:30)).toString()+ "..." : (user.lastName) 
+                      }}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Geboortedatum]
+                        {{ user.dateOfBirth | date : 'fullDate' : '+110': 'nl-be' | titlecase}}
+                   
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
                     <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-red-500">
+                    <button (click)="clickDelete(user.id)" mat-icon-button class="text-red-500">
                         <mat-icon class="material-icons-round">delete_outline</mat-icon>
                     </button>
                 </td>
@@ -36,10 +41,12 @@
             </tbody>
           </table>
           <app-shared-paginator
-            tableName="Gebruikers"
-            [from]="1"
-            [to]="1"
-            [total]="1"
+          tableName="Users"
+          [minCount]="minTable"
+          [splitEvery]="splitEvery"
+          [total]="total"
+          (onPreviousPressed)="clickPrevious($event)"
+          (onNextPressed)="clickNext($event)"
           ></app-shared-paginator>
         </div>
       </div>

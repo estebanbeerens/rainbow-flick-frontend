@@ -1,1 +1,9 @@
-<p>user-team-details-shell works!</p>
+<!-- TODO : Add team name -->
+<app-shared-toolbar
+    [title]="'Team details'"
+    [route]="'/app/user/team/overview'"
+    [hasBackButton]="true"
+    [hasAddButton]="false"
+    [hasSearchButton]="false"
+></app-shared-toolbar>
+<app-user-team-details-presenter></app-user-team-details-presenter>

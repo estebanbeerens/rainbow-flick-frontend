@@ -12,14 +12,26 @@ import { ITablesResponse } from 'src/app/shared/interfaces/table/tables-response
 export class TableService {
   private baseUrl = environment.apiUrl + 'table';
 
+  isLoading$ = new BehaviorSubject(false);
+
   tables$ = new BehaviorSubject<ITableDetails[]>([]);
   tableDetails$ = new BehaviorSubject<ITableDetails>(null);
 
   constructor(private http: HttpClient) {}
 
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
+  }
+
   loadTables() {
+    this._loaderInit();
     this.http.get<ITablesResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.tables$.next(response.results);
+      this._loaderStop();
     });
   }
 
@@ -36,8 +48,8 @@ export class TableService {
   }
 
   deleteTable(tableID: String) {
-    this.http.delete<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
-      this.tables$.next(this.tables$.value.filter((table) => table.id != response.result.id));
+    this.http.delete(`${this.baseUrl}/${tableID}`).subscribe((response) => {
+      this.tables$.next(this.tables$.value.filter((table) => table.id != tableID));
     });
   }
 

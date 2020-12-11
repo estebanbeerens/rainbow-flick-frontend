@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MatchService {
   private baseUrl = environment.apiUrl + 'match';
+  isLoading$ = new BehaviorSubject(false);
 
   matchesAdmin$ = new BehaviorSubject<IMatchDetail[]>([]);
   matchesAuthUser$ = new BehaviorSubject<IMatchDetail[]>([]);
@@ -21,8 +22,19 @@ export class MatchService {
   loadAdminMatches() {
     this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.matchesAdmin$.next(response.results);
-    });
+      this._loaderStop();
+          });
   }
+
+  
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
+  }
+
 
   loadMatchesAuthUser(){
     this.http.get<IMatchsResponse>(`${this.baseUrl}/authUser`).subscribe((response) => {

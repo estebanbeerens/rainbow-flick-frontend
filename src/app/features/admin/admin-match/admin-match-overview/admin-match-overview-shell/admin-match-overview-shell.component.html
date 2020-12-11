@@ -2,5 +2,16 @@
     title="Wedstrijden"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    (onAddPressed)="createTable()"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
-<app-admin-match-overview-presenter></app-admin-match-overview-presenter>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+
+<app-admin-match-overview-presenter
+    [matches] = "viewMatches$ | async"
+    (delete)="deleteTable($event)"
+    (actionButton)="actionTable($event)"
+></app-admin-match-overview-presenter>

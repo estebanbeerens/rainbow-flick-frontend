@@ -2,5 +2,17 @@
     title="Tafels"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    (onAddPressed)="createTable()"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
-<app-admin-table-overview-presenter></app-admin-table-overview-presenter>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+
+<app-admin-table-overview-presenter
+    [tables] = "viewTables$ | async"
+    (delete)="deleteTable($event)"
+    (actionButton)="actionTable($event)"
+></app-admin-table-overview-presenter>
+

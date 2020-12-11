@@ -8,49 +8,72 @@ import { UserRankingShellComponent } from 'src/app/features/user/user-ranking/us
 import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table/user-table-details/user-table-details-shell/user-table-details-shell.component';
 import { UserTableOverviewShellComponent } from 'src/app/features/user/user-table/user-table-overview/user-table-overview-shell/user-table-overview-shell.component';
 import { UserTeamDetailsShellComponent } from 'src/app/features/user/user-team/user-team-details/user-team-details-shell/user-team-details-shell.component';
+import { UserTeamInputShellComponent } from 'src/app/features/user/user-team/user-team-input/user-team-input-shell/user-team-input-shell.component';
+import { UserTeamJoinShellComponent } from 'src/app/features/user/user-team/user-team-join/user-team-join-shell/user-team-join-shell.component';
 import { UserTeamOverviewShellComponent } from 'src/app/features/user/user-team/user-team-overview/user-team-overview-shell/user-team-overview-shell.component';
 
-const routes: Routes = [{
-  path: 'ranking',
-  component: UserRankingShellComponent,
-},
-{
-  path: 'table/overview',
-  component: UserTableOverviewShellComponent,
-},
-{
-  path: 'table/details/:id',
-  component: UserTableDetailsShellComponent,
-},
-{
-  path: 'match/overview',
-  component: UserMatchOverviewShellComponent,
-},
-{
-  path: 'match/details/:id',
-  component: UserMatchDetailsShellComponent,
-},
-{
-  path: 'match/create/',
-  component: UserMatchCreateShellComponent,
-},
-{
-  path: 'team/overview',
-  component: UserTeamOverviewShellComponent,
-},
-{
-  path: 'team/details/:id',
-  component: UserTeamDetailsShellComponent,
-},
-{
-  path: 'game/overview',
-  component: UserGameShellComponent,
-},
-{
-  path: '**',
-  pathMatch: 'full',
-  redirectTo: 'table/overview',
-},
+const routes: Routes = [
+  {
+    path: 'ranking',
+    component: UserRankingShellComponent,
+  },
+  {
+    path: 'table/overview',
+    component: UserTableOverviewShellComponent,
+  },
+  {
+    path: 'table/details/:id',
+    component: UserTableDetailsShellComponent,
+  },
+  {
+    path: 'table',
+    redirectTo: 'table/overview',
+  },
+  {
+    path: 'match/overview',
+    component: UserMatchOverviewShellComponent,
+  },
+  {
+    path: 'match/details/:id',
+    component: UserMatchDetailsShellComponent,
+  },
+  {
+    path: 'match/create/',
+    component: UserMatchCreateShellComponent,
+  },
+  {
+    path: 'match',
+    redirectTo: 'match/overview',
+  },
+  {
+    path: 'team/overview',
+    component: UserTeamOverviewShellComponent,
+  },
+  {
+    path: 'team/join',
+    component: UserTeamJoinShellComponent,
+  },
+  {
+    path: 'team/details/:id',
+    component: UserTeamDetailsShellComponent,
+  },
+  {
+    path: 'team/details/:id/edit',
+    component: UserTeamInputShellComponent,
+  },
+  {
+    path: 'team',
+    redirectTo: 'team/overview',
+  },
+  {
+    path: 'game/overview',
+    component: UserGameShellComponent,
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '/app/home',
+  },
 ];
 
 @NgModule({

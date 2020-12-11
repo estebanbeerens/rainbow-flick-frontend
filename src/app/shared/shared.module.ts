@@ -10,6 +10,7 @@ import { SharedHomePresenterComponent } from './components/shared-home/shared-ho
 import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
 import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
 import { SharedPaginatorComponent } from './components/shared-paginator/shared-paginator.component';
+import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -18,10 +19,10 @@ import { MatRippleModule } from '@angular/material/core';
 import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
 import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
-import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 import { AuthUserWonMatchPipe } from 'src/app/shared/pipes/auth-user-won-match.pipe';
 import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
     AuthUserInRequestedParticipantsPipe,
     AuthUserWonMatchPipe,
     MatchScorePipe
-
+    SearchFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -48,7 +49,7 @@ import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   exports: [
     RouterModule,

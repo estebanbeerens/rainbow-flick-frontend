@@ -17,36 +17,33 @@ import { AdminUserOverviewPresenterComponent } from 'src/app/features/admin/admi
 import { AdminUserDetailsShellComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-shell/admin-user-details-shell.component';
 import { AdminUserDetailsPresenterComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-presenter/admin-user-details-presenter.component';
 import { AdminMatchOverviewPresenterComponent } from 'src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component';
-
+import { AdminTeamDetailsPresenterComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-presenter/admin-team-details-presenter.component';
+import { AdminTeamDetailsShellComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-shell/admin-team-details-shell.component';
 
 @NgModule({
-declarations: [
+  declarations: [
     AdminTableOverviewShellComponent,
     AdminTableOverviewPresenterComponent,
     AdminTableDetailsShellComponent,
     AdminTableDetailsPresenterComponent,
     AdminTeamOverviewPresenterComponent,
     AdminTeamOverviewShellComponent,
-    AdminTableDetailsPresenterComponent, 
-    AdminTableDetailsShellComponent, 
-    AdminTeamOverviewPresenterComponent, 
-    AdminTeamOverviewShellComponent, 
-    AdminTableDetailsPresenterComponent, 
-    AdminTableDetailsShellComponent, 
-    AdminTeamOverviewPresenterComponent, 
-    AdminMatchOverviewShellComponent, 
+    AdminTableDetailsShellComponent,
+    AdminTeamOverviewPresenterComponent,
+    AdminTeamOverviewShellComponent,
+    AdminTableDetailsShellComponent,
+    AdminTeamOverviewPresenterComponent,
+    AdminMatchOverviewShellComponent,
     AdminMatchOverviewPresenterComponent,
-    AdminMatchDetailsPresenterComponent, 
+    AdminMatchDetailsPresenterComponent,
     AdminMatchDetailsShellComponent,
     AdminUserOverviewShellComponent,
     AdminUserOverviewPresenterComponent,
+    AdminTeamDetailsShellComponent,
     AdminUserDetailsShellComponent,
-    AdminUserDetailsPresenterComponent
-],
-imports: [
-  CommonModule,
-  AdminRoutingModule,
-  SharedModule
-]
+    AdminUserDetailsPresenterComponent,
+    AdminTeamDetailsPresenterComponent,
+  ],
+  imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
-export class AdminModule { }
+export class AdminModule {}

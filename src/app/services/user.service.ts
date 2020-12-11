@@ -17,6 +17,8 @@ export class UserService {
   private baseUrl = environment.apiUrl + 'user';
   private token: string;
 
+  isLoading$ = new BehaviorSubject(false);
+
   message$ = new BehaviorSubject<IUserMessage>(null);
 
   userAuth$ = new BehaviorSubject<UserAuth>(null);
@@ -24,7 +26,7 @@ export class UserService {
   loginError$ = new BehaviorSubject<String>('');
   registerError$ = new Subject<String[]>();
 
-  users$ = new BehaviorSubject<IUsersResponse>(null);
+  users$ = new BehaviorSubject<IUserDetails[]>(null);
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('token');
@@ -33,6 +35,14 @@ export class UserService {
       const decodedJwt = <IUserAuth>jwt_decode(<string>token);
       this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
     }
+  }
+
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
   }
 
   getToken() {
@@ -86,14 +96,18 @@ export class UserService {
   }
 
   loadUsers() {
+    this._loaderInit();
     this.http.get<IUsersResponse>(`${this.baseUrl}/all`).subscribe((response) => {
-      this.users$.next(response);
+      this.users$.next(response.results);
+      this._loaderStop();
     });
   }
 
   loadUserDetails(userID: String) {
+    this._loaderInit();
     this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
       this.userDetails$.next(response.result);
+      this._loaderStop();
     });
   }
 
@@ -109,10 +123,8 @@ export class UserService {
     });
   }
 
-  private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth{
-    let object = new UserAuth(
-      authUser.id, authUser.iat, authUser.exp, authUser.permissions
-    )
-    return object
+  private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth {
+    let object = new UserAuth(authUser.id, authUser.iat, authUser.exp, authUser.permissions);
+    return object;
   }
 }
