@@ -17,14 +17,13 @@ import { AdminUserOverviewPresenterComponent } from 'src/app/features/admin/admi
 import { AdminUserDetailsShellComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-shell/admin-user-details-shell.component';
 import { AdminUserDetailsPresenterComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-presenter/admin-user-details-presenter.component';
 import { AdminMatchOverviewPresenterComponent } from 'src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-presenter/admin-match-overview-presenter.component';
-import { AdminTeamDetailsPresenterComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-presenter/admin-team-details-presenter.component';
 
 @NgModule({
   declarations: [
     AdminTableOverviewShellComponent,
     AdminTableOverviewPresenterComponent,
     AdminTableDetailsShellComponent,
-    AdminTeamDetailsPresenterComponent,
+    AdminTableDetailsPresenterComponent,
     AdminTeamOverviewPresenterComponent,
     AdminTeamOverviewShellComponent,
     AdminTableDetailsPresenterComponent,
