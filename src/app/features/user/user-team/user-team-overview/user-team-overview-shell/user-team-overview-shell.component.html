@@ -3,9 +3,10 @@
     [hasBackButton]="true"
     [hasAddButton]="true"
     [hasSearchButton]="true"
+    (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
 <app-user-team-overview-presenter
-    [teams]="teams$|async"
+    [teams]="filteredTeams$|async"
 >
 </app-user-team-overview-presenter>
 
