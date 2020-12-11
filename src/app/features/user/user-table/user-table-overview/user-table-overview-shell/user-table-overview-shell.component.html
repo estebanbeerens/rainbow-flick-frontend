@@ -8,6 +8,7 @@
 <app-shared-date-changer
 (onPreviousPressed)="changeDate($event)"
 (onNextPressed)="changeDate($event)"
+(onCurrentPressed)="changeDate($event)"
 ></app-shared-date-changer>
 <app-shared-spinner
 [visible] = "preloader$ | async"
