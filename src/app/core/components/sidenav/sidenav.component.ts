@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { adminSidenavRoutes } from 'src/app/core/models/routes/admin-sidenav-routes';
 import { IRouteInfo } from 'src/app/core/models/routes/route-info';
+import { UserService } from 'src/app/services/user.service';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
@@ -13,26 +15,30 @@ export class SidenavComponent implements OnInit {
   routeInfo: IRouteInfo[];
   sideNavToggled: boolean;
   darkMode: string;
+  authUser: UserAuth;
 
   constructor(
-    private sharedService: SharedService
+    private _sharedService: SharedService,
+    private _userService: UserService
+    
   ) { }
 
   ngOnInit(): void {
-    this.sharedService.sideNavToggled.subscribe(v => this.sideNavToggled = v);
-    this.sharedService.darkMode.subscribe(v => this.darkMode = v);
+    this._sharedService.sideNavToggled.subscribe(v => this.sideNavToggled = v);
+    this._sharedService.darkMode.subscribe(v => this.darkMode = v);
     this.routeInfo = adminSidenavRoutes;
+    this._userService.userAuth$.subscribe((value) => this.authUser = value);
   }
 
   toggleSideNav(): void {
-    this.sharedService.toggleSideNav();
+    this._sharedService.toggleSideNav();
   }
 
   toggleDarkMode(): void {
     if (this.darkMode == 'light') {
-      this.sharedService.setDarkMode('dark');
+      this._sharedService.setDarkMode('dark');
     } else {
-      this.sharedService.setDarkMode('light');
+      this._sharedService.setDarkMode('light');
     }
   }
 
