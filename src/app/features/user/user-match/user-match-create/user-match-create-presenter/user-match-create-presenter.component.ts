@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './user-match-create-presenter.component.html',
   styleUrls: ['./user-match-create-presenter.component.scss']
 })
-export class UserMatchCreatePresenterComponent implements OnInit {
+export class UserMatchCreatePresenterComponent {
+  
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  
 }
