@@ -1,7 +1,9 @@
 <app-shared-toolbar
     title="Wedstrijden"
-    [hasBackButton]="true"
+    [hasBackButton]="false"
     [hasAddButton]="true"
+    [hasSearchButton]="true"
+    (onAddPressed)="navigateToTables();"
     (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
 <app-user-match-overview-presenter

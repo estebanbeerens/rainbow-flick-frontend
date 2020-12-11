@@ -38,7 +38,7 @@ const routes: Routes = [
     component: UserMatchDetailsShellComponent,
   },
   {
-    path: 'match/create/',
+    path: 'match/create',
     component: UserMatchCreateShellComponent,
   },
   {
