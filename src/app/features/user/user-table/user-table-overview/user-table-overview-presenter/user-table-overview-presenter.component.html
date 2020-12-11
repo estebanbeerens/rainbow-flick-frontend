@@ -6,7 +6,7 @@
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
             <!--  Ngfor op TR -->
               <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" *ngFor="let table of tables?.tables">
-                <td class="px-6 py-4 whitespace-nowrap">
+                <td class="px-6 py-4 whitespace-nowrap" [routerLink]="['/app/user/table/details/',table?.id]">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
                       <img class="h-10 w-10 rounded-full" src="assets/img/table.png" alt="">
