@@ -24,8 +24,8 @@ export class AdminMatchOverviewShellComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this._matcheService.loadMatches();
-    this.matches$ = this._matcheService.matches$.asObservable();
+    this._matcheService.loadAdminMatches();
+    this.matches$ = this._matcheService.matchesAdmin$.asObservable();
     this.viewMatches$ = this.matches$;
     this.preloader$ = this._matcheService.isLoading$.asObservable();
   }

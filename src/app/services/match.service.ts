@@ -22,8 +22,7 @@ export class MatchService {
   loadAdminMatches() {
     this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.matchesAdmin$.next(response.results);
-      this._loaderStop();
-          });
+      this._loaderStop(); });
   }
 
   
