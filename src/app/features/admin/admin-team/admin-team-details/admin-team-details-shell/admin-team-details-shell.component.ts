@@ -4,7 +4,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
-import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
 
 @Component({
   selector: 'app-admin-team-details-shell',
@@ -12,6 +11,7 @@ import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model'
   styleUrls: ['./admin-team-details-shell.component.scss'],
 })
 export class AdminTeamDetailsShellComponent implements OnInit {
+  isEdit: Boolean;
   team$: Observable<ITeamDetails>;
   action: string;
 
@@ -23,14 +23,22 @@ export class AdminTeamDetailsShellComponent implements OnInit {
   ) {
     this.action = data.action;
     this.team$ = this._teamService.teamDetails$.asObservable();
+
+    console.log(this.action);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isEdit = false;
+  }
 
-  createTeamsForm = this.fb.group({
+  createForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
+    location: ['', [Validators.required, Validators.minLength(3)]],
+    imageUrl: ['', [Validators.required]],
+    contactName: ['', [Validators.required, Validators.minLength(3)]],
+    contactPhone: ['', [Validators.required, Validators.minLength(3)]],
+    description: ['', [Validators.required, Validators.minLength(3)]],
   });
-
   submitForm() {
     console.log('SUMBIT');
     //TODO Create new teams

@@ -19,7 +19,6 @@ export class AdminTeamOverviewPresenterComponent implements OnInit {
   //TODO PRELOADER
 
   ngOnChanges() {
-    console.log(this.teams);
     this.total = this.teams.length;
     this.viewTeams = this.teams.slice(this.minTable, this.splitEvery);
   }

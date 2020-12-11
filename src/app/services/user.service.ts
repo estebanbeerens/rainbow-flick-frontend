@@ -17,6 +17,8 @@ export class UserService {
   private baseUrl = environment.apiUrl + 'user';
   private token: string;
 
+  isLoading$ = new BehaviorSubject(false);
+
   message$ = new BehaviorSubject<IUserMessage>(null);
 
   userAuth$ = new BehaviorSubject<UserAuth>(null);
@@ -33,6 +35,14 @@ export class UserService {
       const decodedJwt = <IUserAuth>jwt_decode(<string>token);
       this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
     }
+  }
+
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
   }
 
   getToken() {
@@ -109,10 +119,8 @@ export class UserService {
     });
   }
 
-  private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth{
-    let object = new UserAuth(
-      authUser.id, authUser.iat, authUser.exp, authUser.permissions
-    )
-    return object
+  private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth {
+    let object = new UserAuth(authUser.id, authUser.iat, authUser.exp, authUser.permissions);
+    return object;
   }
 }

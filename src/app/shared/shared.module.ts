@@ -21,6 +21,7 @@ import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-u
     TruncatePipe,
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
-    AuthUserInRequestedParticipantsPipe
+    AuthUserInRequestedParticipantsPipe,
+    SearchFilterPipe
 
   ],
   imports: [

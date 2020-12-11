@@ -2,10 +2,16 @@
     title="Teams"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    (onAddPressed)="createTable()"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
-<app-shared-searchbar></app-shared-searchbar>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+
 <app-admin-team-overview-presenter
-[teams] = "teams$ | async"
+[teams] = "viewTeams$ | async"
     (delete)="deleteTable($event)"
     (actionButton)="actionTable($event)"
     ></app-admin-team-overview-presenter>
