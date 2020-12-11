@@ -1,1 +1,13 @@
-<p>admin-match-details-presenter works!</p>
+<p>Match</p>
+{{ match | json}}
+
+<form [formGroup]="formGroup" (ngSubmit)="clickSubmitForm()">
+    <p>First name:
+    
+    </p>
+    <p><button mat-raised-button color="primary" type="submit">Submit</button></p>
+    </form>
+
+<p>
+    <button mat-button (click)="addCloseDialog()" mat-flat-button color="warn">Cancel</button>
+</p>

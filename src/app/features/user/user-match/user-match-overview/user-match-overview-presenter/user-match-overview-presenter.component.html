@@ -1,18 +1,18 @@
 <div class="grid grid-cols-3 gap-2 mb-2 h-11">
-    <button matRipple (click)="setTab(1)" class="shadow-lg rounded-lg text-center p-3"
-            [ngClass]="tab == 1 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
-        <span>Gespeeld</span>
-    </button>
-    <button matRipple (click)="setTab(2)" class="shadow-lg rounded-lg text-center p-3"
-            [ngClass]="tab == 2 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
-        <span>Toekomstig</span>
-    </button>
-    <button matRipple (click)="setTab(3)" class="shadow-lg rounded-lg text-center p-3"
-            [ngClass]="tab == 3 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
-        <span>Uitgenodigd</span>
-    </button>
+  <button matRipple (click)="setTab(1)" class="shadow-lg rounded-lg text-center p-3"
+    [ngClass]="tab == 1 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
+    <span>Gespeeld</span>
+  </button>
+  <button matRipple (click)="setTab(2)" class="shadow-lg rounded-lg text-center p-3"
+    [ngClass]="tab == 2 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
+    <span>Toekomstig</span>
+  </button>
+  <button matRipple (click)="setTab(3)" class="shadow-lg rounded-lg text-center p-3"
+    [ngClass]="tab == 3 ? 'bg-gradient-to-tr from-primary to-secondary text-white' : 'bg-gray-300 text-gray-900'">
+    <span>Uitgenodigd</span>
+  </button>
 </div>
-
-<app-user-match-overview-played-shell *ngIf="tab == 1"></app-user-match-overview-played-shell>
-<app-user-match-overview-future-shell *ngIf="tab == 2"></app-user-match-overview-future-shell>
-<app-user-match-overview-invitation-shell *ngIf="tab == 3"></app-user-match-overview-invitation-shell>
+<app-user-match-overview-played-shell [matches]="matches" *ngIf="tab == 1"></app-user-match-overview-played-shell>
+<app-user-match-overview-future-shell [matches]="matches" *ngIf="tab == 2"></app-user-match-overview-future-shell>
+<app-user-match-overview-invitation-shell [matches]="matches" *ngIf="tab == 3">
+</app-user-match-overview-invitation-shell>

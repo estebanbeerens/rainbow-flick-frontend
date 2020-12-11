@@ -1,1 +1,6 @@
-blabla
+<app-admin-team-details-presenter
+    [team] = "team$ | async"
+    [formGroup] = "createForm"
+    (closeDialog)="closeDialog()"
+    (submitForm)="submitForm()"
+></app-admin-team-details-presenter>

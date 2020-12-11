@@ -25,12 +25,10 @@ export class UserTeamOverviewPresenterComponent implements OnInit {
 
   rowClicked(teamID: string){
     this._teamService.loadTeamDetails(teamID);
-    this._router.navigate([`app/user/team/details/${teamID}`])
-    console.log("clicked team with id: ", teamID)
+    this._router.navigate([`app/user/team/details/${teamID}`]);
   }
 
   deleteTeam(teamID: string){
     this._teamService.deleteTeam(teamID);
-    console.log("delete team with id: ", teamID)
   }
 }
