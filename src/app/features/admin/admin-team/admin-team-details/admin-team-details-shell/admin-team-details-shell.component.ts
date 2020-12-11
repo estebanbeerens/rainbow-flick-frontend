@@ -23,6 +23,8 @@ export class AdminTeamDetailsShellComponent implements OnInit {
   ) {
     this.action = data.action;
     this.team$ = this._teamService.teamDetails$.asObservable();
+
+    console.log(this.action);
   }
 
   ngOnInit(): void {
