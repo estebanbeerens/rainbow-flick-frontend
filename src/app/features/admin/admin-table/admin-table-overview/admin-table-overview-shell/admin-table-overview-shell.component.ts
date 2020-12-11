@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table/user-table-details/user-table-details-shell/user-table-details-shell.component';
+import { Observable } from 'rxjs';
+import { AdminTableDetailsShellComponent } from 'src/app/features/admin/admin-table/admin-table-details/admin-table-details-shell/admin-table-details-shell.component';
 import { TableService } from 'src/app/services/table.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
 
@@ -10,29 +11,28 @@ import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.mod
   styleUrls: ['./admin-table-overview-shell.component.scss'],
 })
 export class AdminTableOverviewShellComponent implements OnInit {
-  tables$: ITableDetails[];
+  tables$: Observable<ITableDetails[]>;
 
   constructor(private _tableService: TableService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this._tableService.loadTables();
-    this._tableService.tables$.subscribe((table) => (this.tables$ = table));
+    this.tables$ = this._tableService.tables$.asObservable();
   }
 
-  createTable(tableID: String) {
-    //TODO fix create table
-    // this._tableService.createTag()
+  actionTable(result) {
+    this._tableService.loadTableDetails(result.tableID);
+    this.openDialog(result.action);
   }
 
   deleteTable(tableID: String) {
     this._tableService.deleteTable(tableID);
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(UserTableDetailsShellComponent, {
-      width: '250px',
+  openDialog(action: String): void {
+    const dialogRef = this.dialog.open(AdminTableDetailsShellComponent, {
+      minWidth: '400px',
+      data: {action: action },
     });
-
-    dialogRef.componentInstance.ngOnInit();
   }
 }
