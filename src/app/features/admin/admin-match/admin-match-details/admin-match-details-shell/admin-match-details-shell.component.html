@@ -1,1 +1,6 @@
-<p>admin-match-details-shell works!</p>
+<app-admin-match-details-presenter
+    [match] = "match$ | async"
+    [formGroup] = "createForm"
+    (closeDialog)="closeDialog()"
+    (submitForm)="submitForm()"
+></app-admin-match-details-presenter>

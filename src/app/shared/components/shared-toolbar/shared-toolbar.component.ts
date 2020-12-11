@@ -4,21 +4,20 @@ import { Location } from '@angular/common'
 @Component({
   selector: 'app-shared-toolbar',
   templateUrl: './shared-toolbar.component.html',
-  styleUrls: ['./shared-toolbar.component.scss']
+  styleUrls: ['./shared-toolbar.component.scss'],
 })
 export class SharedToolbarComponent {
-
+  
   constructor(
     private location: Location
   ) {}
 
   searchbar: boolean = false;
-
   @Input() title: string = "GEEN TITEL";
   @Input() hasBackButton: boolean = true;
   @Input() hasSearchButton: boolean = true;
   @Input() hasAddButton: boolean = true;
-  
+
   @Output() onAddPressed = new EventEmitter();
   @Output() onSearchKeyup = new EventEmitter<any>();
 
@@ -37,5 +36,4 @@ export class SharedToolbarComponent {
   keyUp(searchString: string): void {
     this.onSearchKeyup.emit(searchString);
   }
-
 }

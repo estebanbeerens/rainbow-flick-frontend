@@ -3,10 +3,15 @@
     [hasBackButton]="false"
     [hasAddButton]="true"
     [hasSearchButton]="true"
-    (onAddPressed)="actionTable('CREATE')"
+    (onAddPressed)="actionTable()"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
 <app-admin-table-overview-presenter
-    [tables] = "tables$ | async"
+    [tables] = "viewTables$ | async"
     (delete)="deleteTable($event)"
     (actionButton)="actionTable($event)"
 ></app-admin-table-overview-presenter>
