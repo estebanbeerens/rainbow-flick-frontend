@@ -23,7 +23,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
     private _matchService: MatchService,
     private _userService: UserService
   ) { }
