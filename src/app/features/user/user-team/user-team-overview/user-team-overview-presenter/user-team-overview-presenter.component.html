@@ -1,92 +1,55 @@
 <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="rounded-lg shadow overflow-hidden">
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
-            <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <!-- TODO : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 h-10 w-10">
-                        <!-- TODO : If captain show -->
-                        <mat-icon class="material-icons-round mt-2 -ml-3 mr-1 text-yellow-600 dark:text-yellow-300">star</mat-icon>
-                        <!-- TODO : If accepted green else gray -->
-                        <mat-icon class="material-icons-round mt-2 text-green-700 dark:text-green-600">check_circle</mat-icon>
-                        <!-- <mat-icon class="material-icons-round mt-2 text-gray-400 dark:text-gray-500">check_circle</mat-icon> -->
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="rounded-lg shadow overflow-hidden">
+        <button matRipple class="bg-gradient-to-tr from-primary to-secondary text-white text-center py-1 w-full">
+          <span>Sluit je aan bij een team</span>
+        </button>
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+          <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
+            <!-- Start of ngFor -->
+            <tr *ngFor="let team of teams"
+              class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800"
+              (click)="rowClicked(team.id)">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <mat-icon *ngIf="(team|authUserInTeam)"
+                      class="material-icons-round mt-2 -ml-3 mr-1 text-green-700 dark:text-green-600">check_circle</mat-icon>
+                    <mat-icon *ngIf="!(team|authUserInTeam)"
+                      class="material-icons-round mt-2 -ml-3 mr-1 text-gray-400 dark:text-gray-500">check_circle</mat-icon>
+                    <mat-icon *ngIf="(team|authUserTeamCaptain)"
+                      class="material-icons-round mt-2 text-yellow-600 dark:text-yellow-300">star</mat-icon>
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                      {{team.name | truncate }}
+                      <ng-container *ngIf="team.participants.length != 1">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} leden)</span>
+                      </ng-container>
+                      <ng-container *ngIf="team.participants.length == 1">
+                        <span class="text-sm text-gray-500 dark:text-gray-400">({{team.participants.length}} lid)</span>
+                      </ng-container>
                     </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- TODO : Implement code below to shorten names if they're too long -->
-                        <!-- {{
-                            (team.name.length>30)? 
-                            (team.name | slice:0:30)+'...':(team.name) 
-                        }} -->
-                        [Naam]
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [x] Leden
-                      </div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">                      
+                      {{team.companyName}}
                     </div>
                   </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right font-medium">
-                    <!-- TODO : If captain show -->
-                    <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button (click)="$event.stopPropagation()" mat-icon-button class="text-red-500">
-                        <mat-icon class="material-icons-round">delete_outline</mat-icon>
-                    </button>
-                </td>
-              </tr>
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 h-10 w-10">
-                        <mat-icon class="material-icons-round mt-2 text-green-700 dark:text-green-600">check_circle</mat-icon>
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        [Naam]
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [x] Leden
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right font-medium"></td>
-              </tr>
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div class="flex-shrink-0 h-10 w-10">
-                        <mat-icon class="material-icons-round mt-2 text-gray-400 dark:text-gray-500">check_circle</mat-icon>
-                    </div>
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        [Naam]
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [x] Leden
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right font-medium"></td>
-              </tr>
-            </tbody>
-          </table>
-          <app-shared-paginator
-            tableName="Teams"
-            [from]="1"
-            [to]="3"
-            [total]="3"
-          ></app-shared-paginator>
-          <button matRipple class="bg-gradient-to-tr from-primary to-secondary text-white text-center py-1 w-full">
-                <span>Word lid van een nieuw team</span>
-          </button>
-        </div>
+                </div>
+              </td>
+              <td class="px-2 whitespace-nowrap text-right font-medium">
+                <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
+                <button *ngIf="(team|authUserTeamCaptain)" (click)="$event.stopPropagation(); deleteTeam(team.id)"
+                  mat-icon-button class="text-red-500">
+                  <mat-icon class="material-icons-round">delete_outline</mat-icon>
+                </button>
+              </td>
+            </tr>
+            <!-- End of ngFor -->
+          </tbody>
+        </table>
+        <!-- <app-shared-paginator tableName="Teams" [from]="1" [to]="3" [total]="teams.length"></app-shared-paginator> -->
       </div>
     </div>
   </div>
-  
+</div>

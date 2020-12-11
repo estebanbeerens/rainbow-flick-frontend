@@ -2,6 +2,11 @@
     title="Teams"
     [hasBackButton]="true"
     [hasAddButton]="true"
+    [hasSearchButton]="true"
+    (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
-<app-shared-searchbar></app-shared-searchbar>
-<app-user-team-overview-presenter></app-user-team-overview-presenter>
+<app-user-team-overview-presenter
+    [teams]="filteredTeams$|async"
+>
+</app-user-team-overview-presenter>
+
