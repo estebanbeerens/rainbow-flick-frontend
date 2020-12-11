@@ -5,6 +5,11 @@
     (onAddPressed)="createTable()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
+
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+
 <app-admin-team-overview-presenter
 [teams] = "viewTeams$ | async"
     (delete)="deleteTable($event)"

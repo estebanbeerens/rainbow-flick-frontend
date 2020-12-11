@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shared-spinner',
@@ -6,5 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shared-spinner.component.scss']
 })
 export class SharedSpinnerComponent {
-
+  @Input() visible: Boolean = true;
 }

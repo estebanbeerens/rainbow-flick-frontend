@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 import { ITeamDetailsResponse } from 'src/app/shared/interfaces/team/team-details-response.model';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 import { ITeamsResponse } from 'src/app/shared/interfaces/team/teams-response.model';
@@ -15,14 +15,26 @@ export class TeamService {
 
   test: ITeamsResponse;
 
+  isLoading$ = new BehaviorSubject(false);
+
   teams$ = new BehaviorSubject<ITeamDetails[]>([]);
   teamDetails$ = new BehaviorSubject<ITeamDetails>(null);
 
   constructor(private http: HttpClient) {}
 
+  _loaderInit() {
+    this.isLoading$.next(true);
+  }
+
+  _loaderStop() {
+    this.isLoading$.next(false);
+  }
+
   loadTeams() {
+    this._loaderInit();
     this.http.get<ITeamsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.teams$.next(response.results);
+      this._loaderStop();
     });
   }
 
