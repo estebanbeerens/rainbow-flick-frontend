@@ -19,6 +19,7 @@ import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe'
 import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
+import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     AuthUserInTeamPipe,
     TruncatePipe,
     AuthUserTeamCaptainPipe,
-    SharedDateChangerComponent
+    SharedDateChangerComponent,
+    AuthUserInRequestedParticipantsPipe
 
   ],
   imports: [
@@ -62,7 +64,8 @@ import { SharedDateChangerComponent } from './components/shared-date-changer/sha
     AuthUserInTeamPipe,
     TruncatePipe,
     AuthUserTeamCaptainPipe,
-    SharedDateChangerComponent
+    SharedDateChangerComponent,
+    AuthUserInRequestedParticipantsPipe
   ],
 })
 export class SharedModule {}
