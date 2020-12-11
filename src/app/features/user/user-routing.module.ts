@@ -9,6 +9,7 @@ import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table
 import { UserTableOverviewShellComponent } from 'src/app/features/user/user-table/user-table-overview/user-table-overview-shell/user-table-overview-shell.component';
 import { UserTeamDetailsShellComponent } from 'src/app/features/user/user-team/user-team-details/user-team-details-shell/user-team-details-shell.component';
 import { UserTeamInputShellComponent } from 'src/app/features/user/user-team/user-team-input/user-team-input-shell/user-team-input-shell.component';
+import { UserTeamJoinShellComponent } from 'src/app/features/user/user-team/user-team-join/user-team-join-shell/user-team-join-shell.component';
 import { UserTeamOverviewShellComponent } from 'src/app/features/user/user-team/user-team-overview/user-team-overview-shell/user-team-overview-shell.component';
 
 const routes: Routes = [
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'team/overview',
     component: UserTeamOverviewShellComponent,
+  },
+  {
+    path: 'team/join',
+    component: UserTeamJoinShellComponent,
   },
   {
     path: 'team/details/:id',
