@@ -20,6 +20,8 @@ import { TruncatePipe } from 'src/app/shared/pipes/truncate.pipe';
 import { AuthUserTeamCaptainPipe } from 'src/app/shared/pipes/auth-user-team-captain.pipe';
 import { SharedDateChangerComponent } from './components/shared-date-changer/shared-date-changer.component';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
+import { AuthUserWonMatchPipe } from 'src/app/shared/pipes/auth-user-won-match.pipe';
+import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-u
     TruncatePipe,
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
-    AuthUserInRequestedParticipantsPipe
+    AuthUserInRequestedParticipantsPipe,
+    AuthUserWonMatchPipe,
+    MatchScorePipe
 
   ],
   imports: [
@@ -65,7 +69,9 @@ import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-u
     TruncatePipe,
     AuthUserTeamCaptainPipe,
     SharedDateChangerComponent,
-    AuthUserInRequestedParticipantsPipe
+    AuthUserInRequestedParticipantsPipe,
+    AuthUserWonMatchPipe,
+    MatchScorePipe
   ],
 })
 export class SharedModule {}

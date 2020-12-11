@@ -68,13 +68,13 @@ export class AppComponent {
     // });
     // this._teamService.teamDetails$.subscribe((resuslt) => console.log(resuslt));
 
-    this._matchService.challengeMatch({
-      homeTeam: '5fcfc4782e9463437ce096bb',
-      awayTeam: '5fcfc9d26938284d8cce830e',
-      dateTimePlanned: '1607601397106',
-      table: '5fcf3df863a2aa2dd077782e',
-    });
-    this._messsageService.message$.subscribe((mes) => console.log(mes));
-    this._matchService.matchDetails$.subscribe((result) => console.log('ok', result));
+    // this._matchService.challengeMatch({
+    //   homeTeam: '5fcfc4782e9463437ce096bb',
+    //   awayTeam: '5fcfc9d26938284d8cce830e',
+    //   dateTimePlanned: '1607601397106',
+    //   table: '5fcf3df863a2aa2dd077782e',
+    // });
+    // this._messsageService.message$.subscribe((mes) => console.log(mes));
+    // this._matchService.matchDetails$.subscribe((result) => console.log('ok', result));
   }
 }

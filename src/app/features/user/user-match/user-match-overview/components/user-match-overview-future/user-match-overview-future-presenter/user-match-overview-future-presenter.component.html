@@ -4,58 +4,33 @@
         <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <!-- TODO : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+              <tr *ngFor="let match of matches" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div>
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- TODO : Implement code below to shorten names if they're too long -->
-                        <!-- {{
-                            (match.name.length>50)? 
-                            (match.name | slice:0:50)+'...':(match.name) 
-                        }} -->
-                        [Naam]
+                        {{match.name|truncate:35}}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Datum]
+                        {{match.dateTimePlanned | date:'d/M/y'}}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
                     <div class="text-sm mt-3 bg-gray-300 text-gray-900 rounded-lg">
-                        <p class="text-center">14:30</p>
-                    </div>
-                </td>
-              </tr>
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div>
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        [Naam]
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        [Datum]
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                    <div class="text-sm mt-3 bg-gray-300 text-gray-900 rounded-lg">
-                        <p class="text-center">16:30</p>
+                        <p class="text-center">{{match.dateTimePlanned|date:'hh:mm'}}</p>
                     </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <app-shared-paginator
+          <!-- <app-shared-paginator
             tableName="Toekomstige matchen"
             [from]="2"
             [to]="2"
             [total]="2"
-          ></app-shared-paginator>
+          ></app-shared-paginator> -->
         </div>
       </div>
     </div>
