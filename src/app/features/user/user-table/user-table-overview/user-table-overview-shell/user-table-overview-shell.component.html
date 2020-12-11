@@ -3,6 +3,16 @@
     [hasBackButton]="false"
     [hasSearchButton]="true"
     [hasAddButton]="false"
+    (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
-<app-shared-date-changer></app-shared-date-changer>
-<app-user-table-overview-presenter></app-user-table-overview-presenter>
+<app-shared-date-changer
+(onPreviousPressed)="changeDate($event)"
+(onNextPressed)="changeDate($event)"
+(onCurrentPressed)="changeDate($event)"
+></app-shared-date-changer>
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
+<app-user-table-overview-presenter
+[tables] = "viewTablesOverview$ | async"
+></app-user-table-overview-presenter>
