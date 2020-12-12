@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 
@@ -10,11 +10,14 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
   styleUrls: ['./user-team-details-shell.component.scss'],
 })
 export class UserTeamDetailsShellComponent implements OnInit {
+
+  preloader$: Observable<boolean>;
   team$: BehaviorSubject<ITeamDetails>;
   teamID = '';
   constructor(private _teamService: TeamService, private _route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.preloader$ = this._teamService.isLoading$;
     this.initializeDetails();
   }
 

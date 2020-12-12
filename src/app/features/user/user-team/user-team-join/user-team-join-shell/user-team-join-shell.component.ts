@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TeamService } from 'src/app/services/team.service';
 import { UserService } from 'src/app/services/user.service';
 import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
@@ -13,6 +13,8 @@ import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe'
   providers: [AuthUserInTeamPipe, AuthUserInRequestedParticipantsPipe],
 })
 export class UserTeamJoinShellComponent implements OnInit {
+  
+  preloader$: Observable<boolean>;
   teams$: BehaviorSubject<ITeamOverview[]>;
   filterString$ = new BehaviorSubject<String>('');
   filteredTeams$ = new BehaviorSubject<ITeamOverview[]>([]);
@@ -25,6 +27,7 @@ export class UserTeamJoinShellComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.preloader$ = this._teamService.isLoading$;
     this.teams$ = this._teamService.teams$;
     this.teams$.subscribe(() => this.filterTeams());
     this.filterString$.subscribe(() => this.filterTeams());

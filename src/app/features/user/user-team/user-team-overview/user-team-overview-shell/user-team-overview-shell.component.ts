@@ -14,6 +14,8 @@ import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe'
   providers:[AuthUserInTeamPipe, AuthUserInRequestedParticipantsPipe]
 })
 export class UserTeamOverviewShellComponent implements OnInit {
+
+  preloader$: Observable<boolean>;
   teams$: BehaviorSubject<ITeamOverview[]>;
   filteredTeams$ = new BehaviorSubject<ITeamOverview[]>([]);
   filterString$ = new BehaviorSubject<String>('');
@@ -26,6 +28,7 @@ export class UserTeamOverviewShellComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    this.preloader$ = this._teamService.isLoading$;
     this.initializeTeams();
     this.filterString$.subscribe(() => this.updateFilteredTeams());
   }

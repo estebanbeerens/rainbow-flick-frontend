@@ -5,6 +5,9 @@
     [hasAddButton]="false"
     [hasSearchButton]="false"
 ></app-shared-toolbar>
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
 <app-user-team-details-presenter
     *ngIf="team$.value?.id.toString() == teamID"
     [team]="team$|async"

@@ -39,6 +39,7 @@ export class TeamService {
   }
 
   loadTeamDetails(teamID: String) {
+    this._loaderInit();
     if (teamID != 'create') {
       this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
         this.teamDetails$.next(response.result);
@@ -46,6 +47,7 @@ export class TeamService {
     } else {
       this.teamDetails$.next(ITeamDetailsInitialValue);
     }
+    this._loaderStop();
   }
 
   createTeam(body) {
