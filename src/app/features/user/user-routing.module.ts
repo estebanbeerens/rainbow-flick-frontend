@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserGameShellComponent } from 'src/app/features/user/user-game/user-game-shell/user-game-shell.component';
+import { UserHomeComponent } from 'src/app/features/user/user-home/user-home.component';
 import { UserMatchCreateShellComponent } from 'src/app/features/user/user-match/user-match-create/user-match-create-shell/user-match-create-shell.component';
 import { UserMatchDetailsShellComponent } from 'src/app/features/user/user-match/user-match-details/user-match-details-shell/user-match-details-shell.component';
 import { UserMatchOverviewShellComponent } from 'src/app/features/user/user-match/user-match-overview/user-match-overview-shell/user-match-overview-shell.component';
@@ -13,6 +14,10 @@ import { UserTeamJoinShellComponent } from 'src/app/features/user/user-team/user
 import { UserTeamOverviewShellComponent } from 'src/app/features/user/user-team/user-team-overview/user-team-overview-shell/user-team-overview-shell.component';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: UserHomeComponent,
+  },
   {
     path: 'ranking',
     component: UserRankingShellComponent,
@@ -72,7 +77,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: '/app/home',
+    redirectTo: 'home',
   },
 ];
 

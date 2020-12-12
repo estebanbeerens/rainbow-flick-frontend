@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminHomeComponent } from 'src/app/features/admin/admin-home/admin-home.component';
 import { AdminMatchDetailsShellComponent } from 'src/app/features/admin/admin-match/admin-match-details/admin-match-details-shell/admin-match-details-shell.component';
 import { AdminMatchOverviewShellComponent } from 'src/app/features/admin/admin-match/admin-match-overview/admin-match-overview-shell/admin-match-overview-shell.component';
 import { AdminTableDetailsShellComponent } from 'src/app/features/admin/admin-table/admin-table-details/admin-table-details-shell/admin-table-details-shell.component';
@@ -9,44 +10,48 @@ import { AdminTeamOverviewShellComponent } from 'src/app/features/admin/admin-te
 import { AdminUserDetailsShellComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-shell/admin-user-details-shell.component';
 import { AdminUserOverviewShellComponent } from 'src/app/features/admin/admin-user/admin-user-overview/admin-user-overview-shell/admin-user-overview-shell.component';
 
-const routes: Routes = [{
-  path: 'table/overview',
-  component: AdminTableOverviewShellComponent,
-},
-{
-  path: 'table/details/:id',
-  component: AdminTableDetailsShellComponent,
-},
-{
-  path: 'team/overview',
-  component: AdminTeamOverviewShellComponent,
-},
-{
-  path: 'team/details/:id',
-  component:AdminTeamDetailsShellComponent,
-},
-{
-  path: 'user/overview',
-  component: AdminUserOverviewShellComponent,
-},
-{
-  path: 'user/details/:id',
-  component: AdminUserDetailsShellComponent,
-},
-{
-  path: 'match/overview',
-  component: AdminMatchOverviewShellComponent,
-},
-{
-  path: 'match/details/:id',
-  component: AdminMatchDetailsShellComponent,
-},
-{
-  path: '**',
-  pathMatch: 'full',
-  // TODO change later to admin menu
-  redirectTo: 'table/overview',
-},
+const routes: Routes = [
+  {
+    path: 'home',
+    component: AdminHomeComponent
+  },
+  {
+    path: 'table/overview',
+    component: AdminTableOverviewShellComponent,
+  },
+  {
+    path: 'table/details/:id',
+    component: AdminTableDetailsShellComponent,
+  },
+  {
+    path: 'team/overview',
+    component: AdminTeamOverviewShellComponent,
+  },
+  {
+    path: 'team/details/:id',
+    component:AdminTeamDetailsShellComponent,
+  },
+  {
+    path: 'user/overview',
+    component: AdminUserOverviewShellComponent,
+  },
+  {
+    path: 'user/details/:id',
+    component: AdminUserDetailsShellComponent,
+  },
+  {
+    path: 'match/overview',
+    component: AdminMatchOverviewShellComponent,
+  },
+  {
+    path: 'match/details/:id',
+    component: AdminMatchDetailsShellComponent,
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({

@@ -20,10 +20,5 @@ export const userHomeRoutes: IRouteInfo[] = [
         path: '/app/user/ranking',
         title: 'Ranking',
         icon: 'trending_up',
-    },
-    {
-        path: '/TODO',
-        title: 'Instellingen',
-        icon: 'settings',
-    },
+    }
 ]

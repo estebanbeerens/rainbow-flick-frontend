@@ -12,7 +12,7 @@ export const navRoutes: IRouteInfo[] = [
         icon: 'sports_soccer',
     },
     {
-        path: '/app/home',
+        path: '/app/user/home',
         title: 'Home',
         icon: 'home',
     },

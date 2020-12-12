@@ -22,23 +22,8 @@ export const adminHomeRoutes: IRouteInfo[] = [
         icon: 'people',
     },
     {
-        path: '/app/user/match',
-        title: 'Wedstrijden',
-        icon: 'sports',
-    },
-    {
-        path: '/app/user/table',
-        title: 'Tafels',
-        icon: 'sports_soccer',
-    },
-    {
-        path: '/app/user/team',
-        title: 'Teams',
-        icon: 'groups',
-    },
-    {
-        path: '/app/user/ranking',
-        title: 'Ranking',
-        icon: 'trending_up',
+        path: '/app/user/home',
+        title: 'Home',
+        icon: 'home',
     },
 ]

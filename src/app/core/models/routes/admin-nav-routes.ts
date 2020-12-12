@@ -12,9 +12,9 @@ export const adminNavRoutes: IRouteInfo[] = [
         icon: 'sports_soccer',
     },
     {
-        path: '/app/home',
-        title: 'Home',
-        icon: 'home',
+        path: '/app/admin/home',
+        title: 'Dashboard',
+        icon: 'dashboard',
     },
     {
         path: '/app/admin/team',

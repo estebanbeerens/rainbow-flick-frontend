@@ -5,8 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedSpinnerComponent } from './components/shared-spinner/shared-spinner.component';
 import { SharedRoutingModule } from 'src/app/shared/shared-routing.module';
-import { SharedHomeShellComponent } from './components/shared-home/shared-home-shell/shared-home-shell.component';
-import { SharedHomePresenterComponent } from './components/shared-home/shared-home-presenter/shared-home-presenter.component';
 import { SharedToolbarComponent } from './components/shared-toolbar/shared-toolbar.component';
 import { SharedSearchbarComponent } from './components/shared-searchbar/shared-searchbar.component';
 import { SharedPaginatorComponent } from './components/shared-paginator/shared-paginator.component';
@@ -24,16 +22,16 @@ import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-u
 import { AuthUserWonMatchPipe } from 'src/app/shared/pipes/auth-user-won-match.pipe';
 import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { SharedHomeComponent } from 'src/app/shared/components/shared-home/shared-home.component';
 
 
 @NgModule({
   declarations: [
     SharedSpinnerComponent,
-    SharedHomeShellComponent,
-    SharedHomePresenterComponent,
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
+    SharedHomeComponent,
     AuthUserInTeamPipe,
     TruncatePipe,
     AuthUserTeamCaptainPipe,
@@ -68,6 +66,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     SharedToolbarComponent,
     SharedSearchbarComponent,
     SharedPaginatorComponent,
+    SharedHomeComponent,
     AuthUserInTeamPipe,
     TruncatePipe,
     AuthUserTeamCaptainPipe,
