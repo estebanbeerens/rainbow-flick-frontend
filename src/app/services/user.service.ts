@@ -10,6 +10,7 @@ import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.mo
 import { IUserMessage } from 'src/app/shared/interfaces/user/user-message.model';
 import { IUserDetails, IUserDetailsInitialValue } from 'src/app/shared/interfaces/user/user-details.model';
 import { IUserLogin } from 'src/app/shared/interfaces/user/user-login.model';
+import { MessageService } from 'src/app/services/message.service';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +30,7 @@ export class UserService {
 
   users$ = new BehaviorSubject<IUserDetails[]>(null);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _messsageService: MessageService) {
     const token = localStorage.getItem('token');
     if (token) {
       this.token = token;
@@ -56,6 +57,7 @@ export class UserService {
       if (response['error']) {
         localStorage.removeItem('token');
         this.loginError$.next(response['error']);
+        this._messsageService.setMessage(response['error']);
       } else {
         const authUser = <IUserLoginResponse>response;
         const decodedJwt = <IUserAuth>jwt_decode(<string>authUser.result.accessToken);
@@ -82,7 +84,7 @@ export class UserService {
       }
     });
   }
-a
+  a;
   createAdmin(body) {
     this.http.post<IUserDetailsResponse>(`${this.baseUrl}/admin`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
@@ -118,12 +120,14 @@ a
   updateUser(userID: String, body) {
     this.http.put<IUserDetailsResponse>(`${this.baseUrl}/${userID}`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
-      this.users$.next(this.users$.value.map((user) => {
-        if(user.id == response.result.id){
-          user = response.result
-        }
-        return user
-      }))
+      this.users$.next(
+        this.users$.value.map((user) => {
+          if (user.id == response.result.id) {
+            user = response.result;
+          }
+          return user;
+        })
+      );
     });
   }
 

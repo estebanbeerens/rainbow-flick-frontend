@@ -6,10 +6,13 @@ import { IMessage } from 'src/app/shared/interfaces/message/message.model';
   providedIn: 'root',
 })
 export class MessageService {
-  private messageStore = new BehaviorSubject<IMessage[]>([]);
+  private messageStore = new BehaviorSubject<string[]>([]);
   public message$ = this.messageStore.asObservable();
 
-  setMessage(message) {
+  setMessage(message: string) {
     this.messageStore.next([...this.messageStore.value, message]);
+  }
+  setMessages(messages: string[]) {
+    messages.forEach((message) => this.messageStore.next([...this.messageStore.value, message]));
   }
 }
