@@ -7,23 +7,43 @@ export const adminSidenavRoutes: IRouteInfo[] = [
         icon: 'home',
     },
     {
-        path: '/app/admin/match/overview',
+        path: '/app/admin/match',
         title: 'Wedstrijden (Admin)',
         icon: 'sports',
     },
     {
-        path: '/app/admin/table/overview',
+        path: '/app/admin/table',
         title: 'Tafels (Admin)',
         icon: 'sports_soccer',
     },
     {
-        path: '/app/admin/team/overview',
+        path: '/app/admin/team',
         title: 'Teams (Admin)',
         icon: 'groups',
     },
     {
-        path: '/app/admin/user/overview',
+        path: '/app/admin/user',
         title: 'Gebruikers (Admin)',
         icon: 'people',
+    },
+    {
+        path: '/app/user/match',
+        title: 'Wedstrijden',
+        icon: 'sports',
+    },
+    {
+        path: '/app/user/table',
+        title: 'Tafels',
+        icon: 'sports_soccer',
+    },
+    {
+        path: '/app/user/team',
+        title: 'Teams',
+        icon: 'groups',
+    },
+    {
+        path: '/app/user/ranking',
+        title: 'Ranking',
+        icon: 'trending_up',
     }
 ]

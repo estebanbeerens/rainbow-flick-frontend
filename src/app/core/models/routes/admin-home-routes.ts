@@ -2,37 +2,37 @@ import { IRouteInfo } from 'src/app/core/models/routes/route-info';
 
 export const adminHomeRoutes: IRouteInfo[] = [
     {
-        path: '/app/admin/match/overview',
+        path: '/app/admin/match',
         title: 'Wedstrijden (Admin)',
         icon: 'sports',
     },
     {
-        path: '/app/admin/table/overview',
+        path: '/app/admin/table',
         title: 'Tafels (Admin)',
         icon: 'sports_soccer',
     },
     {
-        path: '/app/admin/team/overview',
+        path: '/app/admin/team',
         title: 'Teams (Admin)',
         icon: 'groups',
     },
     {
-        path: '/app/admin/user/overview',
+        path: '/app/admin/user',
         title: 'Gebruikers (Admin)',
         icon: 'people',
     },
     {
-        path: '/app/user/match/overview',
+        path: '/app/user/match',
         title: 'Wedstrijden',
         icon: 'sports',
     },
     {
-        path: '/app/user/table/overview',
+        path: '/app/user/table',
         title: 'Tafels',
         icon: 'sports_soccer',
     },
     {
-        path: '/app/user/team/overview',
+        path: '/app/user/team',
         title: 'Teams',
         icon: 'groups',
     },
@@ -40,10 +40,5 @@ export const adminHomeRoutes: IRouteInfo[] = [
         path: '/app/user/ranking',
         title: 'Ranking',
         icon: 'trending_up',
-    },
-    {
-        path: '/TODO',
-        title: 'Instellingen',
-        icon: 'settings',
     },
 ]
