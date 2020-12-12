@@ -31,6 +31,7 @@ import { UserTeamInputShellComponent } from './user-team/user-team-input/user-te
 import { UserTeamInputPresenterComponent } from './user-team/user-team-input/user-team-input-presenter/user-team-input-presenter.component';
 import { UserTeamJoinShellComponent } from './user-team/user-team-join/user-team-join-shell/user-team-join-shell.component';
 import { UserTeamJoinPresenterComponent } from './user-team/user-team-join/user-team-join-presenter/user-team-join-presenter.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { UserTeamJoinPresenterComponent } from './user-team/user-team-join/user-
     UserTeamInputPresenterComponent,
     UserTeamJoinShellComponent,
     UserTeamJoinPresenterComponent,
+    UserHomeComponent,
   ],
   imports: [
     CommonModule,
