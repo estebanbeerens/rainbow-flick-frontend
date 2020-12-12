@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { TeamService } from 'src/app/services/team.service';
 import { UserService } from 'src/app/services/user.service';
-import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { IUserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 
 @Component({
@@ -12,7 +12,7 @@ import { IUserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 })
 export class UserTeamOverviewPresenterComponent implements OnInit {
   authUser: IUserAuth;
-  @Input() teams: ITeamDetails[];
+  @Input() teams: ITeamOverview[];
   constructor(
     private _userService: UserService,
     private _teamService: TeamService,

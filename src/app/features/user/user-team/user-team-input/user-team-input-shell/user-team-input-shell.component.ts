@@ -27,7 +27,7 @@ export class UserTeamInputShellComponent implements OnInit, OnDestroy {
     this.team$ = this.teamService.teamDetails$;
 
     this.sub = this.team$.subscribe(team => {
-      this.id = team.id.toString();
+      this.id = team?.id.toString();
       this.defineIsNew(team),
       this.loadForm(team)
     });
@@ -38,7 +38,7 @@ export class UserTeamInputShellComponent implements OnInit, OnDestroy {
   }
 
   defineIsNew(team: ITeamDetails): void {
-    if (team.id == '' ){
+    if (team?.id == '' ){
       this.title = "Team aanmaken";
     }else{
       this.title = "Team bewerken";
@@ -47,11 +47,10 @@ export class UserTeamInputShellComponent implements OnInit, OnDestroy {
 
   loadForm(team: ITeamDetails): void {
     this.generalForm = this.fb.group({
-      name: [team.name, Validators.required],
-      location: [team.location, Validators.required],
-      companyName: [team.companyName, Validators.required],
-      captainId: [team.captain.id, Validators.required],
-      imageURL: [team.imageURL],
+      name: [team?.name??"", Validators.required],
+      location: [team?.location, Validators.required],
+      companyName: [team?.companyName, Validators.required],
+      captainId: [team?.captain.id, Validators.required],
     });
   }
 

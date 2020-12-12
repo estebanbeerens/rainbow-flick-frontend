@@ -14,7 +14,7 @@ export class AdminUserOverviewPresenterComponent implements OnInit {
   viewUsers: IUserDetails[];
   @Input() users: IUserDetails[];
   @Output() delete = new EventEmitter();
-  @Output() actionButton = new EventEmitter();
+  @Output() onClick = new EventEmitter();
 
   ngOnChanges() {
     if (this.users != null) {
@@ -35,13 +35,12 @@ export class AdminUserOverviewPresenterComponent implements OnInit {
     this.tablePagination(result.from, result.to);
   }
 
-  clickView(ID: String): void {
-    console.log('click view');
-    this.actionButton.emit({ ID: ID, action: 'VIEW' });
+  clickView(id: String): void {
+    this.onClick.emit(id);
   }
 
-  clickDelete(ID: String): void {
-    this.delete.emit(ID);
+  clickDelete(id: String): void {
+    this.delete.emit(id);
   }
 
   ngOnInit(): void {}

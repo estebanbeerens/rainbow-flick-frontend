@@ -9,6 +9,7 @@ import { IUserDetailsResponse } from 'src/app/shared/interfaces/user/user-detail
 import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.model';
 import { IUserMessage } from 'src/app/shared/interfaces/user/user-message.model';
 import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
+import { IUserLogin } from 'src/app/shared/interfaces/user/user-login.model';
 
 @Injectable({
   providedIn: 'root',
@@ -58,7 +59,6 @@ export class UserService {
         this.loginError$.next(response['error']);
       } else {
         const authUser = <IUserLoginResponse>response;
-
         const decodedJwt = <IUserAuth>jwt_decode(<string>authUser.result.accessToken);
         this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
         localStorage.setItem('token', <string>authUser.result.accessToken);
@@ -124,7 +124,15 @@ export class UserService {
   }
 
   private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth {
-    let object = new UserAuth(authUser.id, authUser.iat, authUser.exp, authUser.permissions);
+    let object = new UserAuth(
+      authUser.id,
+      authUser.iat,
+      authUser.exp,
+      authUser.permissions,
+      authUser.firstName,
+      authUser.lastName,
+      authUser.imageURL
+    );
     return object;
   }
 }

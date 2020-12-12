@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AdminMatchDetailsShellComponent } from 'src/app/features/admin/admin-match/admin-match-details/admin-match-details-shell/admin-match-details-shell.component';
 import { MatchService } from 'src/app/services/match.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
@@ -18,38 +17,29 @@ export class AdminMatchOverviewShellComponent implements OnInit {
   viewMatches$: Observable<IMatchDetail[]>;
 
   constructor(
-    private _matcheService: MatchService,
+    private _matchService: MatchService,
     private _searchFilterPipe: SearchFilterPipe,
-    public dialog: MatDialog
+    private router: Router
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this._matcheService.loadAdminMatches();
-    this.matches$ = this._matcheService.matchesAdmin$.asObservable();
+    this._matchService.loadAdminMatches();
+    this.matches$ = this._matchService.matchesAdmin$.asObservable();
     this.viewMatches$ = this.matches$;
-    this.preloader$ = this._matcheService.isLoading$.asObservable();
+    this.preloader$ = this._matchService.isLoading$.asObservable();
   }
-
-  createTable() {
-    this.openDialog('CREATE');
-  }
+  
   search(searchString: string) {
     this.viewMatches$ = this._searchFilterPipe.transform(this.matches$, searchString);
   }
 
-  actionTable(result) {
-    this._matcheService.loadMatchDetails(result.ID);
-    this.openDialog(result.action);
+  viewMatch(id: String) {
+    this._matchService.loadMatchDetails(id);
+    this.router.navigate(['/app/admin/match/details/' + id.toString()])
   }
 
   deleteTable(ID: String) {
-    this._matcheService.deleteMatch(ID);
+    this._matchService.deleteMatch(ID);
   }
 
-  openDialog(action: String): void {
-    const dialogRef = this.dialog.open(AdminMatchDetailsShellComponent, {
-      minWidth: '400px',
-      data: { action: action },
-    });
-  }
 }

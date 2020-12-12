@@ -1,54 +1,42 @@
 <!-- TODO Add [formGroup]="generalForm" and all formControlName="" -->
-<form>
+<form [formGroup]="generalForm">
   <div class="shadow-lg overflow-hidden rounded-lg">
     <div class="px-4 py-5 bg-gray-50 dark:bg-gray-700 border border-b-0 dark:border-gray-500 sm:p-6 rounded-t-lg">
       <div class="grid grid-cols-5 gap-4">
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Kapitein</label>
-          <select class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
-            <!-- TODO : Ngfor users met [value]="user.id" -->
-            <option>United States</option>
-            <option>Canada</option>
-            <option>Mexico</option>
+          <select
+            class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+            <option *ngFor="let user of team?.participants" [value]="user?.id" [selected]="team?.captain.id == user.id">
+              {{user.firstName}} {{user.lastName}}</option>
           </select>
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Teamnaam</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="name" type="text"
+            class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Bedrijfsnaam</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="companyName" type="text"
+            class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
 
         <div class="col-span-6">
           <label class="block text-sm text-gray-700 dark:text-gray-100">Adres</label>
-          <input type="text" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          <input formControlName="location" type="text"
+            class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
         </div>
-
-        <div class="col-span-2">
-          <div class="flex items-center justify-center h-20 w-20 mx-auto">
-              <img class="h-20 w-20 rounded-full" src="assets/img/team.jpg" alt="">
-          </div>
-        </div>
-
-        <div class="col-span-4">
-          <div class="w-full h-full items-center justify-center bg-grey-lighter">
-            <label class="flex flex-col items-center px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer">
-                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                </svg>
-                <span class="mt-2 text-base leading-normal">Selecteer bestand</span>
-                <input type='file' class="hidden"  accept="image/x-png,image/jpeg" >
-            </label>
-        </div>
-        </div>
+        <app-shared-image-upload  class="col-span-6"
+          [imageUrl]="team?.imageURL? team.imageURL : 'assets/img/team.jpg'">
+        </app-shared-image-upload>
       </div>
     </div>
-    <button matRipple type="submit" class="bg-gradient-to-tr from-primary to-secondary text-white font-medium text-center py-2 w-full">
-          <span>Opslaan</span>
+    <button matRipple type="submit"
+      class="bg-gradient-to-tr from-primary to-secondary text-white font-medium text-center py-2 w-full">
+      <span>Opslaan</span>
     </button>
   </div>
 </form>

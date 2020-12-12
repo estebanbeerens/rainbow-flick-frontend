@@ -9,8 +9,8 @@
         </button>
         <button mat-button class="float-right" (click)="toggleDarkMode()">
             <ng-container *ngIf="darkMode == 'light'; else darkTemplate">
-                <span class="mt-1 mr-2 text-primary-dark">Darkmode&nbsp;OFF</span>
-                <mat-icon class="material-icons-round text-primary-dark">brightness_7</mat-icon>
+                <span class="mt-1 mr-2">Darkmode&nbsp;OFF</span>
+                <mat-icon class="material-icons-round">wb_sunny</mat-icon>
             </ng-container>
             <ng-template #darkTemplate>
                 <span class="mt-1 mr-2 text-primary-light">Darkmode&nbsp;ON</span>
@@ -18,11 +18,10 @@
             </ng-template>
         </button>
       </div>
-      <!-- TODO : Get current user -->
       <div class="my-2 border-b">
         <div matRipple class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
-            <img class="h-10 w-10 ml-2 rounded-full" src="assets/img/user.png" alt="">
-            <span class="mx-2 mt-2">[Voornaam] [Naam]</span>
+            <img class="h-10 w-10 ml-2 rounded-full" [src]="authUser.imageURL? authUser.imageURL : 'assets/img/user.png'" alt="">
+            <span class="mx-2 mt-2">{{authUser.getFullName()}}</span>
         </div>
       </div>
       <!-- TODO : Only show routes if is admin -->

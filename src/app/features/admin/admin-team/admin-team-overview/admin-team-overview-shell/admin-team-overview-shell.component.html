@@ -1,9 +1,9 @@
 <app-shared-toolbar
-    title="Teams"
+    title="Teams (admin)"
     [hasBackButton]="false"
     [hasAddButton]="true"
     [hasSearchButton]="true"
-    (onAddPressed)="createTable()"
+    (onAddPressed)="createTeam()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
 
@@ -12,8 +12,8 @@
 ></app-shared-spinner>
 
 <app-admin-team-overview-presenter
-[teams] = "viewTeams$ | async"
-    (delete)="deleteTable($event)"
-    (actionButton)="actionTable($event)"
+    [teams] = "viewTeams$ | async"
+    (delete)="deleteTeam($event)"
+    (onClick)="viewTeam($event)"
     ></app-admin-team-overview-presenter>
 

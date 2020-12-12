@@ -1,4 +1,7 @@
-<section *ngIf="!sideNavToggled" class="dark:bg-gray-700 bg-gray-100 text-gray-900 dark:text-white block fixed inset-x-0 bottom-0 z-10 shadow">
+<section *ngIf="!sideNavToggled" class="rounded-t-xl dark:bg-gray-700 bg-gray-100 text-gray-900 dark:text-white block fixed inset-x-0 bottom-0 z-10 shadow">
+	<div *ngIf="isAdmin" class="bg-gradient-to-tr from-primary to-secondary text-white rounded-t-xl">
+		<p class="text-center md:text-sm text-xs py-0.5">Admin</p>
+	</div>
 	<div class="flex justify-between">
 		<button *ngFor="let route of routes" [routerLink]="route.path" [routerLinkActiveOptions]="{exact: false}" routerLinkActive="text-primary-dark dark:text-primary-light"
 			 class="w-full focus:text-primary hover:text-primary dark:focus:text-primary-light dark:hover:text-primary-light cursor-pointer justify-center inline-block text-center pt-2 pb-1">

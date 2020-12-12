@@ -4,4 +4,7 @@
     [hasAddButton]="true"
     [hasSearchButton]="true"
 ></app-shared-toolbar>
-<app-user-team-join-presenter></app-user-team-join-presenter>
+<app-user-team-join-presenter
+[teams]="filteredTeams$|async"
+(onJoinTeam)="joinTeam($event)"
+></app-user-team-join-presenter>

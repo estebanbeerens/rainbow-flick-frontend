@@ -1,9 +1,8 @@
 <app-shared-toolbar
-    title="Wedstrijden"
+    title="Wedstrijden (admin)"
     [hasBackButton]="false"
-    [hasAddButton]="true"
+    [hasAddButton]="false"
     [hasSearchButton]="true"
-    (onAddPressed)="createTable()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
 
@@ -14,5 +13,5 @@
 <app-admin-match-overview-presenter
     [matches] = "viewMatches$ | async"
     (delete)="deleteTable($event)"
-    (actionButton)="actionTable($event)"
+    (onClick)="viewMatch($event)"
 ></app-admin-match-overview-presenter>

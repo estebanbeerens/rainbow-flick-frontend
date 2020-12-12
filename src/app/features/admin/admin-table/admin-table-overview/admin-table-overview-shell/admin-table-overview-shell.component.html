@@ -1,9 +1,9 @@
 <app-shared-toolbar
-    title="Tafels"
+    title="Tafels (admin)"
     [hasBackButton]="false"
     [hasAddButton]="true"
     [hasSearchButton]="true"
-    (onAddPressed)="actionTable($event)"
+    (onAddPressed)="createTable()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
 
@@ -13,6 +13,6 @@
 <app-admin-table-overview-presenter
     [tables] = "viewTables$ | async"
     (delete)="deleteTable($event)"
-    (actionButton)="actionTable($event)"
+    (onClick)="viewTable($event)"
 ></app-admin-table-overview-presenter>
 
