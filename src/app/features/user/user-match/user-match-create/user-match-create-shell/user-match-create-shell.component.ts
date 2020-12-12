@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -25,7 +25,6 @@ export class UserMatchCreateShellComponent implements OnInit {
     public fb: FormBuilder,
     private _router: Router
   ) {}
-
   ngOnInit(): void {
     this._teamService.loadTeams();
     this.teams$ = this._teamService.teams$.asObservable();
