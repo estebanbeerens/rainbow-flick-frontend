@@ -4,7 +4,13 @@
     [hasAddButton]="false"
     [hasSearchButton]="false"
 ></app-shared-toolbar>
+<app-shared-spinner
+    [visible]="preloader$ | async"
+></app-shared-spinner>
 <app-user-team-input-presenter
+    [team]="team$ | async"
+    [authUser]="authUser$ | async"
     [generalForm]="generalForm"
-    [team]="team$|async"
+    (submitForm)="submitForm()"
+    (fileChanged)="onFileChanged($event)"
 ></app-user-team-input-presenter>
