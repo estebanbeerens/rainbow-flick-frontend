@@ -11,6 +11,7 @@ import { IUserMessage } from 'src/app/shared/interfaces/user/user-message.model'
 import { IUserDetails, IUserDetailsInitialValue } from 'src/app/shared/interfaces/user/user-details.model';
 import { IUserLogin } from 'src/app/shared/interfaces/user/user-login.model';
 import { MessageService } from 'src/app/services/message.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +31,11 @@ export class UserService {
 
   users$ = new BehaviorSubject<IUserDetails[]>(null);
 
-  constructor(private http: HttpClient, private _messsageService: MessageService) {
+  constructor(
+    private http: HttpClient, 
+    private _messsageService: MessageService,
+    private router: Router
+  ) {
     const token = localStorage.getItem('token');
     if (token) {
       this.token = token;
@@ -65,6 +70,7 @@ export class UserService {
         localStorage.setItem('token', <string>authUser.result.accessToken);
         const userDetails = <IUserDetailsResponse>response;
         this.userDetails$.next(userDetails.result);
+        this.router.navigate(['/app']);
       }
     });
   }
@@ -81,10 +87,11 @@ export class UserService {
         localStorage.setItem('token', <string>authUser.result.accessToken);
         const userDetails = <IUserDetailsResponse>response;
         this.userDetails$.next(userDetails.result);
+        this.router.navigate(['/app']);
       }
     });
   }
-  a;
+  
   createAdmin(body) {
     this.http.post<IUserDetailsResponse>(`${this.baseUrl}/admin`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
