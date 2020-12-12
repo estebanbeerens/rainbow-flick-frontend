@@ -1,9 +1,48 @@
-<p>Table</p>
-{{table | json}}
+<form [formGroup]="generalForm" (ngSubmit)="onSubmit()" class="mb-8">
+    <div class="shadow-lg overflow-hidden rounded-lg">
+      <div class="px-4 py-5 bg-gray-50 dark:bg-gray-700 border border-b-0 dark:border-gray-500 sm:p-6 rounded-t-lg">
+        <div class="grid grid-cols-5 gap-4">
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Naam</label>
+            <input formControlName="name" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Adres</label>
+            <input formControlName="location" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Naam Contactpersoon</label>
+            <input formControlName="contactName" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Tel. Contactpersoon</label>
+            <input formControlName="contactPhone" type="tel"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Beschrijving</label>
+            <textarea formControlName="description" type="text" 
+            class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg"></textarea>
+          </div>
 
-<form [formGroup]="formGroup" (ngSubmit)="clickSubmitForm()">
-    <p>First name:
-    
-    </p>
-    <p><button mat-raised-button color="primary" type="submit">Submit</button></p>
-    </form>
+          <app-shared-image-upload class="col-span-6"
+            [imageUrl]="table?.imageUrl? table.imageUrl : 'assets/img/table.png'"
+            (fileChanged)="onFileChanged($event)"
+          ></app-shared-image-upload>
+        </div>
+      </div>
+      <button matRipple type="submit" [disabled]="!generalForm.dirty || generalForm.invalid"
+        class="bg-gradient-to-tr from-primary to-secondary text-white font-medium text-center py-2 w-full disabled:opacity-50 disabled:cursor-default">
+        <span>Opslaan</span>
+      </button>
+    </div>
+  </form>
+  

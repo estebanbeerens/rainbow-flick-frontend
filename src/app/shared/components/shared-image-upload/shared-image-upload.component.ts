@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UploaderService } from 'src/app/services/uploader.service';
 
 @Component({
@@ -12,9 +12,10 @@ export class SharedImageUploadComponent implements OnInit {
   infoMessage: any;
   isUploading: boolean = false;
   file: File;
+  fileName: string = "No file selected";
 
   @Input() imageUrl: string | ArrayBuffer;
-  fileName: string = "No file selected";
+  @Output() fileChanged = new EventEmitter<File>();
 
   constructor(private uploader: UploaderService) {}
 
@@ -35,6 +36,8 @@ export class SharedImageUploadComponent implements OnInit {
       reader.onload = event => {
         this.imageUrl = reader.result;
       };
+
+      this.fileChanged.emit(file);
     }
   }
 

@@ -25,29 +25,26 @@ export class AdminTeamOverviewShellComponent implements OnInit {
     private router: Router
   ) {}
 
-  async ngOnInit() {
+  ngOnInit(): void {
     this._teamService.loadTeams();
     this.teams$ = this._teamService.teams$.asObservable();
     this.viewTeams$ = this.teams$;
-    //stop preloader
-    // this.preloader = false;
     this.preloader$ = this._teamService.isLoading$.asObservable();
   }
 
-  createTeam() {
-    this.router.navigate(['/app/admin/team/details/0']);
+  createTeam(): void {
+    this.router.navigate(['/app/admin/team/details/create']);
   }
 
-  viewTeam(id: String) {
-    this._teamService.loadTeamDetails(id);
+  viewTeam(id: String): void {
     this.router.navigate(['/app/admin/team/details/' + id.toString()]);
   }
 
-  deleteTeam(id: String) {
+  deleteTeam(id: String): void {
     this._teamService.deleteTeam(id);
   }
 
-  search(searchString: string) {
+  search(searchString: string): void {
     this.viewTeams$ = this._searchFilterPipe.transform(this.teams$, searchString);
   }
   

@@ -1,5 +1,15 @@
+<app-shared-toolbar
+    [title]="title"
+    [hasBackButton]="true"
+    [hasSearchButton]="false"
+    [hasAddButton]="false"
+></app-shared-toolbar>
+<app-shared-spinner
+    [visible]="preloader$ | async"
+></app-shared-spinner>
 <app-admin-user-details-presenter
     [user] = "user$ | async"
-    [formGroup] = "createForm"
+    [generalForm] = "generalForm"
     (submitForm)="submitForm()"
+    (fileChanged)="onFileChanged($event)"
 ></app-admin-user-details-presenter>

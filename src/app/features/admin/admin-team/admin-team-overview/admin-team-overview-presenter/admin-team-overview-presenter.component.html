@@ -17,7 +17,7 @@
                 <td class="px-6 py-4 whitespace-nowrap"  (click)="clickView(team.id)">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
-                      <img class="h-10 w-10 rounded-full" src="assets/img/team.jpg" alt="">
+                      <img class="h-10 w-10 rounded-full" [src]="team.imageURL ? team.imageURL : 'assets/img/team.jpg'" alt="">
                     </div>
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">

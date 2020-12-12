@@ -8,7 +8,7 @@ import { IUserLoginResponse } from 'src/app/shared/interfaces/user/user-login-re
 import { IUserDetailsResponse } from 'src/app/shared/interfaces/user/user-details-response.model';
 import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.model';
 import { IUserMessage } from 'src/app/shared/interfaces/user/user-message.model';
-import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
+import { IUserDetails, IUserDetailsInitialValue } from 'src/app/shared/interfaces/user/user-details.model';
 import { IUserLogin } from 'src/app/shared/interfaces/user/user-login.model';
 
 @Injectable({
@@ -82,10 +82,11 @@ export class UserService {
       }
     });
   }
-
+a
   createAdmin(body) {
     this.http.post<IUserDetailsResponse>(`${this.baseUrl}/admin`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
+      this.users$.next([...this.users$.value, response.result]);
     });
   }
 
@@ -103,22 +104,33 @@ export class UserService {
   }
 
   loadUserDetails(userID: String) {
-    this._loaderInit();
-    this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
-      this.userDetails$.next(response.result);
-      this._loaderStop();
-    });
+    if (userID != 'create') {
+      this._loaderInit();
+      this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
+        this.userDetails$.next(response.result);
+        this._loaderStop();
+      });
+    } else {
+      this.userDetails$.next(IUserDetailsInitialValue);
+    }
   }
 
   updateUser(userID: String, body) {
     this.http.put<IUserDetailsResponse>(`${this.baseUrl}/${userID}`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
+      this.users$.next(this.users$.value.map((user) => {
+        if(user.id == response.result.id){
+          user = response.result
+        }
+        return user
+      }))
     });
   }
 
   deleteUser(UserID: String) {
     this.http.delete<IUserMessage>(`${this.baseUrl}/${UserID}`).subscribe((response) => {
       this.message$.next(response);
+      this.users$.next(this.users$.value.filter((user) => user.id != UserID));
     });
   }
 

@@ -1,8 +1,53 @@
-<p>Teams</p>
-{{team | json}}
-
-<form [formGroup]="formGroup" (ngSubmit)="clickSubmitForm()">
-    <p>First name:</p>
-    
-    <p><button mat-raised-button color="primary" type="submit">Submit</button></p>
-</form>
+<form [formGroup]="generalForm" (ngSubmit)="onSubmit()" class="mb-8">
+    <div class="shadow-lg overflow-hidden rounded-lg">
+      <div class="px-4 py-5 bg-gray-50 dark:bg-gray-700 border border-b-0 dark:border-gray-500 sm:p-6 rounded-t-lg">
+        <div class="grid grid-cols-5 gap-4">
+          <ng-container *ngIf="team?.id.toString() != ''; else allUsers">
+            <div class="col-span-6">
+              <label class="block text-sm text-gray-700 dark:text-gray-100">Kapitein</label>
+              <select formControlName="captainId" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+                <option *ngFor="let user of team?.participants" [value]="user?.id" [selected]="team?.captain.id == user.id">
+                  {{user.firstName}} {{user.lastName}}</option>
+              </select>
+            </div>
+          </ng-container>
+          <ng-template #allUsers>
+            <div class="col-span-6">
+              <label class="block text-sm text-gray-700 dark:text-gray-100">Kapitein</label>
+              <select formControlName="captainId" class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+                <option *ngFor="let user of users" [value]="user?.id" selected="0">
+                  {{user.firstName}} {{user.lastName}}</option>
+              </select>
+            </div>
+          </ng-template>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Teamnaam</label>
+            <input formControlName="name" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Bedrijfsnaam</label>
+            <input formControlName="companyName" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+  
+          <div class="col-span-6">
+            <label class="block text-sm text-gray-700 dark:text-gray-100">Adres</label>
+            <input formControlName="location" type="text"
+              class="mt-1 focus:ring-primary focus:border-primary dark:focus:border-primary text-gray-900 dark:text-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-500 w-full shadow-lg rounded-lg">
+          </div>
+          <app-shared-image-upload  class="col-span-6"
+            [imageUrl]="team?.imageURL? team.imageURL : 'assets/img/team.jpg'"
+            (fileChanged)="onFileChanged($event)"
+          ></app-shared-image-upload>
+        </div>
+      </div>
+      <button matRipple type="submit" [disabled]="!generalForm.dirty || generalForm.invalid"
+        class="bg-gradient-to-tr from-primary to-secondary text-white font-medium text-center py-2 w-full disabled:opacity-50 disabled:cursor-default">
+        <span>Opslaan</span>
+      </button>
+    </div>
+  </form>
+  
