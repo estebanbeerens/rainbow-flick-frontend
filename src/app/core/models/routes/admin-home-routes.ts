@@ -20,10 +20,5 @@ export const adminHomeRoutes: IRouteInfo[] = [
         path: '/app/admin/user',
         title: 'Gebruikers (Admin)',
         icon: 'people',
-    },
-    {
-        path: '/app/user/home',
-        title: 'Home',
-        icon: 'home',
-    },
+    }
 ]
