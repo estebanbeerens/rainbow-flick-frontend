@@ -1,1 +1,5 @@
-<app-auth-register-presenter></app-auth-register-presenter>
+<app-auth-register-presenter
+    [generalForm]="generalForm"
+    (submitForm)="submitForm()"
+    (fileChanged)="onFileChanged($event)"
+></app-auth-register-presenter>
