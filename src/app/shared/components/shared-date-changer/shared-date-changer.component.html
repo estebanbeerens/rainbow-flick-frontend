@@ -2,9 +2,10 @@
     <button matRipple (click)="previous()" class="flex-none text-sm pt-2 pb-1 px-4 rounded-l-lg">
         <mat-icon class="material-icons-round">navigate_before</mat-icon>
     </button>
-    <span class="flex-1 mx-2 text-center mt-2.5">
+    
+    <button matRipple (click)="current()" class="flex-1 pt-2 pb-1 px-4 text-center">
         {{date | date : 'fullDate' : '+110': 'nl-be' | titlecase}}
-    </span>
+    </button>
     <button matRipple (click)="next()" class="flex-none text-sm pt-2 pb-1 px-4 rounded-r-lg">
         <mat-icon class="material-icons-round">navigate_next</mat-icon>
     </button>

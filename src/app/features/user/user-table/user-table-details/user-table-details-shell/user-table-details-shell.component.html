@@ -1,1 +1,11 @@
-<p>user-table-details-shell works!</p>
+<app-shared-toolbar
+    title="Tafels details"
+    route="/app/user/table/"
+    [hasBackButton]="true"
+    [hasSearchButton]="false"
+    [hasAddButton]="false"
+></app-shared-toolbar>
+
+<app-user-table-details-presenter
+[table]="table$"
+></app-user-table-details-presenter>

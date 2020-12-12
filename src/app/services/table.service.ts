@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
 import { ITableDetailsResponse } from 'src/app/shared/interfaces/table/table-details-response.model';
 import { ITablesResponse } from 'src/app/shared/interfaces/table/tables-response.model';
+import { ITableOverviewResponse } from 'src/app/shared/interfaces/table/tables-overview-respons.model';
+import { ITableOverview } from 'src/app/shared/interfaces/table/tables-overview.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +15,8 @@ export class TableService {
   private baseUrl = environment.apiUrl + 'table';
 
   isLoading$ = new BehaviorSubject(false);
+
+  tableOverview$ = new BehaviorSubject<ITableOverview>(null);
 
   tables$ = new BehaviorSubject<ITableDetails[]>([]);
   tableDetails$ = new BehaviorSubject<ITableDetails>(null);
@@ -56,6 +60,14 @@ export class TableService {
   createTable(body) {
     this.http.post<ITableDetailsResponse>(`${this.baseUrl}`, body).subscribe((response) => {
       this.tables$.next([...this.tables$.value, response.result]);
+    });
+  }
+
+  overviewTable(date: Date) {
+    this._loaderInit();
+    this.http.get<ITableOverviewResponse>(`${this.baseUrl}/overview/${date}`).subscribe((response) => {
+      this.tableOverview$.next(response.result);
+      this._loaderStop();
     });
   }
 }

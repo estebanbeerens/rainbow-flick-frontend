@@ -1,5 +1,5 @@
 <div *ngIf="!searchbar" class="inline-flex w-full h-12 shadow-lg rounded-xl px-2 py-1 mb-2 bg-gradient-to-tr from-primary to-secondary text-white">
-    <button mat-icon-button type="button" class="flex-none" *ngIf="hasBackButton" [routerLink]="[route]">
+    <button mat-icon-button type="button" class="flex-none" *ngIf="hasBackButton" (click)="backPressed()">
         <mat-icon class="material-icons-round">keyboard_backspace</mat-icon>
     </button>
     <span class="flex-1 mx-2 mt-1.5 font-medium text-lg">{{title | titlecase}}</span>

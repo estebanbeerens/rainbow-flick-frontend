@@ -6,6 +6,7 @@ import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.mode
   templateUrl: './user-team-join-presenter.component.html',
   styleUrls: ['./user-team-join-presenter.component.scss'],
 })
+
 export class UserTeamJoinPresenterComponent implements OnInit {
   ngOnInit(): void {}
 
@@ -16,6 +17,4 @@ export class UserTeamJoinPresenterComponent implements OnInit {
   joinTeam(teamID:String){
     this.onJoinTeam.emit(teamID);
   }
-
-
 }
