@@ -11,7 +11,6 @@ export class AuthRegisterShellComponent implements OnInit {
   
   generalForm: FormGroup;
   file: File;
-  id: string;
 
   constructor(
     public fb: FormBuilder,

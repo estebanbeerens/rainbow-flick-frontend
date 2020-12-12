@@ -20,7 +20,6 @@ export class SidenavComponent implements OnInit {
   constructor(
     private _sharedService: SharedService,
     private _userService: UserService
-    
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +31,10 @@ export class SidenavComponent implements OnInit {
 
   toggleSideNav(): void {
     this._sharedService.toggleSideNav();
+  }
+
+  logout(): void {
+    this._userService.logout();
   }
 
   toggleDarkMode(): void {

@@ -23,15 +23,15 @@
                 </a>
                 </p>
             </div>
-            <form class="mt-8 space-y-6">
+            <form [formGroup]="generalForm" (ngSubmit)="onSubmit()" class="mt-8 space-y-6">
                 <div class="rounded-md shadow-sm -space-y-px">
                 <div>
                     <label for="email" class="sr-only">E-mail adres</label>
-                    <input id="email" type="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border focus:ring-primary focus:border-primary dark:focus:border-primary placeholder-gray-500 dark:placeholder-gray-200 text-gray-900 dark:text-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded-t-md focus:z-10 sm:text-sm" placeholder="E-mail">
+                    <input id="email" formControlName="email" type="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border focus:ring-primary focus:border-primary dark:focus:border-primary placeholder-gray-500 dark:placeholder-gray-200 text-gray-900 dark:text-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded-t-md focus:z-10 sm:text-sm" placeholder="E-mail">
                 </div>
                 <div>
                     <label for="password" class="sr-only">Wachtwoord</label>
-                    <input id="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border focus:ring-primary focus:border-primary dark:focus:border-primary placeholder-gray-500 dark:placeholder-gray-200 text-gray-900 dark:text-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded-b-md focus:z-10 sm:text-sm" placeholder="Wachtwoord">
+                    <input id="password" formControlName="password" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border focus:ring-primary focus:border-primary dark:focus:border-primary placeholder-gray-500 dark:placeholder-gray-200 text-gray-900 dark:text-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-500 rounded-b-md focus:z-10 sm:text-sm" placeholder="Wachtwoord">
                 </div>
                 </div>
         
@@ -45,7 +45,8 @@
                 </div> -->
         
                 <div>
-                <button matRipple type="submit" class="group relative w-full flex justify-center py-2 px-4 border dark:border-gray-700 border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-tr from-primary to-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                <button matRipple type="submit" [disabled]="!generalForm.dirty || generalForm.invalid" 
+                        class="disabled:opacity-50 disabled:cursor-default group relative w-full flex justify-center py-2 px-4 border dark:border-gray-700 border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-tr from-primary to-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                     <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                     <!-- Heroicon name: lock-closed -->
                     <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

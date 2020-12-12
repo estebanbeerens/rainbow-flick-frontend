@@ -24,13 +24,19 @@
             <span class="mx-2 mt-2">{{authUser?.getFullName()}}</span>
         </div>
       </div>
-      <!-- TODO : Only show routes if is admin -->
       <div class="my-2">
+        <!-- TODO : Only show routes if is admin -->
         <div matRipple *ngFor="let route of routeInfo" (click)="toggleSideNav()"
              [routerLink]="[route.path]" routerLinkActive="text-primary dark:text-primary-light bg-gray-100 dark:bg-gray-700"
              class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
             <mat-icon class="material-icons-round ml-2">{{route.icon}}</mat-icon>
             <span class="mx-2 mt-1">{{route.title}}</span>
+        </div>
+        <div (click)="toggleSideNav(); logout()"
+             [routerLink]="['/auth']" routerLinkActive="text-primary dark:text-primary-light bg-gray-100 dark:bg-gray-700"
+             class="flex my-2 py-3 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
+            <mat-icon class="material-icons-round ml-2">exit_to_app</mat-icon>
+            <span class="mx-2 mt-1">Uitloggen</span>
         </div>
       </div>
     </div>
