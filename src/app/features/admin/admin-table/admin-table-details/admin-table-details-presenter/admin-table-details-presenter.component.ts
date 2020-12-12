@@ -9,7 +9,7 @@ import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.mod
 export class AdminTableDetailsPresenterComponent {
 
   @Input() table: ITableDetails;
-  @Input() formGroup;
+  @Input() generalForm;
 
   @Output() closeDialog = new EventEmitter();
   @Output() submitForm = new EventEmitter();

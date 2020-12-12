@@ -36,7 +36,8 @@ export class AdminTableOverviewShellComponent implements OnInit {
   }
 
   createTable() {
-    this.router.navigate(['/app/admin/table/details/0']);
+    this._tableService.resetTableDetails();
+    this.router.navigate(['/app/admin/table/details/create']);
   }
 
   viewTable(id: String) {

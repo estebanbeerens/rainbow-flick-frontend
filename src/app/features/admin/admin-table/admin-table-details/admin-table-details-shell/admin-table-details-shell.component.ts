@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable, Subscription } from 'rxjs';
 import { TableService } from 'src/app/services/table.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
 
@@ -9,38 +9,63 @@ import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.mod
   templateUrl: './admin-table-details-shell.component.html',
   styleUrls: ['./admin-table-details-shell.component.scss'],
 })
-export class AdminTableDetailsShellComponent implements OnInit {
+export class AdminTableDetailsShellComponent implements OnInit, OnDestroy {
 
-  isEdit: Boolean;
+  preloader$: Observable<Boolean>;
   table$: Observable<ITableDetails>;
-  action: string;
+  title: string;
+  sub: Subscription;
+  generalForm: FormGroup;
 
   constructor(
     public fb: FormBuilder,
     private _tableService: TableService
-  ) {
-    this.table$ = this._tableService.tableDetails$.asObservable();
-  }
+  ) { }
 
   ngOnInit(): void {
-    
+    this.preloader$ = this._tableService.isLoading$.asObservable();
+    this.table$ = this._tableService.tableDetails$.asObservable();
+    this.sub = this.table$.subscribe(table => {
+      this.defineIsNew(table),
+      this.loadForm(table)
+    });
   }
 
-  createTableForm = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(2)]],
-    location: ['', [Validators.required, Validators.minLength(3)]],
-    imageUrl: ['', [Validators.required]],
-    contactName: ['', [Validators.required, Validators.minLength(3)]],
-    contactPhone: ['', [Validators.required, Validators.minLength(3)]],
-    description: ['', [Validators.required, Validators.minLength(3)]],
-  });
+  defineIsNew(table: ITableDetails): void {
+    if (table?.id == '' ){
+      this.title = "Tafel aanmaken";
+    }else{
+      this.title = "Tafel bewerken";
+    }
+  }
+
+  loadForm(table: ITableDetails): void {
+    if (table) {
+      this.generalForm = this.fb.group({
+        name: [table.name, [Validators.required, Validators.minLength(2)]],
+        location: [table.location, [Validators.required, Validators.minLength(3)]],
+        contactName: [table.contactName, [Validators.required, Validators.minLength(3)]],
+        contactPhone: [table.contactPhone, [Validators.required, Validators.minLength(3)]],
+        description: [table.description, [Validators.required, Validators.minLength(3)]],
+        // imageUrl: [table.imageUrl],
+      });
+    } else {
+      this.generalForm = this.fb.group({
+        name: ['', [Validators.required, Validators.minLength(2)]],
+        location: ['', [Validators.required, Validators.minLength(3)]],
+        contactName: ['', [Validators.required, Validators.minLength(3)]],
+        contactPhone: ['', [Validators.required, Validators.minLength(3)]],
+        description: ['', [Validators.required, Validators.minLength(3)]],
+        // imageUrl: [table.imageUrl],
+      });
+    }
+  }
 
   submitForm() {
-    console.log('SUMBIT');
-    //TODO Create new table
-    if (this.action == 'CREATE') {
-      //TODO Create update table
-    } else if (this.action == 'UPDATE') {
-    }
+    
+  }
+  
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

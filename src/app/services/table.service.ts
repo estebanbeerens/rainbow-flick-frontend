@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
-import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
+import { ITableDetails, ITableDetailsInitialValue } from 'src/app/shared/interfaces/table/table-details.model';
 import { ITableDetailsResponse } from 'src/app/shared/interfaces/table/table-details-response.model';
 import { ITablesResponse } from 'src/app/shared/interfaces/table/tables-response.model';
 import { ITableOverviewResponse } from 'src/app/shared/interfaces/table/tables-overview-respons.model';
@@ -43,6 +43,10 @@ export class TableService {
     this.http.get<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
       this.tableDetails$.next(response.result);
     });
+  }
+
+  resetTableDetails() {
+    this.tableDetails$.next(ITableDetailsInitialValue);
   }
 
   updateTable(tableID: String, body) {

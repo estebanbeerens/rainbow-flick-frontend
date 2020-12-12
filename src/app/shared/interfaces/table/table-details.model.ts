@@ -8,3 +8,14 @@ export interface ITableDetails {
   description: String;
   inUse: Boolean;
 }
+
+export const ITableDetailsInitialValue: ITableDetails = {
+  id: '',
+  name: '',
+  location: '',
+  imageUrl: '',
+  contactName: '',
+  contactPhone: '',
+  description: '',
+  inUse: false
+}
