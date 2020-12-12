@@ -1,5 +1,15 @@
+<app-shared-toolbar
+    [title]="title"
+    [hasBackButton]="true"
+    [hasSearchButton]="false"
+    [hasAddButton]="false"
+></app-shared-toolbar>
+<app-shared-spinner
+    [visible]="preloader$ | async"
+></app-shared-spinner>
 <app-admin-team-details-presenter
-    [team] = "team$ | async"
-    [formGroup] = "createForm"
+    [team]="team$ | async"
+    [users]="users$ | async"
+    [generalForm]="generalForm"
     (submitForm)="submitForm()"
 ></app-admin-team-details-presenter>

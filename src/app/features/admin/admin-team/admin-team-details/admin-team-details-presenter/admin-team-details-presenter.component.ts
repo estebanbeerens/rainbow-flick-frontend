@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
 
 @Component({
   selector: 'app-admin-team-details-presenter',
@@ -8,8 +10,9 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
 })
 export class AdminTeamDetailsPresenterComponent {
 
+  @Input() users: IUserDetails[];
   @Input() team: ITeamDetails;
-  @Input() formGroup;
+  @Input() generalForm: FormGroup;
   
   @Output() submitForm = new EventEmitter();
 

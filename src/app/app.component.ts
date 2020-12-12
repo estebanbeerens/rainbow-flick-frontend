@@ -24,7 +24,7 @@ export class AppComponent {
   ngOnInit(): void {
     // console.log('ok');
     // TODO Remove in future after application is build
-    // this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
+    this._userService.login({ email: 'supermario@example.com', password: 'Admin1234!' });
     // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
     /*USERS*/
     // this._userService.userAuth$.subscribe((result) => console.log('User auth', result));

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ITeamDetailsResponse } from 'src/app/shared/interfaces/team/team-details-response.model';
-import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamDetails, ITeamDetailsInitialValue } from 'src/app/shared/interfaces/team/team-details.model';
 import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { ITeamsResponse } from 'src/app/shared/interfaces/team/teams-response.model';
 import { environment } from 'src/environments/environment';
@@ -39,9 +39,13 @@ export class TeamService {
   }
 
   loadTeamDetails(teamID: String) {
-    this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
-      this.teamDetails$.next(response.result);
-    });
+    if (teamID != 'create') {
+      this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
+        this.teamDetails$.next(response.result);
+      });
+    } else {
+      this.teamDetails$.next(ITeamDetailsInitialValue);
+    }
   }
 
   createTeam(body) {

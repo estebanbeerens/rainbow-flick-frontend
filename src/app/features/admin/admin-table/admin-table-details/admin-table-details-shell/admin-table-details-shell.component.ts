@@ -42,20 +42,20 @@ export class AdminTableDetailsShellComponent implements OnInit, OnDestroy {
   loadForm(table: ITableDetails): void {
     if (table) {
       this.generalForm = this.fb.group({
-        name: [table.name, [Validators.required, Validators.minLength(2)]],
-        location: [table.location, [Validators.required, Validators.minLength(3)]],
-        contactName: [table.contactName, [Validators.required, Validators.minLength(3)]],
-        contactPhone: [table.contactPhone, [Validators.required, Validators.minLength(3)]],
-        description: [table.description, [Validators.required, Validators.minLength(3)]],
+        name: [table.name, [Validators.required]],
+        location: [table.location, [Validators.required]],
+        contactName: [table.contactName, [Validators.required]],
+        contactPhone: [table.contactPhone, [Validators.required]],
+        description: [table.description, [Validators.required]],
         // imageUrl: [table.imageUrl],
       });
     } else {
       this.generalForm = this.fb.group({
-        name: ['', [Validators.required, Validators.minLength(2)]],
-        location: ['', [Validators.required, Validators.minLength(3)]],
-        contactName: ['', [Validators.required, Validators.minLength(3)]],
-        contactPhone: ['', [Validators.required, Validators.minLength(3)]],
-        description: ['', [Validators.required, Validators.minLength(3)]],
+        name: ['', [Validators.required]],
+        location: ['', [Validators.required]],
+        contactName: ['', [Validators.required]],
+        contactPhone: ['', [Validators.required]],
+        description: ['', [Validators.required]],
         // imageUrl: [table.imageUrl],
       });
     }
