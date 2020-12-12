@@ -24,12 +24,20 @@ const routes: Routes = [
     component: AdminTableDetailsShellComponent,
   },
   {
+    path: 'table',
+    redirectTo: 'table/overview',
+  },
+  {
     path: 'team/overview',
     component: AdminTeamOverviewShellComponent,
   },
   {
     path: 'team/details/:id',
-    component:AdminTeamDetailsShellComponent,
+    component: AdminTeamDetailsShellComponent,
+  },
+  {
+    path: 'team',
+    redirectTo: 'team/overview',
   },
   {
     path: 'user/overview',
@@ -40,6 +48,10 @@ const routes: Routes = [
     component: AdminUserDetailsShellComponent,
   },
   {
+    path: 'user',
+    redirectTo: 'user/overview',
+  },
+  {
     path: 'match/overview',
     component: AdminMatchOverviewShellComponent,
   },
@@ -47,6 +59,11 @@ const routes: Routes = [
     path: 'match/details/:id',
     component: AdminMatchDetailsShellComponent,
   },
+  {
+    path: 'match',
+    redirectTo: 'match/overview',
+  },
+  {
   {
     path: '**',
     pathMatch: 'full',

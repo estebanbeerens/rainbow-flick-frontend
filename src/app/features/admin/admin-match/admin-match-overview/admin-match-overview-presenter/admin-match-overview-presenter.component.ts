@@ -11,20 +11,20 @@ export class AdminMatchOverviewPresenterComponent implements OnInit {
   splitEvery: number = 5;
   total: number;
 
-  viewMaches: IMatchDetail[];
+  viewMatches: IMatchDetail[];
   @Input() matches: IMatchDetail[];
   @Output() delete = new EventEmitter();
-  @Output() actionButton = new EventEmitter();
+  @Output() onClick = new EventEmitter<string>();
 
   ngOnChanges() {
     if (this.matches != null) {
       this.total = this.matches.length;
-      this.viewMaches = this.matches.slice(this.minTable, this.splitEvery);
+      this.viewMatches = this.matches.slice(this.minTable, this.splitEvery);
     }
   }
 
   tablePagination(min: number, max: number) {
-    this.viewMaches = this.matches.slice(min, max);
+    this.viewMatches = this.matches.slice(min, max);
   }
 
   clickPrevious(result) {
@@ -35,9 +35,8 @@ export class AdminMatchOverviewPresenterComponent implements OnInit {
     this.tablePagination(result.from, result.to);
   }
 
-  clickView(ID: String): void {
-    console.log('click view');
-    this.actionButton.emit({ ID: ID, action: 'VIEW' });
+  clickView(id: String): void {
+    this.onClick.emit(id.toString());
   }
 
   clickDelete(ID: String): void {

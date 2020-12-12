@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { delay, filter, map } from 'rxjs/operators';
 import { AdminTeamDetailsShellComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-shell/admin-team-details-shell.component';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
@@ -15,6 +14,7 @@ import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
   providers: [SearchFilterPipe],
 })
 export class AdminTeamOverviewShellComponent implements OnInit {
+
   preloader$: Observable<Boolean>;
   teams$: Observable<ITeamOverview[]>;
   viewTeams$: Observable<ITeamOverview[]>;
@@ -22,7 +22,7 @@ export class AdminTeamOverviewShellComponent implements OnInit {
   constructor(
     private _teamService: TeamService,
     private _searchFilterPipe: SearchFilterPipe,
-    public dialog: MatDialog
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -34,25 +34,21 @@ export class AdminTeamOverviewShellComponent implements OnInit {
     this.preloader$ = this._teamService.isLoading$.asObservable();
   }
 
-  createTable() {
-    this.openDialog('CREATE');
+  createTeam() {
+    this.router.navigate(['/app/admin/team/details/0']);
   }
+
+  viewTeam(id: String) {
+    this._teamService.loadTeamDetails(id);
+    this.router.navigate(['/app/admin/team/details/' + id.toString()]);
+  }
+
+  deleteTeam(id: String) {
+    this._teamService.deleteTeam(id);
+  }
+
   search(searchString: string) {
     this.viewTeams$ = this._searchFilterPipe.transform(this.teams$, searchString);
   }
-
-  actionTable(result) {
-    this._teamService.loadTeamDetails(result.ID);
-    this.openDialog(result.action);
-  }
-
-  deleteTable(ID: String) {
-    this._teamService.deleteTeam(ID);
-  }
-  openDialog(action: String): void {
-    const dialogRef = this.dialog.open(AdminTeamDetailsShellComponent, {
-      minWidth: '400px',
-      data: { action: action },
-    });
-  }
+  
 }
