@@ -64,7 +64,6 @@ const routes: Routes = [
     redirectTo: 'match/overview',
   },
   {
-  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'home',
