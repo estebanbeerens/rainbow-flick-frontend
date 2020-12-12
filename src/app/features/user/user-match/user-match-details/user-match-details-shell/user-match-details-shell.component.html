@@ -4,4 +4,8 @@
     [hasSearchButton]="false"
     [hasAddButton]="false"
 ></app-shared-toolbar>
-<app-user-match-details-presenter></app-user-match-details-presenter>
+<app-user-match-details-presenter
+  *ngIf="match.value?.id == matchID"
+  [match]="match|async"
+  (onStartMatch)="startMatch($event)"
+></app-user-match-details-presenter>

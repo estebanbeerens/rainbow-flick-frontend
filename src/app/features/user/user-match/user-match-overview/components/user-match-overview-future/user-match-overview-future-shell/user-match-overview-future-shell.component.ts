@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatchService } from 'src/app/services/match.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 
 @Component({
@@ -8,9 +10,17 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
 })
 export class UserMatchOverviewFutureShellComponent implements OnInit {
   @Input() matches: IMatchDetail[];
-  constructor() { }
+  constructor(
+    private _matchService: MatchService,
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  startMatch(matchID: String){
+    this._matchService.startMatch(matchID);
+    this._router.navigate(['game/overview']);
   }
 
 }

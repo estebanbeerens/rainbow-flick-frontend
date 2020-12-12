@@ -1,51 +1,85 @@
 <h2 class="text-center">
-    [Match naam]
+  {{match.name}}
 </h2>
 <div class="flex flex-col gap-4">
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <div class="h-12 w-12 block mx-auto">
-                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
-            </div>
-            <p class="text-center text-lg">[TEAM 1]</p>
-            <p class="text-center text-sm text-gray-700 dark:text-gray-300">
-                <!-- TODO : Ngfor -->
-                <span>
-                    <span>Esteban&nbsp;Beerens</span>
-                    <span>, </span>
-                </span>
-            </p>
-        </div>
-        <div>
-            <div class="h-12 w-12 block mx-auto">
-                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
-            </div>
-            <p class="text-center text-lg">[TEAM 1]</p>
-            <p class="text-center text-sm text-gray-700 dark:text-gray-300">Esteban&nbsp;Beerens, Tom&nbsp;Bosmans, Ward Beyens, Youri Van Laer, Robin VR</p>
-        </div>
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <div class="h-12 w-12 block mx-auto">
+        <img class="h-12 w-12 rounded-full"
+          [src]="match.homeTeam.imageURL? match.awayTeam.imageURL:'assets/img/team.jpg'" alt="">
+      </div>
+      <p class="text-center text-lg">{{match.homeTeam.name}}</p>
+      <p class="text-center text-sm text-gray-700 dark:text-gray-300">
+        <ng-container *ngFor="let player of (match|matchPlayerPerTeam:true); let i = index">
+          <span *ngIf="i!=0">, </span> <span>{{player.user.firstName}} {{player.user.lastName}}</span>
+        </ng-container>
+      </p>
     </div>
-    <div class="grid grid-cols-2 gap-3 text-white">
-        <!-- TODO : If winning = green, if losing = red, if equal = blue -->
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">2</p>
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">0</p>
-        <!-- <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">0</p> -->
+    <div>
+      <div class="h-12 w-12 block mx-auto">
+        <img class="h-12 w-12 rounded-full"
+          [src]="match.awayTeam.imageURL? match.awayTeam.imageURL:'assets/img/team.jpg'" alt="">
+      </div>
+      <p class="text-center text-lg">{{match.awayTeam.name}}</p>
+      <ng-container *ngFor="let player of match|matchPlayerPerTeam:false; let i = index">
+        <span *ngIf="i!=0">, </span><span>{{player.user.firstName}} {{player.user.lastName}}</span>
+      </ng-container>
     </div>
-    <!-- TODO : Show if not started yet -->
-    <div matRipple class="bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
-        <p class="text-center p-4 text-xl text-white">Match starten</p>
+  </div>
+
+  <div matRipple *ngIf="!match.dateTimeStart" (click)="startMatch(match.id)"
+    class="bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
+    <p class="text-center p-4 text-xl text-white">Match starten</p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-3 text-white">
+    <!-- Score home -->
+    <div>
+      <ng-container *ngIf="(match|matchScoreTeam:true) > (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">
+          {{(match|matchScoreTeam:true)}}</p>
+      </ng-container>
+      <ng-container *ngIf="(match|matchScoreTeam:true) < (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">
+          {{(match|matchScoreTeam:true)}}</p>
+      </ng-container>
+      <ng-container *ngIf="(match|matchScoreTeam:true) == (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">
+          {{(match|matchScoreTeam:true)}}</p>
+      </ng-container>
     </div>
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <p class="text-center text-md">1 - 0 (14:30)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 0 (14:31)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">3 - 1 (14:32)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">4 - 1 (14:32)</p>
-        </div>
-        <div>
-            <p class="text-center text-md">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 1 (14:31)</p>
-        </div>
+    <!-- Score away -->
+    <div>
+      <ng-container *ngIf="(match|matchScoreTeam:true) < (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">
+          {{(match|matchScoreTeam:false)}}</p>
+      </ng-container>
+      <ng-container *ngIf="(match|matchScoreTeam:true) > (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">
+          {{(match|matchScoreTeam:false)}}</p>
+      </ng-container>
+      <ng-container *ngIf="(match|matchScoreTeam:true) == (match|matchScoreTeam:false)">
+        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">
+          {{(match|matchScoreTeam:false)}}</p>
+      </ng-container>
     </div>
+  </div>
+  <div class="grid grid-cols-2 gap-3">
+    <div>
+      <ng-container *ngFor="let score of match.score">
+        <p *ngIf="score.homeTeamScored" class="text-center text-md">{{score.whenScored}}' {{score.scoreHome}} -
+          {{score.scoreAway}}</p>
+        <p *ngIf="!score.homeTeamScored" class="text-center text-md border-t border-gray-200 dark:border-gray-500">
+          &nbsp;</p>
+      </ng-container>
+    </div>
+    <div>
+      <ng-container *ngFor="let score of match.score">
+        <p *ngIf="!score.homeTeamScored" class="text-center text-md">{{score.whenScored}}' {{score.scoreHome}} -
+          {{score.scoreAway}}</p>
+        <p *ngIf="score.homeTeamScored" class="text-center text-md border-t border-gray-200 dark:border-gray-500">
+          &nbsp;</p>
+      </ng-container>
+    </div>
+  </div>
 </div>

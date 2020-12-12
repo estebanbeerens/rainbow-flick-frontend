@@ -3,4 +3,6 @@
     [hasAddButton]="false"
     [hasBackButton]="false"
 ></app-shared-toolbar>
-<app-user-game-presenter></app-user-game-presenter>
+<app-user-game-presenter
+*ngIf="(match|async).id == matchID"
+></app-user-game-presenter>

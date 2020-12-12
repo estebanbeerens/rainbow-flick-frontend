@@ -1,5 +1,5 @@
 <h2 class="text-center">
-    [Match naam]
+   {{match.name}}
 </h2>
 <div class="flex flex-col gap-4">
     <div class="grid grid-cols-2 gap-3">
@@ -9,7 +9,9 @@
             </div>
             <p class="text-center text-lg">[TEAM 1]</p>
             <p class="text-center text-sm text-gray-700 dark:text-gray-300">
-                <!-- TODO : Ngfor -->
+                <ng-container *ngFor="let participant of match.players">
+
+                </ng-container>
                 <span>
                     <span>Esteban&nbsp;Beerens</span>
                     <span>, </span>
@@ -20,7 +22,7 @@
             <div class="h-12 w-12 block mx-auto">
                 <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
             </div>
-            <p class="text-center text-lg">[TEAM 1]</p>
+            <p class="text-center text-lg">{{match.homeTeam.name}}</p>
             <p class="text-center text-sm text-gray-700 dark:text-gray-300">Esteban&nbsp;Beerens, Tom&nbsp;Bosmans, Ward Beyens, Youri Van Laer, Robin VR</p>
         </div>
     </div>

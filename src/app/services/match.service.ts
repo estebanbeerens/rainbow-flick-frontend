@@ -109,6 +109,7 @@ export class MatchService {
   //TODO test endpoint
   startMatch(matchID: String) {
     this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/start/${matchID}`).subscribe((response) => {
+      this.matchDetails$.next(response.result);
       this.matchesAuthUser$.next(
         this.matchesAuthUser$.value.map((match) => {
           if (match.id == response.result.id) {
@@ -123,6 +124,7 @@ export class MatchService {
   //TODO validate request
   endMatch(matchID: String) {
     this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/end/${matchID}`).subscribe((response) => {
+      this.matchDetails$.next(response.result);
       this.matchesAuthUser$.next(
         this.matchesAuthUser$.value.map((match) => {
           if (match.id == response.result.id) {

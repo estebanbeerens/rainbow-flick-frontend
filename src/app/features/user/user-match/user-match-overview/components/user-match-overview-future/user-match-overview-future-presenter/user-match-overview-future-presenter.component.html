@@ -13,15 +13,15 @@
                           {{match.name|truncate:35}}
                         </div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">
-                          {{match.dateTimePlanned | date:'d/M/y'}}
+                          {{match.dateTimePlanned | date:'d/M/y  hh:mm'}}
                         </div>
                       </div>
                     </div>
                   </td>
                   <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                      <div class="text-sm mt-3 bg-gray-300 text-gray-900 rounded-lg">
-                          <p class="text-center">{{match.dateTimePlanned|date:'hh:mm'}}</p>
-                      </div>
+                    <button (click)="$event.stopPropagation(); startMatch(match.id)" [disabled]="!match|matchRequirementsMet"  mat-icon-button class="text-primary dark:text-primary-light">
+                      Start
+                    </button>
                   </td>
                 </tr>
               </ng-container>

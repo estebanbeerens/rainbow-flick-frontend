@@ -26,6 +26,9 @@ import { SharedHomeComponent } from 'src/app/shared/components/shared-home/share
 import { TeamDetailToOverviewPipe } from 'src/app/shared/pipes/team-details-to-overview.pipe';
 import { SharedImageUploadComponent } from './components/shared-image-upload/shared-image-upload.component';
 import { IdMatchesAuthUserIdPipe } from 'src/app/shared/pipes/id-matches-auth-user.pipe';
+import { MatchRequirementsMetPipe } from 'src/app/shared/pipes/match-requirements-met.pipe';
+import { MatchPlayerPerTeamPipe } from 'src/app/shared/pipes/match-players-per-team.pipe';
+import { MatchScoreTeamPipe } from 'src/app/shared/pipes/match-score-team.pipe';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { IdMatchesAuthUserIdPipe } from 'src/app/shared/pipes/id-matches-auth-us
     SearchFilterPipe,
     TeamDetailToOverviewPipe,
     SharedImageUploadComponent,
-    IdMatchesAuthUserIdPipe
+    IdMatchesAuthUserIdPipe,
+    MatchRequirementsMetPipe,
+    MatchPlayerPerTeamPipe,
+    MatchScoreTeamPipe
   ],
   imports: [
     CommonModule,
@@ -82,7 +88,10 @@ import { IdMatchesAuthUserIdPipe } from 'src/app/shared/pipes/id-matches-auth-us
     MatchScorePipe,
     TeamDetailToOverviewPipe,
     SharedImageUploadComponent,
-    IdMatchesAuthUserIdPipe
+    IdMatchesAuthUserIdPipe,
+    MatchRequirementsMetPipe,
+    MatchPlayerPerTeamPipe,
+    MatchScoreTeamPipe
   ],
 })
 export class SharedModule {}
