@@ -12,4 +12,5 @@
     [users]="users$ | async"
     [generalForm]="generalForm"
     (submitForm)="submitForm()"
+    (fileChanged)="onFileChanged($event)"
 ></app-admin-team-details-presenter>
