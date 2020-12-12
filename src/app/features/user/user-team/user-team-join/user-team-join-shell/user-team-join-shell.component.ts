@@ -29,7 +29,7 @@ export class UserTeamJoinShellComponent implements OnInit {
     this.teams$.subscribe(() => this.filterTeams());
   }
   joinTeam(teamID: String){
-    this._teamService.joinTeam(teamID, {user: this._userService.userAuth$.value.id});
+    this._teamService.joinTeam(teamID, {id: this._userService.userAuth$.value.id.toString()});
   }
 
   filterTeams() {
@@ -46,5 +46,6 @@ export class UserTeamJoinShellComponent implements OnInit {
           team.name.includes(this.filterString$.value.toString())
       );
       this.filteredTeams$.next(filteredTeams);
+      console.log("filtered Team: ", filteredTeams)
   }
 }

@@ -2,8 +2,8 @@
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
-          <button matRipple [routerLink]="['/app/user/team/join']" class="bg-gradient-to-tr from-primary to-secondary text-white text-center py-1 w-full">
-            <span>Sluit je aan bij een team</span>
+          <button matRipple [routerLink]="['/app/user/team/overview']" class="bg-gradient-to-tr from-primary to-secondary text-white text-center py-1 w-full">
+            <span>Terug naar het overzicht</span>
           </button>
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
@@ -45,7 +45,7 @@
                   </td>
                   <td class="px-2 whitespace-nowrap text-right font-medium">
                     <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button (click)="$event.stopPropagation();"
+                    <button
                       mat-icon-button class="text-primary dark:text-primary-light">
                       <mat-icon class="material-icons-round">add_task</mat-icon>
                     </button>

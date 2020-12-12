@@ -124,7 +124,15 @@ export class UserService {
   }
 
   private convertInterfaceToClassAuthUser(authUser: IUserAuth): UserAuth {
-    let object = new UserAuth(authUser.id, authUser.iat, authUser.exp, authUser.permissions, authUser.firstName, authUser.lastName, authUser.imageURL);
+    let object = new UserAuth(
+      authUser.id,
+      authUser.iat,
+      authUser.exp,
+      authUser.permissions,
+      authUser.firstName,
+      authUser.lastName,
+      authUser.imageURL
+    );
     return object;
   }
 }

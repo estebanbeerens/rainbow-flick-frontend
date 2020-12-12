@@ -23,7 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule
   ],
   providers: [
-    SharedService
+    SharedService,
   ]
 })
 export class CoreModule { }

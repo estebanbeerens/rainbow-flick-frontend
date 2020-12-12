@@ -72,12 +72,19 @@ export class TeamService {
     });
   }
 
-  joinTeam(teamID: String, body) {
+  joinTeam(teamID: String, body: {id: string}) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/join`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
-      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
+      const overviewUpdateTeam = this.convertITeamDetailsToITeamOverview(response.result);
+      this.teams$.next(this.teams$.value.map((team) => {
+        if(team.id == overviewUpdateTeam.id){
+          team = overviewUpdateTeam;
+        }
+        return team;
+      }));
     });
   }
+
 
   leaveTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/leave`, body).subscribe((response) => {
@@ -88,7 +95,13 @@ export class TeamService {
   acceptTeam(teamID: String, body) {
     this.http.post<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}/accept`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
-      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
+      const overviewUpdateTeam = this.convertITeamDetailsToITeamOverview(response.result);
+      this.teams$.next(this.teams$.value.map((team) => {
+        if(team.id == overviewUpdateTeam.id){
+          team = overviewUpdateTeam;
+        }
+        return team;
+      }));
     });
   }
 
