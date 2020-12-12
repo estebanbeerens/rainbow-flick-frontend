@@ -40,13 +40,13 @@ export class TableService {
   }
 
   loadTableDetails(tableID: String) {
-    this.http.get<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
-      this.tableDetails$.next(response.result);
-    });
-  }
-
-  resetTableDetails() {
-    this.tableDetails$.next(ITableDetailsInitialValue);
+    if (tableID != 'create') {
+      this.http.get<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
+        this.tableDetails$.next(response.result);
+      });
+    } else {
+      this.tableDetails$.next(ITableDetailsInitialValue);
+    }
   }
 
   updateTable(tableID: String, body) {

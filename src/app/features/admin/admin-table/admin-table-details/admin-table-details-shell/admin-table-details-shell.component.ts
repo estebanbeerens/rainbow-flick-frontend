@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { TableService } from 'src/app/services/table.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
@@ -19,10 +20,14 @@ export class AdminTableDetailsShellComponent implements OnInit, OnDestroy {
 
   constructor(
     public fb: FormBuilder,
-    private _tableService: TableService
+    private _tableService: TableService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(p => {
+      this._tableService.loadTableDetails(p.id);
+    })
     this.preloader$ = this._tableService.isLoading$.asObservable();
     this.table$ = this._tableService.tableDetails$.asObservable();
     this.sub = this.table$.subscribe(table => {
