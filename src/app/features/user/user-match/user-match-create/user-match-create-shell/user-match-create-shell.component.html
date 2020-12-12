@@ -4,4 +4,9 @@
     [hasSearchButton]="false"
     [hasAddButton]="false"
 ></app-shared-toolbar>
-<app-user-match-create-presenter></app-user-match-create-presenter>
+<app-user-match-create-presenter
+[teams]="teams$ | async"
+[challenge]="challenge$ | async"
+[generalForm]="generalForm"
+(onSubmitPress)="onSubmitPress($event)"
+></app-user-match-create-presenter>

@@ -14,15 +14,10 @@
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
                         <!--  Implement code below to shorten names if they're too long -->
-                        {{
-                          (table?.name.length>30) ? ((table?.name | slice:0:30)).toString()+ "..." : (table?.name) 
-                      }}
+                        {{ table?.name|truncate:30}}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
-                        {{
-                          (table?.location.length>30)? 
-                          (table?.location | slice:0:30).toString()+'...':(table?.location) 
-                      }}
+                        {{ table?.location|truncate:30}}
                       </div>
                     </div>
                   </div>

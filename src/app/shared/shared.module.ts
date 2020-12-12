@@ -42,6 +42,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserWonMatchPipe,
     MatchScorePipe,
     SearchFilterPipe,
+    
   ],
   imports: [
     CommonModule,
