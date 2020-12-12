@@ -68,7 +68,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
            return match.dateTimeEnd ? true: false; 
         } 
         case 2: {
-           if(match.players.filter((player) => player.user.id == this.authUser.id).length == 1){
+           if(match.players.filter((player) => player.user.id == this.authUser.id).length > 0){
              if(!match.dateTimeEnd){
                return true
              }
@@ -77,7 +77,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
         } 
         case 3: {
           if(match.players.filter((player) => player.user.id == this.authUser.id).length == 0){
-            if(!match.dateTimeStart){
+            if(!match.dateTimeEnd){
               return true
             }
           }

@@ -4,5 +4,6 @@
     [hasBackButton]="false"
 ></app-shared-toolbar>
 <app-user-game-presenter
-*ngIf="(match|async).id == matchID"
+*ngIf="(match|async)?.id == matchID"
+[match]="match"
 ></app-user-game-presenter>

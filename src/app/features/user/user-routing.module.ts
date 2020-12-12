@@ -71,7 +71,7 @@ const routes: Routes = [
     redirectTo: 'team/overview',
   },
   {
-    path: 'game/overview/:id',
+    path: 'game/:id',
     component: UserGameShellComponent,
   },
   {

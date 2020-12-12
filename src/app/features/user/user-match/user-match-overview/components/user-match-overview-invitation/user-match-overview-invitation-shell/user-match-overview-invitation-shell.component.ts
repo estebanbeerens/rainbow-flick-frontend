@@ -7,17 +7,14 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
   templateUrl: './user-match-overview-invitation-shell.component.html',
   styleUrls: ['./user-match-overview-invitation-shell.component.scss']
 })
-export class UserMatchOverviewInvitationShellComponent implements OnInit {
+export class UserMatchOverviewInvitationShellComponent {
   @Input() matches: IMatchDetail[];
   constructor(
     private _matchService:MatchService
   ) { }
 
-  ngOnInit(): void {
-  }
-
-  joinMatch(matchID: String){
-    this._matchService.joinMatch(matchID);
+  joinMatch(event: {matchID:String, teamID:String}){
+    this._matchService.joinMatch(event.matchID, event.teamID);
   }
 
 }

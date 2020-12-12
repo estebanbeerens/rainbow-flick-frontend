@@ -9,9 +9,9 @@ export class MatchRequirementsMetPipe implements PipeTransform {
   constructor() {}
 
   transform(match: IMatchDetail) {
-    const numberPlayersHome = match.players.filter((player) => player.teamID == match.homeTeam.id).length;
-    const numberPlayersAway = match.players.filter((player) => player.teamID == match.awayTeam.id).length;
-    const minRequiredPerTeam = match.matchType.minNumberPlayersPerTeam;
+    const numberPlayersHome = match.players?.filter((player) => player.teamID == match.homeTeam.id).length;
+    const numberPlayersAway = match.players?.filter((player) => player.teamID == match.awayTeam.id).length;
+    const minRequiredPerTeam = match.matchType?.minNumberPlayersPerTeam;
 
     return ((numberPlayersHome >= minRequiredPerTeam) && (numberPlayersAway >= minRequiredPerTeam));
   }

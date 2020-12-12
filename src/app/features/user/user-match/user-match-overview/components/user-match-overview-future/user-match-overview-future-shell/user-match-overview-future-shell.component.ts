@@ -19,8 +19,7 @@ export class UserMatchOverviewFutureShellComponent implements OnInit {
   }
 
   startMatch(matchID: String){
-    this._matchService.startMatch(matchID);
-    this._router.navigate(['game/overview']);
+    this._router.navigate([`app/user/game/${matchID}`]);
   }
 
 }

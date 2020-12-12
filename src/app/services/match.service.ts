@@ -81,8 +81,8 @@ export class MatchService {
   }
 
   //TODO test endpoint
-  joinMatch(matchID: String) {
-    this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/join/${matchID}`).subscribe((response) => {
+  joinMatch(matchID: String, teamID: String) {
+    this.http.post<IMatchDetailsResponse>(`${this.baseUrl}/join/${matchID}`, {teamID}).subscribe((response) => {
       this.matchesAuthUser$.next(
         this.matchesAuthUser$.value.map((match) => {
           if (match.id == response.result.id) {

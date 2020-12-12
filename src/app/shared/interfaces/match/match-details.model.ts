@@ -10,8 +10,8 @@ export interface IMatchDetail {
   dateTimePlanned: Date;
   dateTimeStart: Date;
   dateTimeEnd: Date;
-  homeTeam: {id: String, name:String, companyName:String,imageURL:String,participantIDs:String[]};
-  awayTeam: {id: String, name:String, companyName:String,imageURL:String,participantIDs:String[]};
+  homeTeam: {id: String, name:String, companyName:String,imageURL:String,participants:String[]};
+  awayTeam: {id: String, name:String, companyName:String,imageURL:String,participants:String[]};
   players: IPlayerDetails[];
   score: IScoreDetail[];
   table: ITableDetails[];

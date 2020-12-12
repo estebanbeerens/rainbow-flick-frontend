@@ -32,54 +32,7 @@
     <p class="text-center p-4 text-xl text-white">Match starten</p>
   </div>
 
-  <div class="grid grid-cols-2 gap-3 text-white">
-    <!-- Score home -->
-    <div>
-      <ng-container *ngIf="(match|matchScoreTeam:true) > (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">
-          {{(match|matchScoreTeam:true)}}</p>
-      </ng-container>
-      <ng-container *ngIf="(match|matchScoreTeam:true) < (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">
-          {{(match|matchScoreTeam:true)}}</p>
-      </ng-container>
-      <ng-container *ngIf="(match|matchScoreTeam:true) == (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">
-          {{(match|matchScoreTeam:true)}}</p>
-      </ng-container>
-    </div>
-    <!-- Score away -->
-    <div>
-      <ng-container *ngIf="(match|matchScoreTeam:true) < (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">
-          {{(match|matchScoreTeam:false)}}</p>
-      </ng-container>
-      <ng-container *ngIf="(match|matchScoreTeam:true) > (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">
-          {{(match|matchScoreTeam:false)}}</p>
-      </ng-container>
-      <ng-container *ngIf="(match|matchScoreTeam:true) == (match|matchScoreTeam:false)">
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">
-          {{(match|matchScoreTeam:false)}}</p>
-      </ng-container>
-    </div>
-  </div>
-  <div class="grid grid-cols-2 gap-3">
-    <div>
-      <ng-container *ngFor="let score of match.score">
-        <p *ngIf="score.homeTeamScored" class="text-center text-md">{{score.whenScored}}' {{score.scoreHome}} -
-          {{score.scoreAway}}</p>
-        <p *ngIf="!score.homeTeamScored" class="text-center text-md border-t border-gray-200 dark:border-gray-500">
-          &nbsp;</p>
-      </ng-container>
-    </div>
-    <div>
-      <ng-container *ngFor="let score of match.score">
-        <p *ngIf="!score.homeTeamScored" class="text-center text-md">{{score.whenScored}}' {{score.scoreHome}} -
-          {{score.scoreAway}}</p>
-        <p *ngIf="score.homeTeamScored" class="text-center text-md border-t border-gray-200 dark:border-gray-500">
-          &nbsp;</p>
-      </ng-container>
-    </div>
-  </div>
+  <app-shared-score [match]="match">
+
+  </app-shared-score>
 </div>

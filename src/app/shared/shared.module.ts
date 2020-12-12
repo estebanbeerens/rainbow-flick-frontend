@@ -29,6 +29,7 @@ import { IdMatchesAuthUserIdPipe } from 'src/app/shared/pipes/id-matches-auth-us
 import { MatchRequirementsMetPipe } from 'src/app/shared/pipes/match-requirements-met.pipe';
 import { MatchPlayerPerTeamPipe } from 'src/app/shared/pipes/match-players-per-team.pipe';
 import { MatchScoreTeamPipe } from 'src/app/shared/pipes/match-score-team.pipe';
+import { SharedScoreComponent } from './components/shared-score/shared-score.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatchScoreTeamPipe } from 'src/app/shared/pipes/match-score-team.pipe';
     IdMatchesAuthUserIdPipe,
     MatchRequirementsMetPipe,
     MatchPlayerPerTeamPipe,
-    MatchScoreTeamPipe
+    MatchScoreTeamPipe,
+    SharedScoreComponent
   ],
   imports: [
     CommonModule,
@@ -91,7 +93,8 @@ import { MatchScoreTeamPipe } from 'src/app/shared/pipes/match-score-team.pipe';
     IdMatchesAuthUserIdPipe,
     MatchRequirementsMetPipe,
     MatchPlayerPerTeamPipe,
-    MatchScoreTeamPipe
+    MatchScoreTeamPipe,
+    SharedScoreComponent
   ],
 })
 export class SharedModule {}

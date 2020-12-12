@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 
 @Component({
@@ -6,10 +7,7 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
   templateUrl: './user-match-details-presenter.component.html',
   styleUrls: ['./user-match-details-presenter.component.scss']
 })
-export class UserMatchDetailsPresenterComponent implements OnInit{
-  ngOnInit(): void {
-    console.log("match", this.match)
-  }
+export class UserMatchDetailsPresenterComponent{
   @Input() match: IMatchDetail;
   @Output() onStartMatch = new EventEmitter<String>();
 

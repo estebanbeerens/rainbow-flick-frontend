@@ -22,7 +22,7 @@ export class UserGameShellComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       this.matchID = params.id;
     });
-    this._matchService.leaveMatch(this.matchID);
+    this._matchService.startMatch(this.matchID);
     this.match = this._matchService.matchDetails$
   }
 }
