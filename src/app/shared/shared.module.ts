@@ -24,6 +24,9 @@ import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-u
 import { AuthUserWonMatchPipe } from 'src/app/shared/pipes/auth-user-won-match.pipe';
 import { MatchScorePipe } from 'src/app/shared/pipes/match-score.pipe';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { TeamDetailToOverviewPipe } from 'src/app/shared/pipes/team-details-to-overview.pipe';
+import { SharedImageUploadComponent } from './components/shared-image-upload/shared-image-upload.component';
+import { IdMatchesAuthUserIdPipe } from 'src/app/shared/pipes/id-matches-auth-user.pipe';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AuthUserWonMatchPipe,
     MatchScorePipe,
     SearchFilterPipe,
+    TeamDetailToOverviewPipe,
+    SharedImageUploadComponent,
+    IdMatchesAuthUserIdPipe
   ],
   imports: [
     CommonModule,
@@ -74,7 +80,10 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     SharedDateChangerComponent,
     AuthUserInRequestedParticipantsPipe,
     AuthUserWonMatchPipe,
-    MatchScorePipe
+    MatchScorePipe,
+    TeamDetailToOverviewPipe,
+    SharedImageUploadComponent,
+    IdMatchesAuthUserIdPipe
   ],
 })
 export class SharedModule {}

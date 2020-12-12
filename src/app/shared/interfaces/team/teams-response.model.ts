@@ -1,5 +1,5 @@
-import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 
 export interface ITeamsResponse {
-  results: ITeamDetails[];
+  results: ITeamOverview[];
 }

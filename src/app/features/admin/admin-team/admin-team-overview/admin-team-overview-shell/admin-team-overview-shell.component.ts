@@ -5,6 +5,7 @@ import { delay, filter, map } from 'rxjs/operators';
 import { AdminTeamDetailsShellComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-shell/admin-team-details-shell.component';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
 
 @Component({
@@ -15,8 +16,8 @@ import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
 })
 export class AdminTeamOverviewShellComponent implements OnInit {
   preloader$: Observable<Boolean>;
-  teams$: Observable<ITeamDetails[]>;
-  viewTeams$: Observable<ITeamDetails[]>;
+  teams$: Observable<ITeamOverview[]>;
+  viewTeams$: Observable<ITeamOverview[]>;
 
   constructor(
     private _teamService: TeamService,
@@ -24,7 +25,7 @@ export class AdminTeamOverviewShellComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit() {
     this._teamService.loadTeams();
     this.teams$ = this._teamService.teams$.asObservable();
     this.viewTeams$ = this.teams$;
