@@ -11,15 +11,15 @@ export class TeamDetailToOverviewPipe implements PipeTransform {
 
   transform(team: ITeamDetails): ITeamOverview {
     const teamOverview: ITeamOverview = {
-        id: team.id,
-        name: team.name,
-        location: team.location,
-        companyName: team.companyName,
-        imageURL: team.imageURL,
-        participantIDs: team.participants.map((participant) => participant.id),
-        requestedParticipantIDs: team.requestedParticipants.map((participant) => participant.id),
-        captainID: team.captain.id
-      }
-      return teamOverview
+      id: team.id,
+      name: team.name,
+      location: team.location,
+      companyName: team.companyName,
+      imageURL: team.imageURL,
+      participantIDs: team.participants.map((participant) => participant.id),
+      requestedParticipantIDs: team.requestedParticipants.map((participant) => participant.id),
+      captainID: team.captain.id,
+    };
+    return teamOverview;
   }
 }

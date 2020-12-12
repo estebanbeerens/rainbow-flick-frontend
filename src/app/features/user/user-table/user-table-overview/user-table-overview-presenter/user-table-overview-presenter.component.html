@@ -32,16 +32,16 @@
                 <ng-template #reserved>    
                   <td class="px-2 whitespace-nowrap text-right text-sm font-medium" *ngIf="table?.match?.dateTimeStart == null else playing">
                     <div class="text-sm mt-3 bg-gray-300 text-gray-900 rounded-lg">
-                        <p class="text-center">14:30</p>
+                        <p class="text-center">{{ table?.match?.dateTimePlanned | timeDatePipe }}</p>
                     </div>
                   </td>
                   </ng-template>
 
                 <ng-template #playing>  
                   <td class="px-2 whitespace-nowrap text-right text-sm font-medium" >
-                    <!-- TODO : NgIf op match bezig, tijd volgende match, geen match -->
+                    <!-- : NgIf op match bezig, tijd volgende match, geen match -->
                     <div class="text-sm mt-3 bg-gradient-to-tr from-primary to-secondary text-white rounded-lg">
-                        <p class="text-center">{{ table?.match?.score[0]?.scoreHome}} - {{ table?.match?.score[0]?.scoreAway}}</p>
+                        <p class="text-center">{{ table?.match | matchScore}}</p>
                     </div>
                 </td>  
                 

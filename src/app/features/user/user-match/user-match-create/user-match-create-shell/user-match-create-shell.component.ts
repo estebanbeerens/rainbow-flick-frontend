@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatchService } from 'src/app/services/match.service';
 import { TeamService } from 'src/app/services/team.service';
@@ -21,7 +22,8 @@ export class UserMatchCreateShellComponent implements OnInit {
     private _challengeService: ChallengeService,
     private _teamService: TeamService,
     private _matchService: MatchService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class UserMatchCreateShellComponent implements OnInit {
   }
 
   onSubmitPress(value) {
-    console.log('submit', value);
     this._matchService.challengeMatch(value);
+    this._router.navigate(['/app/user/table/overview']);
   }
 }

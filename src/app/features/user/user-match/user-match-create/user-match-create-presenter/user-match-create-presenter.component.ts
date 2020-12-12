@@ -24,12 +24,11 @@ export class UserMatchCreatePresenterComponent {
 
   changeTimeDate() {
     const tt = this.generalForm.get('time').value.split(':');
-    this.date = new Date(this.generalForm.get('dateTimePlanned').value);
-    //change date
-    this.date.setHours(tt[0]);
-    this.date.setMinutes(tt[1]);
+    this.date = new Date(this.challenge.dateTimePlanned);
+    this.date.setHours(parseInt(tt[0]) + 1);
+    this.date.setMinutes(parseInt(tt[1]));
     this.generalForm.patchValue({
-      dateTimePlanned: this.date,
+      dateTimePlanned: this.date.getTime(),
     });
   }
 }

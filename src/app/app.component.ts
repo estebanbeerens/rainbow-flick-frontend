@@ -24,7 +24,7 @@ export class AppComponent {
   ngOnInit(): void {
     // console.log('ok');
     // TODO Remove in future after application is build
-    this._userService.login({ email: 'supermario@example.com', password: 'Admin1234!' });
+    this._userService.login({ email: 'super3mario@example.com', password: 'Admin1234!' });
 
     // this._matchService.challengeMatch({
     //   awayTeam: '5fd1e1d8ad6c5b0004255b5f',
