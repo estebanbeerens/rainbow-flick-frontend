@@ -20,7 +20,12 @@ export class SecurityInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err) => {
         if (err.status == 400) {
-          this.messageService.setMessage(err.error);
+          if (err.error['messages']) {
+            this.messageService.setMessages(err.error['messages']);
+          }
+          if (err.error['message']) {
+            this.messageService.setMessages(err.error['message']);
+          }
         } else if (err.status === 401) {
           this._router.navigate(['security']);
         } else {
