@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { AuthUserInRequestedParticipantsPipe } from 'src/app/shared/pipes/auth-user-in-requested-participants.pipe';
 import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe';
 
@@ -12,8 +13,8 @@ import { AuthUserInTeamPipe } from 'src/app/shared/pipes/auth-user-in-team.pipe'
   providers:[AuthUserInTeamPipe, AuthUserInRequestedParticipantsPipe]
 })
 export class UserTeamOverviewShellComponent implements OnInit {
-  teams$: BehaviorSubject<ITeamDetails[]>;
-  filteredTeams$ = new BehaviorSubject<ITeamDetails[]>([]);
+  teams$: BehaviorSubject<ITeamOverview[]>;
+  filteredTeams$ = new BehaviorSubject<ITeamOverview[]>([]);
   filterString$ = new BehaviorSubject<String>('');
 
   constructor(
