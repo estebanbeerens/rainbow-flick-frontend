@@ -1,8 +1,9 @@
 <app-shared-toolbar
     title="Aansluiten bij team"
     [hasBackButton]="true"
-    [hasAddButton]="true"
+    [hasAddButton]="false"
     [hasSearchButton]="true"
+    (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
 <app-user-team-join-presenter
 [teams]="filteredTeams$|async"

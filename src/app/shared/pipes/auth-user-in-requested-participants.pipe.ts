@@ -14,7 +14,7 @@ export class AuthUserInRequestedParticipantsPipe implements PipeTransform {
   }
 
   transform(team: ITeamOverview):boolean{
-    console.log(this.authUser?.id);
+    // console.log(this.authUser?.id);
     return team.requestedParticipantIDs?.filter((id) => id == this.authUser?.id).length == 1;
   }
 }

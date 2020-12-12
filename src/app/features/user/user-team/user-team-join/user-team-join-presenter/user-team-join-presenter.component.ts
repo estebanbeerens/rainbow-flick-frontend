@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 
 @Component({
@@ -7,9 +7,7 @@ import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.mode
   styleUrls: ['./user-team-join-presenter.component.scss'],
 })
 
-export class UserTeamJoinPresenterComponent implements OnInit {
-  ngOnInit(): void {}
-
+export class UserTeamJoinPresenterComponent {
 
   @Input() teams: ITeamOverview[];
   @Output() onJoinTeam = new EventEmitter<String>();

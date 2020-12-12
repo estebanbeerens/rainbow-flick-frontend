@@ -27,9 +27,15 @@ export class UserTeamJoinShellComponent implements OnInit {
   ngOnInit(): void {
     this.teams$ = this._teamService.teams$;
     this.teams$.subscribe(() => this.filterTeams());
+    this.filterString$.subscribe(() => this.filterTeams());
   }
-  joinTeam(teamID: String){
+
+  joinTeam(teamID: String) {
     this._teamService.joinTeam(teamID, {id: this._userService.userAuth$.value.id.toString()});
+  }
+
+  searchStringChanged(searchString: String) {
+    this.filterString$.next(searchString);
   }
 
   filterTeams() {
@@ -46,6 +52,5 @@ export class UserTeamJoinShellComponent implements OnInit {
           team.name.includes(this.filterString$.value.toString())
       );
       this.filteredTeams$.next(filteredTeams);
-      console.log("filtered Team: ", filteredTeams)
   }
 }

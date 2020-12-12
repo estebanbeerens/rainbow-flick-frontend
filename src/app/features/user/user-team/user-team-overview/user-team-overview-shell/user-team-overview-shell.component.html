@@ -3,6 +3,7 @@
     [hasBackButton]="false"
     [hasAddButton]="true"
     [hasSearchButton]="true"
+    (onAddPressed)="navigateToTeamsInput()"
     (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
 <app-user-team-overview-presenter

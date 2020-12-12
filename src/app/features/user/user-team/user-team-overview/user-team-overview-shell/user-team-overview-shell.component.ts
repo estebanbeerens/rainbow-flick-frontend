@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { TeamService } from 'src/app/services/team.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
@@ -20,7 +21,8 @@ export class UserTeamOverviewShellComponent implements OnInit {
   constructor(
     private _teamService: TeamService,
     private _authUserInTeamPipe: AuthUserInTeamPipe,
-    private _authUserInRequestedParticipantsPipe : AuthUserInRequestedParticipantsPipe
+    private _authUserInRequestedParticipantsPipe : AuthUserInRequestedParticipantsPipe,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,10 @@ export class UserTeamOverviewShellComponent implements OnInit {
 
   searchStringChanged(searchString: String) {
     this.filterString$.next(searchString);
+  }
+
+  navigateToTeamsInput(): void {
+    this.router.navigate(['/app/user/team/details/create/edit']);
   }
 
   updateFilteredTeams() {
