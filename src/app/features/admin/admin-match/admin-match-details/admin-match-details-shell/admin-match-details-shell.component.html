@@ -1,6 +1,9 @@
+<app-shared-toolbar
+    [title]="'Match details (admin)'"
+    [hasBackButton]="true"
+    [hasSearchButton]="false"
+    [hasAddButton]="false"
+></app-shared-toolbar>
 <app-admin-match-details-presenter
     [match] = "match$ | async"
-    [formGroup] = "createForm"
-    (closeDialog)="closeDialog()"
-    (submitForm)="submitForm()"
 ></app-admin-match-details-presenter>

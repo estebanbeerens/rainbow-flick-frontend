@@ -15,7 +15,7 @@ export class AdminTableOverviewPresenterComponent implements OnInit {
   viewTable: ITableDetails[];
   @Input() tables: ITableDetails[];
   @Output() delete = new EventEmitter();
-  @Output() actionButton = new EventEmitter();
+  @Output() onClick = new EventEmitter();
 
   //TODO PRELOADER
 
@@ -36,9 +36,8 @@ export class AdminTableOverviewPresenterComponent implements OnInit {
     this.tablePagination(result.from, result.to);
   }
 
-  clickView(tableID: String): void {
-    console.log('click view');
-    this.actionButton.emit({ tableID: tableID, action: 'VIEW' });
+  clickView(id: String): void {
+    this.onClick.emit(id);
   }
 
   clickDelete(tableID: String): void {

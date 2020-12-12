@@ -1,9 +1,9 @@
 <app-shared-toolbar
-    title="Gebruikers"
+    title="Gebruikers (admin)"
     [hasBackButton]="false"
     [hasAddButton]="true"
     [hasSearchButton]="true"
-    (onAddPressed)="createTable()"
+    (onAddPressed)="createUser()"
     (onSearchKeyup)="search($event)"
 ></app-shared-toolbar>
 
@@ -13,6 +13,6 @@
 
 <app-admin-user-overview-presenter
     [users] = "viewUsers$ | async"
-    (delete)="deleteTable($event)"
-    (actionButton)="actionTable($event)"
+    (delete)="deleteUser($event)"
+    (onClick)="viewUser($event)"
     ></app-admin-user-overview-presenter>

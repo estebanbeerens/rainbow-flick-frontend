@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 
 @Component({
@@ -7,6 +8,7 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
   styleUrls: ['./admin-team-overview-presenter.component.scss'],
 })
 export class AdminTeamOverviewPresenterComponent implements OnInit {
+
   minTable: number = 0;
   splitEvery: number = 5;
   total: number;
@@ -14,9 +16,7 @@ export class AdminTeamOverviewPresenterComponent implements OnInit {
   viewTeams: ITeamDetails[];
   @Input() teams: ITeamDetails[];
   @Output() delete = new EventEmitter();
-  @Output() actionButton = new EventEmitter();
-
-  //TODO PRELOADER
+  @Output() onClick = new EventEmitter();
 
   ngOnChanges() {
     this.total = this.teams.length;
@@ -35,13 +35,12 @@ export class AdminTeamOverviewPresenterComponent implements OnInit {
     this.tablePagination(result.from, result.to);
   }
 
-  clickView(ID: String): void {
-    console.log('click view');
-    this.actionButton.emit({ ID: ID, action: 'VIEW' });
+  clickView(id: String): void {
+    this.onClick.emit(id);
   }
 
-  clickDelete(ID: String): void {
-    this.delete.emit(ID);
+  clickDelete(id: String): void {
+    this.delete.emit(id);
   }
 
   ngOnInit(): void {}

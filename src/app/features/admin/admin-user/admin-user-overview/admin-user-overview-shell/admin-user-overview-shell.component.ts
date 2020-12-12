@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdminUserDetailsShellComponent } from 'src/app/features/admin/admin-user/admin-user-details/admin-user-details-shell/admin-user-details-shell.component';
 import { UserService } from 'src/app/services/user.service';
@@ -20,7 +21,7 @@ export class AdminUserOverviewShellComponent implements OnInit {
   constructor(
     private _userService: UserService,
     private _searchFilterPipe: SearchFilterPipe,
-    public dialog: MatDialog
+    private router: Router
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -30,26 +31,21 @@ export class AdminUserOverviewShellComponent implements OnInit {
     this.preloader$ = this._userService.isLoading$.asObservable();
   }
 
-  createTable() {
-    this.openDialog('CREATE');
+  createUser() {
+    this.router.navigate(['/app/admin/user/details/0']);
   }
+
+  viewUser(id: String) {
+    this._userService.loadUserDetails(id);
+    this.router.navigate(['/app/admin/user/details/' + id.toString()]);
+  }
+
+  deleteUser(id: String) {
+    this._userService.deleteUser(id);
+  }
+
   search(searchString: string) {
     this.viewUsers$ = this._searchFilterPipe.transformUser(this.users$, searchString);
   }
 
-  actionTable(result) {
-    this._userService.loadUserDetails(result.ID);
-    this.openDialog(result.action);
-  }
-
-  deleteTable(ID: String) {
-    this._userService.deleteUser(ID);
-  }
-
-  openDialog(action: String): void {
-    const dialogRef = this.dialog.open(AdminUserDetailsShellComponent, {
-      minWidth: '400px',
-      data: { action: action },
-    });
-  }
 }

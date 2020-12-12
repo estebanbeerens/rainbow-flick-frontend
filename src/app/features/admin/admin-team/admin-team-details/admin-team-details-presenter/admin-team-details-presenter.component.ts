@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 
 @Component({
@@ -6,17 +6,15 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
   templateUrl: './admin-team-details-presenter.component.html',
   styleUrls: ['./admin-team-details-presenter.component.scss'],
 })
-export class AdminTeamDetailsPresenterComponent implements OnInit {
+export class AdminTeamDetailsPresenterComponent {
+
   @Input() team: ITeamDetails;
   @Input() formGroup;
-  @Output() closeDialog = new EventEmitter();
+  
   @Output() submitForm = new EventEmitter();
-  constructor() {}
-  ngOnInit(): void {}
+
   clickSubmitForm(): void {
     this.submitForm.emit();
   }
-  addCloseDialog(): void {
-    this.closeDialog.emit();
-  }
+  
 }

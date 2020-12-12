@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdminTableDetailsShellComponent } from 'src/app/features/admin/admin-table/admin-table-details/admin-table-details-shell/admin-table-details-shell.component';
 import { TableService } from 'src/app/services/table.service';
@@ -20,7 +21,7 @@ export class AdminTableOverviewShellComponent implements OnInit {
   constructor(
     private _tableService: TableService,
     private _searchFilterPipe: SearchFilterPipe,
-    public dialog: MatDialog
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,22 +36,15 @@ export class AdminTableOverviewShellComponent implements OnInit {
   }
 
   createTable() {
-    this.openDialog('CREATE');
+    this.router.navigate(['/app/admin/table/details/0']);
   }
 
-  actionTable(result) {
-    this._tableService.loadTableDetails(result.tableID);
-    this.openDialog(result.action);
+  viewTable(id: String) {
+    this._tableService.loadTableDetails(id);
+    this.router.navigate(['/app/admin/table/details/' + id.toString()]);
   }
 
   deleteTable(tableID: String) {
     this._tableService.deleteTable(tableID);
-  }
-
-  openDialog(action: String): void {
-    const dialogRef = this.dialog.open(AdminTableDetailsShellComponent, {
-      minWidth: '400px',
-      data: { action: action },
-    });
   }
 }
