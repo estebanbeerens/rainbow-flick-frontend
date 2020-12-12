@@ -15,7 +15,7 @@ export const IUserDetailsInitialValue: IUserDetails = {
   firstName: '',
   lastName: '',
   email: '',
-  dateOfBirth: new Date(),
+  dateOfBirth: new Date(1999, 11, 19),
   imageURL: '',
   permissions: []
 }

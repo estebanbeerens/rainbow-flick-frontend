@@ -83,10 +83,11 @@ export class UserService {
       }
     });
   }
-
+a
   createAdmin(body) {
     this.http.post<IUserDetailsResponse>(`${this.baseUrl}/admin`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
+      this.users$.next([...this.users$.value, response.result]);
     });
   }
 
@@ -118,12 +119,19 @@ export class UserService {
   updateUser(userID: String, body) {
     this.http.put<IUserDetailsResponse>(`${this.baseUrl}/${userID}`, body).subscribe((response) => {
       this.userDetails$.next(response.result);
+      this.users$.next(this.users$.value.map((user) => {
+        if(user.id == response.result.id){
+          user = response.result
+        }
+        return user
+      }))
     });
   }
 
   deleteUser(UserID: String) {
     this.http.delete<IUserMessage>(`${this.baseUrl}/${UserID}`).subscribe((response) => {
       this.message$.next(response);
+      this.users$.next(this.users$.value.filter((user) => user.id != UserID));
     });
   }
 

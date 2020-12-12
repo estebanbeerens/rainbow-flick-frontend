@@ -10,9 +10,16 @@ export class AdminUserDetailsPresenterComponent {
 
   @Input() user: IUserDetails;
   @Input() generalForm;
+
   @Output() submitForm = new EventEmitter();
+  @Output() fileChanged = new EventEmitter<File>();
   
-  clickSubmitForm(): void {
+  onSubmit(): void {
     this.submitForm.emit();
   }
+
+  onFileChanged(file: File): void {
+    this.fileChanged.emit(file);
+  }
+  
 }

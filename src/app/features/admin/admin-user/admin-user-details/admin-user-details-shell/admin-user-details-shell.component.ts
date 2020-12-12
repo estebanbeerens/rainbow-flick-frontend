@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
@@ -15,6 +15,9 @@ export class AdminUserDetailsShellComponent implements OnInit {
 
   preloader$: Observable<Boolean>;
   user$: Observable<IUserDetails>;
+  file: File;
+  id: string;
+  isNew: boolean;
   title: string;
   sub: Subscription;
   generalForm: FormGroup;
@@ -23,13 +26,15 @@ export class AdminUserDetailsShellComponent implements OnInit {
     public fb: FormBuilder,
     private _userService: UserService,
     private route: ActivatedRoute,
+    private router: Router,
     private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {
-      this._userService.loadUserDetails(p.id);
+      this.id = p.id;
     });
+    this._userService.loadUserDetails(this.id);
     this.user$ = this._userService.userDetails$.asObservable();
     this.preloader$ = this._userService.isLoading$.asObservable();
     this.sub = this.user$.subscribe(user => {
@@ -40,8 +45,10 @@ export class AdminUserDetailsShellComponent implements OnInit {
 
   defineIsNew(user: IUserDetails): void {
     if (user?.id == '' ){
+      this.isNew = true;
       this.title = "Admin aanmaken";
     } else {
+      this.isNew = false;
       this.title = "Gebruiker bewerken";
     }
   }
@@ -76,8 +83,30 @@ export class AdminUserDetailsShellComponent implements OnInit {
     }
   }
 
+  onFileChanged(file: File): void {
+    this.file = file;
+    this.generalForm.markAsDirty();
+  }
+
   submitForm() {
-    
+    const formData = new FormData();
+    formData.append('firstName', this.generalForm.get('firstName').value);
+    formData.append('lastName', this.generalForm.get('lastName').value);
+    formData.append('dateOfBirth', this.generalForm.get('dateOfBirth').value);
+    formData.append('email', this.generalForm.get('email').value);
+
+    if (this.file) {
+      formData.append('image', this.file);
+    }
+
+    if (this.isNew) {
+      formData.append('password', this.generalForm.get('password').value);
+      this._userService.createAdmin(formData);
+    } else {
+      this._userService.updateUser(this.id, formData);
+    }
+
+    this.router.navigate(['/app/admin/user']);
   }
   
 }
