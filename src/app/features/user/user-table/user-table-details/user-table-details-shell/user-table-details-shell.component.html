@@ -7,5 +7,6 @@
 ></app-shared-toolbar>
 
 <app-user-table-details-presenter
-[table]="table$"
+[table]="table$ | async"
+[selectedDate]="selectedDate"
 ></app-user-table-details-presenter>
