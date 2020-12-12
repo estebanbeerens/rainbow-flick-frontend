@@ -53,7 +53,6 @@ export class UserService {
   login(body) {
     console.log('func login');
     this.http.post(this.baseUrl + '/authenticate', body).subscribe((response) => {
-      console.log('response');
       if (response['error']) {
         localStorage.removeItem('token');
         this.loginError$.next(response['error']);

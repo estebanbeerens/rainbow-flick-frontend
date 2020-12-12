@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { MatchService } from 'src/app/services/match.service';
 import { TeamService } from 'src/app/services/team.service';
 import { IChanllenge } from 'src/app/shared/interfaces/match/challenge.model';
-import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { ChallengeService } from 'src/app/shared/services/challenge.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { ChallengeService } from 'src/app/shared/services/challenge.service';
 })
 export class UserMatchCreateShellComponent implements OnInit {
   challenge$: Observable<IChanllenge>;
-  teams$: Observable<ITeamDetails[]>;
+  teams$: Observable<ITeamOverview[]>;
   generalForm: FormGroup;
 
   constructor(

@@ -20,8 +20,8 @@
       </div>
       <div class="my-2 border-b">
         <div matRipple class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
-            <img class="h-10 w-10 ml-2 rounded-full" [src]="authUser.imageURL? authUser.imageURL : 'assets/img/user.png'" alt="">
-            <span class="mx-2 mt-2">{{authUser.getFullName()}}</span>
+            <img class="h-10 w-10 ml-2 rounded-full" [src]="authUser?.imageURL? authUser.imageURL : 'assets/img/user.png'" alt="">
+            <span class="mx-2 mt-2">{{authUser?.getFullName()}}</span>
         </div>
       </div>
       <!-- TODO : Only show routes if is admin -->

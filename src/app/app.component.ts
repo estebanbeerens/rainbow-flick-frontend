@@ -24,14 +24,14 @@ export class AppComponent {
   ngOnInit(): void {
     // console.log('ok');
     // TODO Remove in future after application is build
-    this._userService.login({ email: 'superadmin@example.com', password: 'Admin1234!' });
+    this._userService.login({ email: 'supermario@example.com', password: 'Admin1234!' });
 
-    this._matchService.challengeMatch({
-      awayTeam: '5fd1e1d8ad6c5b0004255b5f',
-      dateTimePlanned: 'Sat Dec 12 2020 13:13:17 GMT+0100 (Central European Standard Time) {}',
-      homeTeam: '5fcfc9d26938284d8cce830e',
-      table: '5fd286f84c82a82e28e23714',
-    });
+    // this._matchService.challengeMatch({
+    //   awayTeam: '5fd1e1d8ad6c5b0004255b5f',
+    //   dateTimePlanned: 'Sat Dec 12 2020 13:13:17 GMT+0100 (Central European Standard Time) {}',
+    //   homeTeam: '5fcfc9d26938284d8cce830e',
+    //   table: '5fd286f84c82a82e28e23714',
+    // });
     // this._userService.userDetails$.subscribe((result) => console.log('User details:', result));
     /*USERS*/
     // this._userService.userAuth$.subscribe((result) => console.log('User auth', result));
