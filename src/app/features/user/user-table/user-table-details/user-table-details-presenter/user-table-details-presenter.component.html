@@ -6,26 +6,43 @@
     </div>
     <div class="ml-4">
         <dt class="text-lg leading-6 font-medium">
-            <span class="mr-2">Tafel 1, verdiep 1</span>
+            <span class="mr-2">{{table?.name|truncate:20}}</span>
         </dt>
         <dd class="text-sm text-blue-900 dark:text-blue-300 hover:underline focus:underline">
             <!-- TODO : Tel phone van contact -->
-            <a href="tel:">Dany van Spoel</a>
+            <a href="tel:">{{table?.contactPhone|truncate:20}}</a>
         </dd>
         <dd class="text-sm text-gray-600 dark:text-gray-300">
-            <span>Thomas More Geel</span>
+            <span>{{table?.contactName|truncate:20}}</span>
         </dd>
         <dd class="text-sm text-gray-600 dark:text-gray-300">
-            <span>Kleinhoefstraat 4, 2440 Geel</span>
+            <span>{{table?.location|truncate:35}}</span>
         </dd>
         <dd class="text-sm text-gray-600 dark:text-gray-300">
-            <span>Dit is een beschrijving! Jeuj~!</span>
+            <span>{{table?.description|truncate:40}}</span>
         </dd>
-        <dd class="text-sm mt-2">
-            <span>Deze tafel is momenteel niet in gebruik.</span>
-        </dd>
-        <div matRipple class="mt-5 bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
-            <p class="text-center px-2 pb-2 pt-4 text-xl text-white">Match plannen</p>
+        <div *ngIf="table?.inUse">
+            <dd class="text-sm mt-2">
+                <span class="text-red-400">Deze tafel is momenteel niet beschikbaar</span>
+            </dd>
+            <div matRipple class="mt-5 bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
+                <p class="text-center px-2 pb-2 pt-4 text-xl text-white">Match bekijken</p>
+            </div>
         </div>
+
+        <div *ngIf="!table?.inUse">
+            <dd class="text-sm mt-2">
+                <span class="text-green-400">Deze tafel is momenteel beschikbaar.</span>
+            </dd>
+            <div matRipple class="mt-5 bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
+                <p class="text-center px-2 pb-2 pt-4 text-xl text-white" (click)="planMatch()">Match plannen</p>
+            </div>           
+        </div>
+
+         
+
+        
+
+       
     </div>
 </div>

@@ -14,6 +14,7 @@ import { map } from 'rxjs/operators';
 })
 export class UserTableDetailsShellComponent implements OnInit {
   getId: String;
+  selectedDate: Date;
   table$: Observable<ITableOverviewDetails>;
   constructor(
     private _tableService: TableService,
@@ -25,23 +26,17 @@ export class UserTableDetailsShellComponent implements OnInit {
     // get element
     this.table$ = this._tableService.tableOverview$.pipe(
       map((items) => {
+        this.selectedDate = items.date;
         return items.tables.find((item) => item.id == this.getId);
       })
     );
+
+    // this.table$.subscribe((result) => console.log(result));
   }
 
   //TODO
-  goTolive(){
-
-  }
+  goTolive() {}
 
   //TODO
-  planMatch(){
-
-  }
-
-  
-
-
-
+  planMatch() {}
 }

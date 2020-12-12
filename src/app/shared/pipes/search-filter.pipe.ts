@@ -43,14 +43,6 @@ export class SearchFilterPipe implements PipeTransform {
   transformTableOverviewById(activities: Observable<ITableOverview>, id?: String): any {
     if (id === undefined) return activities;
 
-    // return activities.subscribe((result) => {
-    //   return result.tables.find((item) => item.id == id);
-    // });
-
-    // .then((items) => {
-    //   return items.tables.find((item) => item.id == id);
-    // }));
-
     return activities.pipe(
       map((items) => {
         return items.tables.find((item) => item.id == id);
