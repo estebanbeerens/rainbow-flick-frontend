@@ -85,7 +85,7 @@ export class AdminTeamDetailsShellComponent implements OnInit, OnDestroy {
     formData.append('name', this.generalForm.get('name').value);
     formData.append('location', this.generalForm.get('location').value);
     formData.append('companyName', this.generalForm.get('companyName').value);
-    formData.append('captainId', this.generalForm.get('captainId').value);
+    formData.append('captainID', this.generalForm.get('captainId').value);
 
     if (this.file) {
       formData.append('image', this.file);
