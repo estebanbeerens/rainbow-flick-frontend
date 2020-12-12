@@ -8,7 +8,7 @@ import { IUserLoginResponse } from 'src/app/shared/interfaces/user/user-login-re
 import { IUserDetailsResponse } from 'src/app/shared/interfaces/user/user-details-response.model';
 import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.model';
 import { IUserMessage } from 'src/app/shared/interfaces/user/user-message.model';
-import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
+import { IUserDetails, IUserDetailsInitialValue } from 'src/app/shared/interfaces/user/user-details.model';
 import { IUserLogin } from 'src/app/shared/interfaces/user/user-login.model';
 
 @Injectable({
@@ -104,11 +104,15 @@ export class UserService {
   }
 
   loadUserDetails(userID: String) {
-    this._loaderInit();
-    this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
-      this.userDetails$.next(response.result);
-      this._loaderStop();
-    });
+    if (userID != 'create') {
+      this._loaderInit();
+      this.http.get<IUserDetailsResponse>(`${this.baseUrl}/${userID}`).subscribe((response) => {
+        this.userDetails$.next(response.result);
+        this._loaderStop();
+      });
+    } else {
+      this.userDetails$.next(IUserDetailsInitialValue);
+    }
   }
 
   updateUser(userID: String, body) {

@@ -9,7 +9,7 @@ import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model'
 export class AdminUserDetailsPresenterComponent {
 
   @Input() user: IUserDetails;
-  @Input() formGroup;
+  @Input() generalForm;
   @Output() submitForm = new EventEmitter();
   
   clickSubmitForm(): void {
