@@ -57,30 +57,30 @@ export class UserMatchOverviewShellComponent implements OnInit {
 
   filterMatches() {
     let filteredMatches = this.matches$.value
-      .filter(
-        (match) =>
-          match.name.includes(this.searchString$.value.toString()) ||
-          match.homeTeam.name.includes(this.searchString$.value.toString()) ||
-          match.awayTeam.name.includes(this.searchString$.value.toString())
-      )
-      .filter((match) => {
-        switch (this.currentTab) {
-          case 1: {
-            return match.dateTimeEnd ? true : false;
-          }
-          case 2: {
-            if (match.players.filter((player) => player.user.id == this.authUser.id).length == 1) {
-              if (!match.dateTimeEnd) {
-                return true;
-              }
-            }
-            return false;
-          }
-          case 3: {
-            if (match.players.filter((player) => player.user.id == this.authUser.id).length == 0) {
-              if (!match.dateTimeStart) {
-                return true;
-              }
+
+    .filter((match) => 
+      match.name.includes(this.searchString$.value.toString()) ||
+      match.homeTeam.name.includes(this.searchString$.value.toString()) ||
+      match.awayTeam.name.includes(this.searchString$.value.toString())
+    )
+    .filter((match) => {
+      switch(this.currentTab) { 
+        case 1: { 
+           return match.dateTimeEnd ? true: false; 
+        } 
+        case 2: {
+           if(match.players.filter((player) => player.user.id == this.authUser.id).length > 0){
+             if(!match.dateTimeEnd){
+               return true
+             }
+           }
+           return false 
+        } 
+        case 3: {
+          if(match.players.filter((player) => player.user.id == this.authUser.id).length == 0){
+            if(!match.dateTimeEnd){
+              return true
+
             }
             return false;
           }

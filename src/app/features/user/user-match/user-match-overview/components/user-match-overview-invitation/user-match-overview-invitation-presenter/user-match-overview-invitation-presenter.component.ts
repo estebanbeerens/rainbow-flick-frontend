@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 
 @Component({
   selector: 'app-user-match-overview-invitation-presenter',
@@ -9,14 +11,16 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
 })
 export class UserMatchOverviewInvitationPresenterComponent implements OnInit {
   @Input() matches: IMatchDetail[];
-  @Output() onJoinMatch = new EventEmitter<String>();
+  @Output() onJoinMatch = new EventEmitter<{matchID: String, teamID:String}>();
+  authUser: UserAuth;
+  constructor(private _router: Router, private _userService:UserService) {}
 
-  constructor(private _router: Router) {}
+  ngOnInit(): void {
+    this._userService.userAuth$.subscribe((result)=> this.authUser=result);
+  }
 
-  ngOnInit(): void {}
-
-  joinMatch(matchID: String) {
-    this.onJoinMatch.emit(matchID);
+  joinMatch(matchID: String, teamID) {
+    this.onJoinMatch.emit({matchID, teamID});
   }
 
   goToDetails(matchID: String) {
