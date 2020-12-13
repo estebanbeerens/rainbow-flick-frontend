@@ -19,7 +19,7 @@
                     </div>
                   </td>
                   <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
-                    <button (click)="$event.stopPropagation(); startMatch(match.id)" [disabled]="!match|matchRequirementsMet"  mat-icon-button class="text-primary dark:text-primary-light">
+                    <button (click)="$event.stopPropagation(); startMatch(match.id)" [disabled]="!(match|matchRequirementsMet)"  mat-icon-button class="text-primary dark:text-primary-light">
                       Start
                     </button>
                   </td>
