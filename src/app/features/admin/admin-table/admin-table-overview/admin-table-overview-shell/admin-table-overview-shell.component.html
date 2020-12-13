@@ -1,7 +1,7 @@
 <app-shared-toolbar
     title="Tafels (admin)"
     [hasBackButton]="false"
-    [hasAddButton]="true"
+    [hasAddButton]="authUser.canTableCreate()"
     [hasSearchButton]="true"
     (onAddPressed)="createTable()"
     (onSearchKeyup)="search($event)"

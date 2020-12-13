@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { IUserDetails } from 'src/app/shared/interfaces/user/user-details.model';
 
 @Component({
@@ -16,6 +18,11 @@ export class AdminTeamDetailsPresenterComponent {
   
   @Output() submitForm = new EventEmitter();
   @Output() fileChanged = new EventEmitter<File>();
+
+  authUser: UserAuth;
+  constructor(private _userService: UserService){
+     this._userService.userAuth$.subscribe((result)=>this.authUser=result)
+  }
 
   onSubmit(): void {
     this.submitForm.emit();

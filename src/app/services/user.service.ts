@@ -100,6 +100,7 @@ export class UserService {
   }
 
   logout() {
+    this.router.navigate(['/auth']);
     this.userAuth$.next(null);
     localStorage.removeItem('token');
   }

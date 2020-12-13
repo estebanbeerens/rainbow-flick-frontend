@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdminTableDetailsShellComponent } from 'src/app/features/admin/admin-table/admin-table-details/admin-table-details-shell/admin-table-details-shell.component';
 import { TableService } from 'src/app/services/table.service';
+import { UserService } from 'src/app/services/user.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
 
 @Component({
@@ -17,14 +19,16 @@ export class AdminTableOverviewShellComponent implements OnInit {
   preloader$: Observable<Boolean>;
   viewTables$: Observable<ITableDetails[]>;
   tables$: Observable<ITableDetails[]>;
-
+  authUser: UserAuth;
   constructor(
     private _tableService: TableService,
     private _searchFilterPipe: SearchFilterPipe,
-    private router: Router
+    private router: Router,
+    private _userService: UserService
   ) {}
 
   ngOnInit(): void {
+    this._userService.userAuth$.subscribe((result)=>this.authUser=result);
     this._tableService.loadTables();
     this.tables$ = this._tableService.tables$.asObservable();
     this.viewTables$ = this.tables$;

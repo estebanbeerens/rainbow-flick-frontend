@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 
 @Component({
   selector: 'app-admin-table-overview-presenter',
@@ -16,6 +18,11 @@ export class AdminTableOverviewPresenterComponent implements OnInit {
   @Input() tables: ITableDetails[];
   @Output() delete = new EventEmitter();
   @Output() onClick = new EventEmitter();
+
+  authUser: UserAuth;
+  constructor(private _userService: UserService){
+     this._userService.userAuth$.subscribe((result)=>this.authUser=result)
+  }
 
   //TODO PRELOADER
 
