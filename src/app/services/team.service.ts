@@ -31,7 +31,9 @@ export class TeamService {
   }
 
   loadTeams() {
-    this._loaderInit();
+    if (this.teams$.value.length <= 0) {
+      this._loaderInit();
+    }
     this.http.get<ITeamsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.teams$.next(response.results);
       this._loaderStop();
@@ -43,11 +45,12 @@ export class TeamService {
     if (teamID != 'create') {
       this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
         this.teamDetails$.next(response.result);
+        this._loaderStop();
       });
     } else {
       this.teamDetails$.next(ITeamDetailsInitialValue);
+      this._loaderStop();
     }
-    this._loaderStop();
   }
 
   createTeam(body) {

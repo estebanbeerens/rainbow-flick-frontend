@@ -37,7 +37,7 @@ export class AdminTeamDetailsShellComponent implements OnInit, OnDestroy {
       this.id = p.id;
     });
     this._teamService.loadTeamDetails(this.id);
-    this.preloader$ = this._userService.isLoading$.asObservable();
+    this.preloader$ = this._teamService.isLoading$.asObservable();
     this.users$ = this._userService.users$.asObservable();
     this.team$ = this._teamService.teamDetails$.asObservable();
     this.sub = this.team$.subscribe(team => {

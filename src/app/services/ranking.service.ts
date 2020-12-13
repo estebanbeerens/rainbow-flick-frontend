@@ -25,7 +25,9 @@ export class RankingService {
   }
 
   loadRanking() {
-    this._loaderInit();
+    if (this.raking$.value.length <= 0) {
+      this._loaderInit();
+    }
     this.http.get<IRankingResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.raking$.next(response.results);
       this._loaderStop();

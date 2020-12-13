@@ -34,7 +34,6 @@ export class AdminMatchOverviewShellComponent implements OnInit {
   }
 
   viewMatch(id: String) {
-    this._matchService.loadMatchDetails(id);
     this.router.navigate(['/app/admin/match/details/' + id.toString()])
   }
 
