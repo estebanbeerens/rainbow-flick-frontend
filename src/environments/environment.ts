@@ -7,6 +7,7 @@ export const environment = {
   // TODO : Edit apiUrl to something that is right
   apiUrl: 'https://rainbow-flick-backend-app.herokuapp.com/api/',
   // apiUrl: 'http://localhost:8080/api/',
+  serviceWorker: true,
 };
 
 /*
