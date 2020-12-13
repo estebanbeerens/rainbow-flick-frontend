@@ -28,9 +28,8 @@ export class AppComponent {
     // this._userService.login({ email: 'super3mario@example.com', password: 'Admin1234!' });
 
     this._messsageService.message$.subscribe((result) => {
-      console.log(result);
       if (result.length) {
-        this.snackBar.open(result.shift(), '', {
+        this.snackBar.open(result.toString(), '', {
           duration: 5000,
         });
       }

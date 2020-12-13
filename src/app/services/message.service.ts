@@ -10,9 +10,9 @@ export class MessageService {
   public message$ = this.messageStore.asObservable();
 
   setMessage(message: string) {
-    this.messageStore.next([...this.messageStore.value, message]);
+    this.messageStore.next([message]);
   }
   setMessages(messages: string[]) {
-    messages.forEach((message) => this.messageStore.next([...this.messageStore.value, message]));
+    messages.forEach((message) => this.messageStore.next([message]));
   }
 }

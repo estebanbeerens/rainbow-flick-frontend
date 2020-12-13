@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
@@ -9,6 +10,19 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class AuthRegisterPresenterComponent implements OnInit {
   
   darkMode: string;
+
+  @Input() generalForm: FormGroup;
+
+  @Output() submitForm = new EventEmitter();
+  @Output() fileChanged = new EventEmitter<File>();
+  
+  onSubmit(): void {
+    this.submitForm.emit();
+  }
+
+  onFileChanged(file: File): void {
+    this.fileChanged.emit(file);
+  }
 
   constructor(
     private sharedService: SharedService
