@@ -16,7 +16,7 @@
                 </tr>
               </ng-container>
               <ng-container *ngFor="let team of teams">
-                <tr (click)="joinTeam(team.id)" class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800" >
+                <tr (click)="rowClicked(team.id)" class="cursor-pointer hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-800 dark:focus:hover:bg-gray-800" >
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <!-- <div class="flex-shrink-0 h-10 w-10">
@@ -45,7 +45,7 @@
                   </td>
                   <td class="px-2 whitespace-nowrap text-right font-medium">
                     <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button
+                    <button (click)="$event.stopPropagation(); joinTeam(team.id)"
                       mat-icon-button class="text-primary dark:text-primary-light">
                       <mat-icon class="material-icons-round">add_task</mat-icon>
                     </button>

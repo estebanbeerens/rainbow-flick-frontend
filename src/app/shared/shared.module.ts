@@ -31,6 +31,7 @@ import { MatchPlayerPerTeamPipe } from 'src/app/shared/pipes/match-players-per-t
 import { MatchScoreTeamPipe } from 'src/app/shared/pipes/match-score-team.pipe';
 import { SharedScoreComponent } from './components/shared-score/shared-score.component';
 import { MatchTeamComponent } from './components/match-team/match-team.component';
+import { TimeDatePipe } from './pipes/time-date.pipe';
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { MatchTeamComponent } from './components/match-team/match-team.component
     MatchPlayerPerTeamPipe,
     MatchScoreTeamPipe,
     SharedScoreComponent,
-    MatchTeamComponent
+    MatchTeamComponent,
+    TimeDatePipe,
+
   ],
   imports: [
     CommonModule,
@@ -97,7 +100,8 @@ import { MatchTeamComponent } from './components/match-team/match-team.component
     MatchPlayerPerTeamPipe,
     MatchScoreTeamPipe,
     SharedScoreComponent,
-    MatchTeamComponent
+    MatchTeamComponent,
+    TimeDatePipe,
   ],
 })
 export class SharedModule {}

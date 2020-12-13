@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input,  Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form, FormGroup } from '@angular/forms';
 import { IChanllenge } from 'src/app/shared/interfaces/match/challenge.model';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
@@ -9,25 +9,17 @@ import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model'
   styleUrls: ['./user-match-create-presenter.component.scss'],
 })
 export class UserMatchCreatePresenterComponent {
-  
   date: Date;
   @Input() teams: ITeamDetails[];
   @Input() challenge: IChanllenge;
   @Input() generalForm: FormGroup;
 
   @Output() onSubmitPress = new EventEmitter();
+  constructor() {}
 
   onSubmit() {
     this.changeTimeDate();
     this.onSubmitPress.emit(this.generalForm.value);
-  }
-
-  checkTeams() {
-    if (this.generalForm.get('homeTeam').value == this.generalForm.get('awayTeam').value) {
-      this.generalForm.markAsPristine();
-    } else {
-      this.generalForm.markAsDirty();
-    }
   }
 
   changeTimeDate() {

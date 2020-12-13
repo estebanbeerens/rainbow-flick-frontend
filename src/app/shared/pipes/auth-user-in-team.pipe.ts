@@ -13,8 +13,7 @@ export class AuthUserInTeamPipe implements PipeTransform {
     });
   }
 
-  transform(team: ITeamOverview):boolean{
-    // console.log(this.authUser?.id);
+  transform(team: ITeamOverview): boolean {
     return team.participantIDs?.filter((id) => id == this.authUser?.id).length == 1;
   }
 }

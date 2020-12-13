@@ -28,6 +28,12 @@ export class SharedDateChangerComponent {
   }
 
   private incrementDate(delta: number): void {
-    this.date = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate() + delta);
+    this.date = new Date(
+      this.date.getFullYear(),
+      this.date.getMonth(),
+      this.date.getDate() + delta,
+      this.date.getHours(),
+      this.date.getMinutes()
+    );
   }
 }

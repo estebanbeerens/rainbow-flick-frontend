@@ -32,11 +32,10 @@ export class AdminUserOverviewShellComponent implements OnInit {
   }
 
   createUser() {
-    this.router.navigate(['/app/admin/user/details/0']);
+    this.router.navigate(['/app/admin/user/details/create']);
   }
 
   viewUser(id: String) {
-    this._userService.loadUserDetails(id);
     this.router.navigate(['/app/admin/user/details/' + id.toString()]);
   }
 

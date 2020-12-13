@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ITeamDetailsResponse } from 'src/app/shared/interfaces/team/team-details-response.model';
-import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
+import { ITeamDetails, ITeamDetailsInitialValue } from 'src/app/shared/interfaces/team/team-details.model';
 import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
 import { ITeamsResponse } from 'src/app/shared/interfaces/team/teams-response.model';
 import { environment } from 'src/environments/environment';
@@ -39,9 +39,15 @@ export class TeamService {
   }
 
   loadTeamDetails(teamID: String) {
-    this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
-      this.teamDetails$.next(response.result);
-    });
+    this._loaderInit();
+    if (teamID != 'create') {
+      this.http.get<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`).subscribe((response) => {
+        this.teamDetails$.next(response.result);
+      });
+    } else {
+      this.teamDetails$.next(ITeamDetailsInitialValue);
+    }
+    this._loaderStop();
   }
 
   createTeam(body) {
@@ -52,11 +58,15 @@ export class TeamService {
     });
   }
 
-  //TODO add in teams
   updateTeam(teamID: String, body) {
     this.http.put<ITeamDetailsResponse>(`${this.baseUrl}/${teamID}`, body).subscribe((response) => {
       this.teamDetails$.next(response.result);
-      this.teams$.next([...this.teams$.value, this.convertITeamDetailsToITeamOverview(response.result)]);
+      this.teams$.next(this.teams$.value.map((team) => {
+        if(team.id == response.result.id){
+          team = this.convertITeamDetailsToITeamOverview(response.result)
+        }
+        return team
+      }))
     });
   }
 

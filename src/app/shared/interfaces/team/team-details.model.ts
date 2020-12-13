@@ -1,4 +1,4 @@
-import { IUserTeams } from 'src/app/shared/interfaces/user/user-teams.model';
+import { IUserTeams, IUserTeamsInitialValue } from 'src/app/shared/interfaces/user/user-teams.model';
 
 export interface ITeamDetails {
   id: String;
@@ -9,4 +9,15 @@ export interface ITeamDetails {
   captain: IUserTeams;
   participants: IUserTeams[];
   requestedParticipants: IUserTeams[];
+}
+
+export const ITeamDetailsInitialValue: ITeamDetails = {
+  id: '',
+  name: '',
+  location: '',
+  companyName: '',
+  imageURL: '',
+  captain: IUserTeamsInitialValue,
+  participants: [],
+  requestedParticipants: []
 }

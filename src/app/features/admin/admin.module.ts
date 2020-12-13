@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminTableOverviewShellComponent } from './admin-table/admin-table-overview/admin-table-overview-shell/admin-table-overview-shell.component';
@@ -46,6 +46,13 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     AdminTeamDetailsPresenterComponent,
     AdminHomeComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, SharedModule],
+  imports: [
+    CommonModule, 
+    AdminRoutingModule, 
+    SharedModule
+  ],
+  providers: [
+    DatePipe
+  ]
 })
 export class AdminModule {}

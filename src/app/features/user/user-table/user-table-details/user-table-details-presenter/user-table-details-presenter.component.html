@@ -21,7 +21,7 @@
         <dd class="text-sm text-gray-600 dark:text-gray-300">
             <span>{{table?.description|truncate:40}}</span>
         </dd>
-        <div *ngIf="table?.inUse">
+        <div *ngIf="table?.match?.dateTimeStart != null">
             <dd class="text-sm mt-2">
                 <span class="text-red-400">Deze tafel is momenteel niet beschikbaar</span>
             </dd>
@@ -30,14 +30,15 @@
             </div>
         </div>
 
-        <div *ngIf="!table?.inUse">
+        <div *ngIf="table?.match?.dateTimeStart == null">
             <dd class="text-sm mt-2">
                 <span class="text-green-400">Deze tafel is momenteel beschikbaar.</span>
             </dd>
-            <div matRipple class="mt-5 bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
-                <p class="text-center px-2 pb-2 pt-4 text-xl text-white" (click)="planMatch()">Match plannen</p>
-            </div>           
+                    
         </div>
+        <div matRipple class="mt-5 bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
+            <p class="text-center px-2 pb-2 pt-4 text-xl text-white" (click)="planMatch()">Match plannen</p>
+        </div>  
 
          
 

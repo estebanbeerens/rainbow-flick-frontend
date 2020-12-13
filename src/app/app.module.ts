@@ -9,12 +9,14 @@ import { registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityInterceptor } from './security/security.interceptor';
 import localeNlBe from '@angular/common/locales/nl-BE';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 registerLocaleData(localeNlBe);
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule],
+  exports: [MatSnackBarModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })

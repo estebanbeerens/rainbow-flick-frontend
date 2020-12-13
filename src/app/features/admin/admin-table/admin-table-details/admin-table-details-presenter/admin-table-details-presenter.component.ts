@@ -9,14 +9,19 @@ import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.mod
 export class AdminTableDetailsPresenterComponent {
 
   @Input() table: ITableDetails;
-  @Input() formGroup;
+  @Input() generalForm;
 
-  @Output() closeDialog = new EventEmitter();
+  @Output() fileChanged = new EventEmitter<File>();
   @Output() submitForm = new EventEmitter();
 
   ngOnInit(): void {}
 
-  clickSubmitForm(): void {
+  onSubmit(): void {
     this.submitForm.emit();
   }
+
+  onFileChanged(file: File): void {
+    this.fileChanged.emit(file);
+  }
+
 }
