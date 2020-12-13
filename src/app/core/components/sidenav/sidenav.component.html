@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="my-2">
-        <ng-container *ngIf="authUser.canAdminCreate()">
+        <ng-container *ngIf="authUser?.canAdminCreate()">
           <div matRipple *ngFor="let route of routeInfo" (click)="toggleSideNav()" [routerLink]="[route.path]"
             routerLinkActive="text-primary dark:text-primary-light bg-gray-100 dark:bg-gray-700"
             class="flex my-2 py-2 rounded-lg cursor-pointer outline-none hover:bg-gray-100 dark:hover:bg-gray-700">
