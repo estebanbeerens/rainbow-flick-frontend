@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserRankingShellComponent } from 'src/app/features/user/user-ranking/user-ranking-shell/user-ranking-shell.component';
@@ -32,6 +32,8 @@ import { UserTeamInputPresenterComponent } from './user-team/user-team-input/use
 import { UserTeamJoinShellComponent } from './user-team/user-team-join/user-team-join-shell/user-team-join-shell.component';
 import { UserTeamJoinPresenterComponent } from './user-team/user-team-join/user-team-join-presenter/user-team-join-presenter.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { UserProfileShellComponent } from './user-profile/user-profile-shell/user-profile-shell.component';
+import { UserProfilePresenterComponent } from './user-profile/user-profile-presenter/user-profile-presenter.component';
 
 @NgModule({
   declarations: [
@@ -64,11 +66,16 @@ import { UserHomeComponent } from './user-home/user-home.component';
     UserTeamJoinShellComponent,
     UserTeamJoinPresenterComponent,
     UserHomeComponent,
+    UserProfileShellComponent,
+    UserProfilePresenterComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     SharedModule
+  ], 
+  providers: [
+    DatePipe
   ]
 })
 export class UserModule { }

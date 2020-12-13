@@ -5,6 +5,7 @@ import { UserHomeComponent } from 'src/app/features/user/user-home/user-home.com
 import { UserMatchCreateShellComponent } from 'src/app/features/user/user-match/user-match-create/user-match-create-shell/user-match-create-shell.component';
 import { UserMatchDetailsShellComponent } from 'src/app/features/user/user-match/user-match-details/user-match-details-shell/user-match-details-shell.component';
 import { UserMatchOverviewShellComponent } from 'src/app/features/user/user-match/user-match-overview/user-match-overview-shell/user-match-overview-shell.component';
+import { UserProfileShellComponent } from 'src/app/features/user/user-profile/user-profile-shell/user-profile-shell.component';
 import { UserRankingShellComponent } from 'src/app/features/user/user-ranking/user-ranking-shell/user-ranking-shell.component';
 import { UserTableDetailsShellComponent } from 'src/app/features/user/user-table/user-table-details/user-table-details-shell/user-table-details-shell.component';
 import { UserTableOverviewShellComponent } from 'src/app/features/user/user-table/user-table-overview/user-table-overview-shell/user-table-overview-shell.component';
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path: 'game/:id',
     component: UserGameShellComponent,
+  },
+  {
+    path: 'profile/:id',
+    component: UserProfileShellComponent,
   },
   {
     path: '**',
