@@ -1,7 +1,7 @@
 <div class="flex mt-2 mb-4">
     <div class="flex-shrink-0">
         <div class="flex items-center justify-center h-12 w-12">
-            <img class="h-12 w-12 rounded-full" src="assets/img/table.png" alt="">
+            <img class="h-12 w-12 rounded-full" [src]="table?.imageUrl ? table.imageUrl : 'assets/img/table.png'" alt="">
         </div>
     </div>
     <div class="ml-4">
