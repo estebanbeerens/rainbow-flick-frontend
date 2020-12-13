@@ -5,5 +5,5 @@
 ></app-shared-toolbar>
 <app-user-game-presenter
 *ngIf="(match|async)?.id == matchID"
-[match]="match"
+[match]="match|async"
 ></app-user-game-presenter>

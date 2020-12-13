@@ -2,30 +2,7 @@
   {{match.name}}
 </h2>
 <div class="flex flex-col gap-4">
-  <div class="grid grid-cols-2 gap-3">
-    <div>
-      <div class="h-12 w-12 block mx-auto">
-        <img class="h-12 w-12 rounded-full"
-          [src]="match.homeTeam.imageURL? match.awayTeam.imageURL:'assets/img/team.jpg'" alt="">
-      </div>
-      <p class="text-center text-lg">{{match.homeTeam.name}}</p>
-      <p class="text-center text-sm text-gray-700 dark:text-gray-300">
-        <ng-container *ngFor="let player of (match|matchPlayerPerTeam:true); let i = index">
-          <span *ngIf="i!=0">, </span> <span>{{player.user.firstName}} {{player.user.lastName}}</span>
-        </ng-container>
-      </p>
-    </div>
-    <div>
-      <div class="h-12 w-12 block mx-auto">
-        <img class="h-12 w-12 rounded-full"
-          [src]="match.awayTeam.imageURL? match.awayTeam.imageURL:'assets/img/team.jpg'" alt="">
-      </div>
-      <p class="text-center text-lg">{{match.awayTeam.name}}</p>
-      <ng-container *ngFor="let player of match|matchPlayerPerTeam:false; let i = index">
-        <span *ngIf="i!=0">, </span><span>{{player.user.firstName}} {{player.user.lastName}}</span>
-      </ng-container>
-    </div>
-  </div>
+<app-match-team [match]="match"></app-match-team>
 
   <div matRipple *ngIf="!match.dateTimeStart" (click)="startMatch(match.id)"
     class="bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
