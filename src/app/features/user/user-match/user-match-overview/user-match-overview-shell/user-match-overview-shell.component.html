@@ -7,6 +7,7 @@
     (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
 <app-user-match-overview-presenter
+    *ngIf="filteredMatches$.value"
     [matches]="filteredMatches$|async"
     (onSetTab)="tabChanged($event)"
 ></app-user-match-overview-presenter>
