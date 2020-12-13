@@ -12,13 +12,13 @@ import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.mo
 @Component({
   selector: 'app-user-match-overview-shell',
   templateUrl: './user-match-overview-shell.component.html',
-  styleUrls: ['./user-match-overview-shell.component.scss']
+  styleUrls: ['./user-match-overview-shell.component.scss'],
 })
 export class UserMatchOverviewShellComponent implements OnInit {
-  matches$: BehaviorSubject<IMatchDetail[]>
+  matches$: BehaviorSubject<IMatchDetail[]>;
   filteredMatches$ = new BehaviorSubject<IMatchDetail[]>([]);
   currentTab: number = 1;
-  searchString$ = new BehaviorSubject<String>("");
+  searchString$ = new BehaviorSubject<String>('');
   authUser: UserAuth;
 
   constructor(
@@ -26,66 +26,66 @@ export class UserMatchOverviewShellComponent implements OnInit {
     private snackBar: MatSnackBar,
     private _matchService: MatchService,
     private _userService: UserService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.initializeMatches()
-    this._userService.userAuth$.subscribe((user) => this.authUser = user);
+    this.initializeMatches();
+    this._userService.userAuth$.subscribe((user) => (this.authUser = user));
     this.searchString$.subscribe(() => this.filterMatches());
   }
 
   navigateToTables(): void {
-    this.router.navigate(['/app/user/table']);
+    this.router.navigate(['/app/user/table/overview']);
     this.snackBar.open('Kies hier een datum & tafel om uw match aan te maken.', '', {
-      duration: 5000
+      duration: 5000,
     });
   }
-  initializeMatches(){
+  initializeMatches() {
     this._matchService.loadMatchesAuthUser();
     this.matches$ = this._matchService.matchesAuthUser$;
     this.matches$.subscribe(() => this.filterMatches());
   }
 
-  tabChanged(tabID:number){
+  tabChanged(tabID: number) {
     this.currentTab = tabID;
     this.filterMatches();
   }
 
-  searchStringChanged(searchString:string){
+  searchStringChanged(searchString: string) {
     this.searchString$.next(searchString);
   }
 
-  filterMatches(){
+  filterMatches() {
     let filteredMatches = this.matches$.value
-    .filter((match) => 
-      match.name.includes(this.searchString$.value.toString()) ||
-      match.homeTeam.name.includes(this.searchString$.value.toString()) ||
-      match.awayTeam.name.includes(this.searchString$.value.toString())
-    )
-    .filter((match) => {
-      switch(this.currentTab) { 
-        case 1: { 
-           return match.dateTimeEnd ? true: false; 
-        } 
-        case 2: {
-           if(match.players.filter((player) => player.user.id == this.authUser.id).length == 1){
-             if(!match.dateTimeEnd){
-               return true
-             }
-           }
-           return false 
-        } 
-        case 3: {
-          if(match.players.filter((player) => player.user.id == this.authUser.id).length == 0){
-            if(!match.dateTimeStart){
-              return true
-            }
+      .filter(
+        (match) =>
+          match.name.includes(this.searchString$.value.toString()) ||
+          match.homeTeam.name.includes(this.searchString$.value.toString()) ||
+          match.awayTeam.name.includes(this.searchString$.value.toString())
+      )
+      .filter((match) => {
+        switch (this.currentTab) {
+          case 1: {
+            return match.dateTimeEnd ? true : false;
           }
-          return false 
-       } 
-      }
-    }); //end of filter function
+          case 2: {
+            if (match.players.filter((player) => player.user.id == this.authUser.id).length == 1) {
+              if (!match.dateTimeEnd) {
+                return true;
+              }
+            }
+            return false;
+          }
+          case 3: {
+            if (match.players.filter((player) => player.user.id == this.authUser.id).length == 0) {
+              if (!match.dateTimeStart) {
+                return true;
+              }
+            }
+            return false;
+          }
+        }
+      }); //end of filter function
     this.filteredMatches$.next(filteredMatches);
   }
-  
 }
