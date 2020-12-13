@@ -40,6 +40,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
       duration: 5000,
     });
   }
+
   initializeMatches() {
     this._matchService.loadMatchesAuthUser();
     this.matches$ = this._matchService.matchesAuthUser$;
@@ -57,7 +58,6 @@ export class UserMatchOverviewShellComponent implements OnInit {
 
   filterMatches() {
     let filteredMatches = this.matches$.value
-
       .filter(
         (match) =>
           match.name.includes(this.searchString$.value.toString()) ||
@@ -86,7 +86,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
             }
           }
         } //end of filter function
-        this.filteredMatches$.next(filteredMatches);
       });
+      this.filteredMatches$.next(filteredMatches);
   }
 }
