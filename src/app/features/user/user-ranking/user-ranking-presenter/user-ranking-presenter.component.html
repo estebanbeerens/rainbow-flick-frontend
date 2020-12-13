@@ -1,33 +1,30 @@
+<div class="max-w-full mx-auto p-5">
+  <div class="flex flex-row items-center">
+    <div class="w-8/12 float-right">
+      <p class="mb-1 text-center text-2xl text-gray-900 dark:text-gray-50">{{getTop3()[1].score}}</p>
+      <img class="w-full shadow-lg rounded-full align-middle ring-4 ring-gray-400" [src]="getTop3()[1].teamImageUrl ? getTop3()[1].teamImageUrl : 'assets/img/team.png'" alt="..." />
+      <p class="pt-3 text-center text-gray-600 dark:text-gray-300">{{getTop3()[1].teamName | truncate:20}}</p>
+    </div>
+    <div class="w-full z-10">
+      <p class="mb-1 text-center text-4xl text-gray-900 dark:text-gray-50">{{getTop3()[0].score}}</p>
+      <img class="w-full shadow-lg rounded-full align-middle ring-4 ring-yellow-500" [src]="getTop3()[0].teamImageUrl ? getTop3()[0].teamImageUrl : 'assets/img/team.png'" alt="..." />
+      <p class="pt-3 text-center text-gray-600 dark:text-gray-300">{{getTop3()[0].teamName | truncate:20}}</p>
+    </div>
+    <div class="w-8/12 float-left">
+      <p class="mb-1 text-center text-2xl text-gray-900 dark:text-gray-50">{{getTop3()[2].score}}</p>
+      <img class="w-full shadow-lg rounded-full align-middle ring-4 ring-yellow-900" [src]="getTop3()[2].teamImageUrl ? getTop3()[2].teamImageUrl : 'assets/img/team.png'" alt="..." />
+      <p class="pt-3 text-center text-gray-600 dark:text-gray-300">{{getTop3()[2].teamName | truncate:20}}</p>
+    </div>
+  </div>
+</div>
+
 <div class="flex flex-col mb-8">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="rounded-lg shadow overflow-hidden border-b border-gray-200 dark:border-gray-500">
-
-            
-          <div class="max-w-full mx-auto p-5">
-            <div class="relative flex flex-row items-center">
-              <div class="w-8/12">
-                <div class="pt-3 text-center text-2xl text-gray-900 dark:text-gray-50">{{getTop3()[1].score}}</div>
-                <img class="shadow-lg rounded-full h-auto align-middle ring-4 ring-white" [src]="getTop3()[1].teamImageUrl ? getTop3()[1].teamImageUrl : 'assets/img/team.png'" alt="..." />
-                <div class="pt-3 text-center text-gray-500 dark:text-gray-400">{{getTop3()[1].teamName |truncate:20}}</div>
-              </div>
-              <div class="w-full z-10">
-                <div class="pt-3 text-center text-4xl text-gray-900 dark:text-gray-50">{{getTop3()[0].score}}</div>
-                <img class="shadow-lg rounded-full h-auto align-middle ring-4 ring-white" [src]="getTop3()[0].teamImageUrl ? getTop3()[0].teamImageUrl : 'assets/img/team.png'" alt="..." />
-                <div class="pt-3 text-center text-gray-500 dark:text-gray-400">{{getTop3()[0].teamName |truncate:20}}</div>
-              </div>
-              <div class="w-8/12">
-              <div class="pt-3 text-center text-2xl text-gray-900 dark:text-gray-50">{{getTop3()[2].score}}</div>
-                <img class="shadow-lg rounded-full h-auto align-middle ring-4 ring-white" [src]="getTop3()[2].teamImageUrl ? getTop3()[2].teamImageUrl : 'assets/img/team.png'" alt="..." />
-                <div class="pt-3 text-center text-gray-500 dark:text-gray-400">{{getTop3()[2].teamName |truncate:20}}</div>
-              </div>
-            </div>
-          </div>
-
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
             <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
-            <!-- : Ngfor op TR -->
-              <tr class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" *ngFor="let ranking of rankings">
+              <tr *ngFor="let ranking of rankings" [routerLink]="['/app/user/team/details/'] + ranking?.teamId" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
@@ -35,7 +32,6 @@
                     </div>
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        <!-- : Implement code below to shorten names if they're too long -->
                         {{ranking.teamName|truncate:30}}
                       </div>
                       <div class="text-sm text-gray-500 dark:text-gray-400">
@@ -44,7 +40,7 @@
                     </div>
                   </div>
                 </td>
-                <td class="px-2 whitespace-nowrap text-right text-xl font-medium text-gray-900 dark:text-gray-50">
+                <td class="px-3 whitespace-nowrap text-right text-xl font-medium text-gray-900 dark:text-gray-50">
                     {{ranking.score}}
                 </td>
                 
