@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MatchService } from 'src/app/services/match.service';
 import { UserService } from 'src/app/services/user.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
-import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.model';
 
 @Component({
   selector: 'app-user-match-overview-shell',
@@ -15,6 +13,7 @@ import { IUsersResponse } from 'src/app/shared/interfaces/user/users-response.mo
   styleUrls: ['./user-match-overview-shell.component.scss'],
 })
 export class UserMatchOverviewShellComponent implements OnInit {
+  preloader$: Observable<Boolean>;
   matches$: BehaviorSubject<IMatchDetail[]>;
   filteredMatches$ = new BehaviorSubject<IMatchDetail[]>([]);
   currentTab: number = 1;
@@ -30,6 +29,7 @@ export class UserMatchOverviewShellComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeMatches();
+    this.preloader$ = this._matchService.isLoading$.asObservable();
     this._userService.userAuth$.subscribe((user) => (this.authUser = user));
     this.searchString$.subscribe(() => this.filterMatches());
   }

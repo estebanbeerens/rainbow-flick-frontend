@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MatchService } from 'src/app/services/match.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 
@@ -11,8 +11,10 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
 })
 export class UserMatchDetailsShellComponent implements OnInit {
   
+  preloader$: Observable<Boolean>;
   matchID: String;
   match: BehaviorSubject<IMatchDetail>;
+
   constructor(
     private _matchService: MatchService, 
     private _route: ActivatedRoute,
@@ -26,6 +28,7 @@ export class UserMatchDetailsShellComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       this.matchID = params.id;
     });
+    this.preloader$ = this._matchService.isLoading$.asObservable();
     this._matchService.loadMatchDetails(this.matchID);
     this.match = this._matchService.matchDetails$;
   }

@@ -17,7 +17,7 @@ export class UserRankingShellComponent implements OnInit {
   ngOnInit(): void {
     this._rankingService.loadRanking();
     this.ranking$ = this._rankingService.raking$.asObservable();
-
+    this.preloader$ = this._rankingService.isLoading$.asObservable();
   }
 
 }

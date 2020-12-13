@@ -29,7 +29,7 @@ export class UserService {
   loginError$ = new BehaviorSubject<String>('');
   registerError$ = new Subject<String[]>();
 
-  users$ = new BehaviorSubject<IUserDetails[]>(null);
+  users$ = new BehaviorSubject<IUserDetails[]>([]);
 
   constructor(
     private http: HttpClient, 
@@ -106,7 +106,9 @@ export class UserService {
   }
 
   loadUsers() {
-    this._loaderInit();
+    if (this.users$.value.length <= 0) {
+      this._loaderInit();
+    }
     this.http.get<IUsersResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.users$.next(response.results);
       this._loaderStop();

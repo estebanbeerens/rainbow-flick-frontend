@@ -20,6 +20,10 @@ export class MatchService {
   constructor(private http: HttpClient) {}
 
   loadAdminMatches() {
+    if (this.matchesAdmin$.value.length <= 0) {
+      this._loaderInit();
+    }
+    console.log(this.matchesAdmin$.value);
     this.http.get<IMatchsResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.matchesAdmin$.next(response.results);
       this._loaderStop();
@@ -35,14 +39,20 @@ export class MatchService {
   }
 
   loadMatchesAuthUser() {
+    if (this.matchesAuthUser$.value.length <= 0) {
+      this._loaderInit();
+    }
     this.http.get<IMatchsResponse>(`${this.baseUrl}/authUser`).subscribe((response) => {
       this.matchesAuthUser$.next(response.results);
+      this._loaderStop();
     });
   }
 
   loadMatchDetails(matchID: String) {
+    this._loaderInit();
     this.http.get<IMatchDetailsResponse>(`${this.baseUrl}/${matchID}`).subscribe((response) => {
       this.matchDetails$.next(response.result);
+      this._loaderStop();
     });
   }
 

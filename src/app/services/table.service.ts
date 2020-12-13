@@ -32,7 +32,9 @@ export class TableService {
   }
 
   loadTables() {
-    this._loaderInit();
+    if (this.tables$.value.length <= 0) {
+      this._loaderInit();
+    }
     this.http.get<ITablesResponse>(`${this.baseUrl}/all`).subscribe((response) => {
       this.tables$.next(response.results);
       this._loaderStop();
@@ -40,12 +42,15 @@ export class TableService {
   }
 
   loadTableDetails(tableID: String) {
+    this._loaderInit();
     if (tableID != 'create') {
       this.http.get<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`).subscribe((response) => {
         this.tableDetails$.next(response.result);
+        this._loaderStop();
       });
     } else {
       this.tableDetails$.next(ITableDetailsInitialValue);
+      this._loaderStop();
     }
   }
 

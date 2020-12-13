@@ -4,6 +4,9 @@
     [hasSearchButton]="false"
     [hasAddButton]="false"
 ></app-shared-toolbar>
+<app-shared-spinner
+    [visible]="preloader$ | async"
+></app-shared-spinner>
 <app-admin-match-details-presenter
     [match] = "match$ | async"
 ></app-admin-match-details-presenter>

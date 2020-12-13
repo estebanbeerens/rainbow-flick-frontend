@@ -6,6 +6,9 @@
     (onAddPressed)="navigateToTables();"
     (onSearchKeyup)="searchStringChanged($event)"
 ></app-shared-toolbar>
+<app-shared-spinner
+[visible] = "preloader$ | async"
+></app-shared-spinner>
 <app-user-match-overview-presenter
     *ngIf="filteredMatches$.value"
     [matches]="filteredMatches$|async"
