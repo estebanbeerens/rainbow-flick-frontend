@@ -138,6 +138,17 @@ export class UserService {
     });
   }
 
+  updateCurrentUser(userID: String, body) {
+    this.http.put<IUserDetailsResponse>(`${this.baseUrl}/${userID}`, body).subscribe((response) => {
+      const authUser = <IUserLoginResponse>response;
+      const decodedJwt = <IUserAuth>jwt_decode(<string>authUser.result.accessToken);
+      this.userAuth$.next(this.convertInterfaceToClassAuthUser(decodedJwt));
+      localStorage.setItem('token', <string>authUser.result.accessToken);
+      const userDetails = <IUserDetailsResponse>response;
+      this.userDetails$.next(userDetails.result);
+    });
+  }
+
   deleteUser(UserID: String) {
     this.http.delete<IUserMessage>(`${this.baseUrl}/${UserID}`).subscribe((response) => {
       this.message$.next(response);
