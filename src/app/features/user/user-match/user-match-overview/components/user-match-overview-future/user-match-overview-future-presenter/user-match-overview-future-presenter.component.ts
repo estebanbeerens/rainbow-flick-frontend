@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
 
@@ -9,10 +9,14 @@ import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.mode
 })
 export class UserMatchOverviewFuturePresenterComponent {
   @Input() matches: IMatchDetail[];
-
+  @Output() onStartMatch = new EventEmitter<String>();
   constructor(private _router: Router){}
   
   goToDetails(matchID: String){
     this._router.navigate([`app/user/match/details/${matchID}`]);
+  }
+
+  startMatch(matchID: String){
+    this.onStartMatch.emit(matchID);
   }
 }

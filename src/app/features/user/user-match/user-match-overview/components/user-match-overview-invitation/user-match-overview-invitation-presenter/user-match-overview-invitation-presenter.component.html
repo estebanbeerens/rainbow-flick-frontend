@@ -5,26 +5,61 @@
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
           <tbody class="bg-white dark:bg-gray-700 divide-y divide-grey-200 dark:divide-gray-500">
             <ng-container *ngFor="let match of matches">
-              <tr (click)="goToDetails(match.id)" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <div>
-                      <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
-                        {{match.name|truncate:35}}
-                      </div>
-                      <div class="text-sm text-gray-500 dark:text-gray-400">
-                        {{match.dateTimePlanned|date:'d/M/y'}}
+              <!-- home team -->
+              <ng-container *ngIf="match.homeTeam.participants?.includes(authUser.id)">
+                <tr (click)="goToDetails(match.id)" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                          {{match.name|truncate:35}}
+                        </div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                          {{match.homeTeam.name|truncate:35}}
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                          {{match.dateTimePlanned|date:'d/M/y'}}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td class="px-2 whitespace-nowrap text-right font-medium">
-                  <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                  <button (click)="$event.stopPropagation(); joinMatch(match.id)" mat-icon-button class="text-primary dark:text-primary-light">
-                    <mat-icon class="material-icons-round">done</mat-icon>
-                  </button>
-                </td>
-              </tr>
+                  </td>
+                  <td class="px-2 whitespace-nowrap text-right font-medium">
+                    <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
+                    <button (click)="$event.stopPropagation(); joinMatch(match.id,match.homeTeam.id)" mat-icon-button
+                      class="text-primary dark:text-primary-light">
+                      <mat-icon class="material-icons-round">done</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+
+              <!-- away team -->
+              <ng-container *ngIf="match.awayTeam.participants?.includes(authUser.id)">
+                <tr (click)="goToDetails(match.id)" class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                          {{match.name|truncate:35}}
+                        </div>
+                        <div class="text-sm font-medium text-gray-900 dark:text-gray-50">
+                          {{match.awayTeam.name|truncate:35}}
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">
+                          {{match.dateTimePlanned|date:'d/M/y'}}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-2 whitespace-nowrap text-right font-medium">
+                    <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
+                    <button (click)="$event.stopPropagation(); joinMatch(match.id,match.awayTeam.id)" mat-icon-button
+                      class="text-primary dark:text-primary-light">
+                      <mat-icon class="material-icons-round">done</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
             </ng-container>
           </tbody>
         </table>
