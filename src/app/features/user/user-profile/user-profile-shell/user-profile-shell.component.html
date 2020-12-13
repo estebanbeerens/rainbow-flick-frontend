@@ -1,0 +1,15 @@
+<app-shared-toolbar
+    [title]="'Profiel bewerken'"
+    [hasBackButton]="true"
+    [hasSearchButton]="false"
+    [hasAddButton]="false"
+></app-shared-toolbar>
+<app-shared-spinner
+    [visible]="preloader$ | async"
+></app-shared-spinner>
+<app-user-profile-presenter
+    [user] = "user$ | async"
+    [generalForm] = "generalForm"
+    (submitForm)="submitForm()"
+    (fileChanged)="onFileChanged($event)"
+></app-user-profile-presenter>
