@@ -1,7 +1,7 @@
 <app-shared-toolbar
     title="Teams (admin)"
     [hasBackButton]="false"
-    [hasAddButton]="true"
+    [hasAddButton]="authUser.canTeamCreate()"
     [hasSearchButton]="true"
     (onAddPressed)="createTeam()"
     (onSearchKeyup)="search($event)"

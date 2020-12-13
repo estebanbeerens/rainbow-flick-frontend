@@ -38,7 +38,7 @@
                 </td>
                 <td class="px-2 whitespace-nowrap text-right text-sm font-medium">
                     <!-- Event.stopPropagation() wordt opgeroepen zodat de onClick() van de TR niet word aangeroepen -->
-                    <button (click)="clickDelete(team.id)" mat-icon-button class="text-red-500">
+                    <button *ngIf="authUser?.canTeamDelete()" (click)="clickDelete(team.id)" mat-icon-button class="text-red-500">
                         <mat-icon class="material-icons-round">delete_outline</mat-icon>
                     </button>
                 </td>

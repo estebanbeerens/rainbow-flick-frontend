@@ -2,49 +2,9 @@
     [Match naam]
 </h2>
 <div class="flex flex-col gap-4 mb-8">
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <div class="h-12 w-12 block mx-auto">
-                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
-            </div>
-            <p class="text-center text-lg">[TEAM 1]</p>
-            <p class="text-center text-sm text-gray-700 dark:text-gray-300">
-                <!-- TODO : Ngfor -->
-                <span>
-                    <span>Esteban&nbsp;Beerens</span>
-                    <span>, </span>
-                </span>
-            </p>
-        </div>
-        <div>
-            <div class="h-12 w-12 block mx-auto">
-                <img class="h-12 w-12 rounded-full" src="assets/img/team.jpg" alt="">
-            </div>
-            <p class="text-center text-lg">[TEAM 1]</p>
-            <p class="text-center text-sm text-gray-700 dark:text-gray-300">Esteban&nbsp;Beerens, Tom&nbsp;Bosmans, Ward Beyens, Youri Van Laer, Robin VR</p>
-        </div>
-    </div>
-    <div class="grid grid-cols-2 gap-3 text-white">
-        <!-- TODO : If winning = green, if losing = red, if equal = blue -->
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-primary to-secondary">2</p>
-        <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-red-700 to-pink-600">0</p>
-        <!-- <p class="text-center text-8xl shadow-lg rounded-full bg-gradient-to-tr from-blue-700 to-cyan-600">0</p> -->
-    </div>
-    <div class="grid grid-cols-2 gap-3">
-        <div>
-            <p class="text-center text-md">1 - 0 (14:30)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 0 (14:31)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">3 - 1 (14:32)</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">4 - 1 (14:32)</p>
-        </div>
-        <div>
-            <p class="text-center text-md">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">&nbsp;</p>
-            <p class="text-center text-md border-t border-gray-200 dark:border-gray-500">2 - 1 (14:31)</p>
-        </div>
-    </div>
-    <div matRipple class="bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
+    <app-match-team [match]="match"></app-match-team>
+    <div matRipple *ngIf="authUser.canMatchUpdate()" class="bg-gradient-to-tr cursor-pointer from-primary to-secondary rounded-full">
         <p class="text-center pt-5 pb-3 px-4 text-xl text-white">Match valideren</p>
     </div>
+    <app-shared-score [match]="match"></app-shared-score>
 </div>

@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AdminTeamDetailsShellComponent } from 'src/app/features/admin/admin-team/admin-team-details/admin-team-details-shell/admin-team-details-shell.component';
 import { TeamService } from 'src/app/services/team.service';
+import { UserService } from 'src/app/services/user.service';
 import { ITeamDetails } from 'src/app/shared/interfaces/team/team-details.model';
 import { ITeamOverview } from 'src/app/shared/interfaces/team/team-overview.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 import { SearchFilterPipe } from 'src/app/shared/pipes/search-filter.pipe';
 
 @Component({
@@ -18,12 +20,14 @@ export class AdminTeamOverviewShellComponent implements OnInit {
   preloader$: Observable<Boolean>;
   teams$: Observable<ITeamOverview[]>;
   viewTeams$: Observable<ITeamOverview[]>;
+  authUser: UserAuth;
 
   constructor(
     private _teamService: TeamService,
     private _searchFilterPipe: SearchFilterPipe,
-    private router: Router
-  ) {}
+    private router: Router,
+    private _userService: UserService
+  ) {this._userService.userAuth$.subscribe((result)=>this.authUser=result)}
 
   ngOnInit(): void {
     this._teamService.loadTeams();

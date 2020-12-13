@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import { IMatchDetail } from 'src/app/shared/interfaces/match/match-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 
 @Component({
   selector: 'app-admin-match-overview-presenter',
@@ -15,6 +17,11 @@ export class AdminMatchOverviewPresenterComponent implements OnInit {
   @Input() matches: IMatchDetail[];
   @Output() delete = new EventEmitter();
   @Output() onClick = new EventEmitter<string>();
+
+  authUser: UserAuth;
+  constructor(private _userService: UserService){
+     this._userService.userAuth$.subscribe((result)=>this.authUser=result)
+  }
 
   ngOnChanges() {
     if (this.matches != null) {

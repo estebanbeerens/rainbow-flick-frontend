@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import { ITableDetails } from 'src/app/shared/interfaces/table/table-details.model';
+import { UserAuth } from 'src/app/shared/interfaces/user/user-auth.model';
 
 @Component({
   selector: 'app-admin-table-details-presenter',
@@ -14,7 +16,10 @@ export class AdminTableDetailsPresenterComponent {
   @Output() fileChanged = new EventEmitter<File>();
   @Output() submitForm = new EventEmitter();
 
-  ngOnInit(): void {}
+  authUser: UserAuth;
+  constructor(private _userService: UserService){
+     this._userService.userAuth$.subscribe((result)=>this.authUser=result)
+  }
 
   onSubmit(): void {
     this.submitForm.emit();
