@@ -26,9 +26,8 @@ export class AuthRegisterShellComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      imageURL: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
 
