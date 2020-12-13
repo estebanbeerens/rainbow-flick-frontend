@@ -52,6 +52,12 @@ export class TableService {
   updateTable(tableID: String, body) {
     this.http.put<ITableDetailsResponse>(`${this.baseUrl}/${tableID}`, body).subscribe((response) => {
       this.tableDetails$.next(response.result);
+      this.tables$.next(this.tables$.value.map((team) => {
+        if(team.id == response.result.id){
+          team = response.result
+        }
+        return team
+      }))
     });
   }
 

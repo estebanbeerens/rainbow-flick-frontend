@@ -25,7 +25,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     //TODO remove login
-    // this._userService.login({ email: 'super3mario@example.com', password: 'Admin1234!' });
+    this._userService.login({ email: 'super3mario@example.com', password: 'Admin1234!' });
 
     this._messsageService.message$.subscribe((result) => {
       if (result.length) {
